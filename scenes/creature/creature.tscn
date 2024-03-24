@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://xkd0hmsfnseg"]
+
+[ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://scenes/creature/circle.png" id="1_23i3f"]
+[ext_resource type="Script" path="res://scenes/creature/creature.gd" id="2_aavvm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vg18"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sq3o0"]
+radius = 100.0
+
+[node name="Creature" type="CharacterBody2D" node_paths=PackedStringArray("visible_area")]
+script = ExtResource("2_aavvm")
+visible_area = NodePath("View/CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_23i3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0vg18")
+
+[node name="View" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
+shape = SubResource("CircleShape2D_sq3o0")
