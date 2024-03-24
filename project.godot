@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Natural Selection"
-config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+run/main_scene="res://scenes/field.tscn"
+config/features=PackedStringArray("4.2", "C#", "Mobile")
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=512
 
 [dotnet]
 
