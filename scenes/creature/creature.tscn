@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xkd0hmsfnseg"]
+[gd_scene load_steps=6 format=3 uid="uid://xkd0hmsfnseg"]
 
 [ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://scenes/creature/circle.png" id="1_23i3f"]
 [ext_resource type="Script" path="res://scenes/creature/creature.gd" id="2_aavvm"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sq3o0"]
 radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stakh"]
+radius = 11.0
 
 [node name="Creature" type="CharacterBody2D" node_paths=PackedStringArray("visible_area")]
 script = ExtResource("2_aavvm")
@@ -22,3 +25,12 @@ shape = SubResource("CircleShape2D_0vg18")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
 shape = SubResource("CircleShape2D_sq3o0")
+
+[node name="Mouth" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
+shape = SubResource("CircleShape2D_stakh")
+
+[connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
+[connection signal="body_exited" from="View" to="." method="_on_view_body_exited"]
+[connection signal="body_entered" from="Mouth" to="." method="_on_mouth_body_entered"]

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Creature extends CharacterBody2D
 
 @export var visible_area: CollisionShape2D
 
@@ -6,8 +6,8 @@ var speed: float = 20
 var view: CircleShape2D
 
 var target: Vector2
-var foods: Array[Vector2] = []
-var is_target_food: bool = false # target is random
+var foods: Array[Node2D] = []
+var is_target_food: bool = false # first target is random
 
 func _ready():
 	view = visible_area.shape
@@ -22,26 +22,38 @@ func update_target():
 	if foods.size() == 0: # no visible food
 		if is_target_food: # update target from food to random
 			target = get_random_target()
-			is_target_food = false
-		if velocity.dot(position.direction_to(target)) < 0: # target is overcome
+			is_target_food = false # set target is random
+		if velocity.dot(position.direction_to(target)) < 0: # if target is overcome
 			target = get_random_target()
 	else:
-		is_target_food = true # set target is food
 		target = find_closest_food()
+		is_target_food = true # set target is food
 
 func find_closest_food() -> Vector2: # find closest food from visible ones
-	var new_target: Vector2 = target
+	var new_target: Vector2 = foods[0].position
 	var min_sqr_distance: float = position.distance_squared_to(target)
 	
 	for food in foods:
-		var sqr_distance: float = position.distance_squared_to(food)
+		var sqr_distance: float = position.distance_squared_to(food.position)
 		if sqr_distance < min_sqr_distance:
-			new_target = food
+			new_target = food.position
 			min_sqr_distance = sqr_distance
 	
 	return new_target
 
-func get_random_target() -> Vector2:
+func get_random_target() -> Vector2: # get random target on view circle
 	var degree: float = randf() * 2 * PI
 	var unit_circle: Vector2 = view.radius * Vector2.UP.rotated(degree)
 	return unit_circle + position
+
+func _on_view_body_entered(body: Node2D): # food appeared
+	if body is Food:
+		foods.append(body)
+
+func _on_view_body_exited(body: Node2D): # food disappeared
+	if body is Food:
+		foods.erase(body)
+
+func _on_mouth_body_entered(body: Node2D): # food can be eaten
+	if body is Food:
+		body.queue_free()
