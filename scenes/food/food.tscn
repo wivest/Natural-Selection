@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7qn2jo68bxa3"]
+
+[ext_resource type="Script" path="res://scenes/food/food.gd" id="1_nmtju"]
+[ext_resource type="Texture2D" uid="uid://dfk708xot7cef" path="res://scenes/food/food.png" id="1_nre01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqqob"]
+
+[node name="Food" type="StaticBody2D"]
+script = ExtResource("1_nmtju")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nre01")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jqqob")
