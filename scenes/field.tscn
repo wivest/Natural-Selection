@@ -1,15 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgm3b22nd4ulf"]
+[gd_scene load_steps=6 format=3 uid="uid://cgm3b22nd4ulf"]
 
 [ext_resource type="PackedScene" uid="uid://xkd0hmsfnseg" path="res://scenes/creature/creature.tscn" id="1_cnptn"]
+[ext_resource type="Script" path="res://scenes/creature/creature_manager.gd" id="1_ej44c"]
+[ext_resource type="PackedScene" uid="uid://fndcloo5xbk4" path="res://scenes/cocoon/cocoon.tscn" id="2_1ec6r"]
 [ext_resource type="PackedScene" uid="uid://bt28ncd8f8saw" path="res://scenes/spawner/spawner.tscn" id="2_bdn2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhq8k"]
+size = Vector2(512, 256)
 
 [node name="Field" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Creatures" type="Node" parent="."]
+[node name="CreatureManager" type="Area2D" parent="."]
+script = ExtResource("1_ej44c")
+creature_scene = ExtResource("1_cnptn")
+cocoon_scene = ExtResource("2_1ec6r")
 
-[node name="Creature" parent="Creatures" instance=ExtResource("1_cnptn")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreatureManager"]
+shape = SubResource("RectangleShape2D_qhq8k")
+
+[node name="Container" type="Node" parent="CreatureManager"]
 
 [node name="Spawner" parent="." instance=ExtResource("2_bdn2b")]
 spawn_rate = 10.0

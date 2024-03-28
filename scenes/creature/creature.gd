@@ -1,5 +1,7 @@
 class_name Creature extends CharacterBody2D
 
+signal divided(creature_position: Vector2)
+
 const ENERGY_ON_START: float = 200 # subject to change
 const DIVISION_LOWER_BOUND: float = 300 # subject to change
 const DIVISION_ENERGY_CONSUMED: float = 100 # subject to change
@@ -23,11 +25,7 @@ func _physics_process(delta):
 	velocity = speed * position.direction_to(target)
 	move_and_slide()
 	energy -= get_consumed_energy(delta)
-	if energy < 0:
-		queue_free()
-	if energy > DIVISION_LOWER_BOUND:
-		energy -= DIVISION_ENERGY_CONSUMED
-		print("duplicated") # DEBUG
+	handle_energy_level()
 
 func update_target():
 	if foods.size() == 0: # no visible food
@@ -42,6 +40,13 @@ func update_target():
 
 func get_consumed_energy(delta: float):
 	return speed * delta
+
+func handle_energy_level():
+	if energy < 0:
+		queue_free()
+	if energy > DIVISION_LOWER_BOUND:
+		energy -= DIVISION_ENERGY_CONSUMED
+		divided.emit(position)
 
 func find_closest_food() -> Vector2: # find closest food from visible ones
 	var new_target: Vector2 = foods[0].position
