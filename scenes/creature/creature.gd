@@ -2,7 +2,7 @@ class_name Creature extends CharacterBody2D
 
 @export var visible_area: CollisionShape2D
 
-var speed: float = 20
+var speed: float = 40
 var view: CircleShape2D
 
 var target: Vector2
@@ -31,7 +31,7 @@ func update_target():
 
 func find_closest_food() -> Vector2: # find closest food from visible ones
 	var new_target: Vector2 = foods[0].position
-	var min_sqr_distance: float = position.distance_squared_to(target)
+	var min_sqr_distance: float = position.distance_squared_to(new_target)
 	
 	for food in foods:
 		var sqr_distance: float = position.distance_squared_to(food.position)
