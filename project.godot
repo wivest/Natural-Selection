@@ -13,6 +13,7 @@ config_version=5
 config/name="Natural Selection"
 run/main_scene="res://scenes/field.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
+config/icon="res://icon.svg"
 
 [display]
 

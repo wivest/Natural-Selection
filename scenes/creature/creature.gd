@@ -1,23 +1,33 @@
 class_name Creature extends CharacterBody2D
 
-@export var visible_area: CollisionShape2D
+const ENERGY_ON_START: float = 200 # subject to change
+const DIVISION_LOWER_BOUND: float = 300 # subject to change
+const DIVISION_ENERGY_CONSUMED: float = 100 # subject to change
 
+var energy: float = ENERGY_ON_START
 var speed: float = 40
 var view: CircleShape2D
 
 var target: Vector2
-var foods: Array[Area2D] = []
+var foods: Array[Food] = []
 var is_target_food: bool = false # first target is random
+
+@onready var visible_area: CollisionShape2D = $View/CollisionShape2D
 
 func _ready():
 	view = visible_area.shape
 	target = get_random_target() # target is not empty on init
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	update_target()
-	# print("target: ", target, " is food: ", is_target_food)
 	velocity = speed * position.direction_to(target)
 	move_and_slide()
+	energy -= get_consumed_energy(delta)
+	if energy < 0:
+		queue_free()
+	if energy > DIVISION_LOWER_BOUND:
+		energy -= DIVISION_ENERGY_CONSUMED
+		print("duplicated") # DEBUG
 
 func update_target():
 	if foods.size() == 0: # no visible food
@@ -29,6 +39,9 @@ func update_target():
 	else:
 		target = find_closest_food()
 		is_target_food = true # set target is food
+
+func get_consumed_energy(delta: float):
+	return speed * delta
 
 func find_closest_food() -> Vector2: # find closest food from visible ones
 	var new_target: Vector2 = foods[0].position
@@ -49,12 +62,16 @@ func get_random_target() -> Vector2: # get random target on view circle
 
 func _on_view_area_entered(area: Area2D): # food disappeared
 	if area is Food:
-		foods.append(area)
+		var food := area as Food
+		foods.append(food)
 
 func _on_view_area_exited(area: Area2D): # food appeared
 	if area is Food:
-		foods.erase(area)
+		var food := area as Food
+		foods.erase(food)
 
 func _on_mouth_area_entered(area: Area2D): # food can be eaten
 	if area is Food:
+		var food := area as Food
+		energy += food.contains_energy # renew energy contained by food
 		area.queue_free()

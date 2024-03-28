@@ -19,4 +19,6 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
 shape = SubResource("RectangleShape2D_r75x5")
 
+[node name="Container" type="Node" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
