@@ -1,1 +1,1 @@
-class_name Food extends StaticBody2D
+class_name Food extends Area2D

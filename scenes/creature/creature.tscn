@@ -31,6 +31,8 @@ shape = SubResource("CircleShape2D_sq3o0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
 shape = SubResource("CircleShape2D_stakh")
 
+[connection signal="area_entered" from="View" to="." method="_on_view_area_entered"]
+[connection signal="area_exited" from="View" to="." method="_on_view_area_exited"]
 [connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
 [connection signal="body_exited" from="View" to="." method="_on_view_body_exited"]
-[connection signal="body_entered" from="Mouth" to="." method="_on_mouth_body_entered"]
+[connection signal="area_entered" from="Mouth" to="." method="_on_mouth_area_entered"]

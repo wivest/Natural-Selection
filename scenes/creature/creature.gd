@@ -6,7 +6,7 @@ var speed: float = 40
 var view: CircleShape2D
 
 var target: Vector2
-var foods: Array[Node2D] = []
+var foods: Array[Area2D] = []
 var is_target_food: bool = false # first target is random
 
 func _ready():
@@ -15,6 +15,7 @@ func _ready():
 
 func _physics_process(_delta):
 	update_target()
+	# print("target: ", target, " is food: ", is_target_food)
 	velocity = speed * position.direction_to(target)
 	move_and_slide()
 
@@ -46,14 +47,14 @@ func get_random_target() -> Vector2: # get random target on view circle
 	var unit_circle: Vector2 = view.radius * Vector2.UP.rotated(degree)
 	return unit_circle + position
 
-func _on_view_body_entered(body: Node2D): # food appeared
-	if body is Food:
-		foods.append(body)
+func _on_view_area_entered(area: Area2D): # food disappeared
+	if area is Food:
+		foods.append(area)
 
-func _on_view_body_exited(body: Node2D): # food disappeared
-	if body is Food:
-		foods.erase(body)
+func _on_view_area_exited(area: Area2D): # food appeared
+	if area is Food:
+		foods.erase(area)
 
-func _on_mouth_body_entered(body: Node2D): # food can be eaten
-	if body is Food:
-		body.queue_free()
+func _on_mouth_area_entered(area: Area2D): # food can be eaten
+	if area is Food:
+		area.queue_free()
