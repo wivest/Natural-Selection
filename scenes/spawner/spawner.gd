@@ -8,6 +8,7 @@ extends Node2D
 
 func _ready():
 	timer.wait_time = 1 / spawn_rate
+	timer.start()
 
 func get_random_point() -> Vector2: # get random point inside bounds
 	var x := randf_range(bounds.position.x, bounds.end.x)

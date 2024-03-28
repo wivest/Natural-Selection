@@ -11,6 +11,7 @@ script = ExtResource("1_t7ake")
 food_scene = ExtResource("2_nnh3e")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [node name="Bounds" type="Area2D" parent="."]
