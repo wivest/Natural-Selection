@@ -1,9 +1,13 @@
 extends Node2D
 
 @export var food_scene: PackedScene
+@export var spawn_rate: float = 1 # number of food per second
 
 @onready var timer: Timer = $Timer
 @onready var bounds: Rect2 = $Bounds/CollisionShape2D.shape.get_rect()
+
+func _ready():
+	timer.wait_time = 1 / spawn_rate
 
 func get_random_point() -> Vector2: # get random point inside bounds
 	var x := randf_range(bounds.position.x, bounds.end.x)

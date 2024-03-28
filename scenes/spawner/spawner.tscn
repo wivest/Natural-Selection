@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://p8safe0ldiwh"]
+[gd_scene load_steps=4 format=3 uid="uid://bt28ncd8f8saw"]
 
 [ext_resource type="Script" path="res://scenes/spawner/spawner.gd" id="1_t7ake"]
 [ext_resource type="PackedScene" uid="uid://c7qn2jo68bxa3" path="res://scenes/food/food.tscn" id="2_nnh3e"]
