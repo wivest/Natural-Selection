@@ -31,7 +31,7 @@ func _instantiate_cocoon(cocoon_position: Vector2, genome: Genome):
 	cocoon.position = cocoon_position
 	cocoon.incubated.connect(_on_cocoon_incubated)
 
-	var mutated_genome: Genome = genome.duplicate() as Genome
+	var mutated_genome: Genome = genome.duplicate(true) as Genome
 	mutated_genome.mutate()
 	cocoon.genome = mutated_genome # mutate genome of a creature
 	

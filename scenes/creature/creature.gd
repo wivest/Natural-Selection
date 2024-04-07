@@ -6,7 +6,10 @@ const ENERGY_ON_START: float = 200 # subject to change
 const DIVISION_LOWER_BOUND: float = 300 # subject to change
 const DIVISION_ENERGY_CONSUMED: float = 100 # subject to change
 
+const SPEED_COLOR_CAP: float = 100 # subject to change
+
 @export var genome: Genome
+@export var speed_color: Gradient
 
 var energy: float = ENERGY_ON_START
 var view: CircleShape2D
@@ -20,6 +23,9 @@ var is_target_food: bool = false # first target is random
 func _ready():
 	view = visible_area.shape
 	target = get_random_target() # target is not empty on init
+
+func _process(_delta):
+	modulate = speed_color.sample(genome.speed.value / SPEED_COLOR_CAP) # set color based on speed
 
 func _physics_process(delta):
 	update_target()
@@ -39,7 +45,7 @@ func update_target():
 		target = find_closest_food()
 		is_target_food = true # set target is food
 
-func get_consumed_energy(delta: float):
+func get_consumed_energy(delta: float) -> float: # based on speed
 	return genome.speed.value * delta
 
 func handle_energy_level():
