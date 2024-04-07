@@ -6,3 +6,4 @@ class_name Gene extends Resource
 func mutate():
 	var mutation: float = randf_range( - mutation_range, mutation_range)
 	value += mutation
+	value = max(0, value)

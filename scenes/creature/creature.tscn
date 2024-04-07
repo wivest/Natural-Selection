@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://xkd0hmsfnseg"]
+[gd_scene load_steps=12 format=3 uid="uid://xkd0hmsfnseg"]
 
 [ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://scenes/creature/creature.png" id="1_23i3f"]
 [ext_resource type="Script" path="res://scenes/creature/creature.gd" id="2_aavvm"]
@@ -7,12 +7,18 @@
 
 [sub_resource type="Resource" id="Resource_fxyqd"]
 script = ExtResource("3_8e3sk")
-value = 20.0
+value = 40.0
 mutation_range = 5.0
+
+[sub_resource type="Resource" id="Resource_hww5n"]
+script = ExtResource("3_8e3sk")
+value = 100.0
+mutation_range = 10.0
 
 [sub_resource type="Resource" id="Resource_dd1vt"]
 script = ExtResource("2_d4tcy")
 speed = SubResource("Resource_fxyqd")
+view_radius = SubResource("Resource_hww5n")
 
 [sub_resource type="Gradient" id="Gradient_vpheb"]
 colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1)
@@ -20,19 +26,18 @@ colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vg18"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sq3o0"]
+resource_local_to_scene = true
 radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stakh"]
 radius = 11.0
 
 [node name="Creature" type="CharacterBody2D"]
+z_index = -1
 collision_mask = 0
 script = ExtResource("2_aavvm")
 genome = SubResource("Resource_dd1vt")
 speed_color = SubResource("Gradient_vpheb")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_23i3f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0vg18")
@@ -41,11 +46,16 @@ shape = SubResource("CircleShape2D_0vg18")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
 shape = SubResource("CircleShape2D_sq3o0")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Mouth" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
 shape = SubResource("CircleShape2D_stakh")
+
+[node name="Body" type="Sprite2D" parent="."]
+z_as_relative = false
+texture = ExtResource("1_23i3f")
 
 [connection signal="area_entered" from="View" to="." method="_on_view_area_entered"]
 [connection signal="area_exited" from="View" to="." method="_on_view_area_exited"]
