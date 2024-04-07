@@ -1,8 +1,8 @@
 class_name Gene extends Resource
 
-@export var value: float = 20
-
-var mutation_range: float = 1
+@export var value: float = 1
+@export var mutation_range: float = 0.1
 
 func mutate():
-	value += mutation_range
+	var mutation: float = randf_range( - mutation_range, mutation_range)
+	value += mutation

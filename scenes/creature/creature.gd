@@ -1,12 +1,12 @@
 class_name Creature extends CharacterBody2D
 
-signal divided(creature_position: Vector2, genome: Gene)
+signal divided(creature_position: Vector2, genome: Genome)
 
 const ENERGY_ON_START: float = 200 # subject to change
 const DIVISION_LOWER_BOUND: float = 300 # subject to change
 const DIVISION_ENERGY_CONSUMED: float = 100 # subject to change
 
-@export var speed: Gene
+@export var genome: Genome
 
 var energy: float = ENERGY_ON_START
 var view: CircleShape2D
@@ -23,7 +23,7 @@ func _ready():
 
 func _physics_process(delta):
 	update_target()
-	velocity = speed.value * position.direction_to(target)
+	velocity = genome.speed.value * position.direction_to(target)
 	move_and_slide()
 	energy -= get_consumed_energy(delta)
 	handle_energy_level()
@@ -40,14 +40,14 @@ func update_target():
 		is_target_food = true # set target is food
 
 func get_consumed_energy(delta: float):
-	return speed.value * delta
+	return genome.speed.value * delta
 
 func handle_energy_level():
 	if energy < 0:
 		queue_free()
 	if energy > DIVISION_LOWER_BOUND:
 		energy -= DIVISION_ENERGY_CONSUMED
-		divided.emit(position, speed)
+		divided.emit(position, genome)
 
 func find_closest_food() -> Vector2: # find closest food from visible ones
 	var new_target: Vector2 = foods[0].position

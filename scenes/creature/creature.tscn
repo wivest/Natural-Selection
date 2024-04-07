@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://xkd0hmsfnseg"]
+[gd_scene load_steps=10 format=3 uid="uid://xkd0hmsfnseg"]
 
 [ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://scenes/creature/creature.png" id="1_23i3f"]
-[ext_resource type="Script" path="res://scenes/creature/gene.gd" id="2_30x35"]
 [ext_resource type="Script" path="res://scenes/creature/creature.gd" id="2_aavvm"]
+[ext_resource type="Script" path="res://scenes/creature/genome.gd" id="2_d4tcy"]
+[ext_resource type="Script" path="res://scenes/creature/gene.gd" id="3_8e3sk"]
 
-[sub_resource type="Resource" id="Resource_dalqk"]
-script = ExtResource("2_30x35")
-value = 20.0
+[sub_resource type="Resource" id="Resource_fxyqd"]
+script = ExtResource("3_8e3sk")
+value = 40.0
+mutation_range = 5.0
+
+[sub_resource type="Resource" id="Resource_dd1vt"]
+script = ExtResource("2_d4tcy")
+speed = SubResource("Resource_fxyqd")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vg18"]
 
@@ -19,7 +25,7 @@ radius = 11.0
 [node name="Creature" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("2_aavvm")
-speed = SubResource("Resource_dalqk")
+genome = SubResource("Resource_dd1vt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_23i3f")
