@@ -1,10 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://xkd0hmsfnseg"]
+[gd_scene load_steps=14 format=3 uid="uid://xkd0hmsfnseg"]
 
 [ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://scenes/creature/creature.png" id="1_23i3f"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/creature.gd" id="1_ekvum"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/genome.gd" id="2_ngt82"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/gene.gd" id="3_0dlvc"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/view.gd" id="4_oe8uj"]
+
+[sub_resource type="Resource" id="Resource_l1sps"]
+script = ExtResource("3_0dlvc")
+value = 1.0
+mutation_range = 0.1
 
 [sub_resource type="Resource" id="Resource_fxyqd"]
 script = ExtResource("3_0dlvc")
@@ -20,6 +25,7 @@ mutation_range = 10.0
 script = ExtResource("2_ngt82")
 speed = SubResource("Resource_fxyqd")
 view_radius = SubResource("Resource_hww5n")
+incubation_time = SubResource("Resource_l1sps")
 
 [sub_resource type="Gradient" id="Gradient_vpheb"]
 colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1)
