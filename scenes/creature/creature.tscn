@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xkd0hmsfnseg"]
+[gd_scene load_steps=16 format=3 uid="uid://xkd0hmsfnseg"]
 
 [ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://scenes/creature/creature.png" id="1_23i3f"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/creature.gd" id="1_ekvum"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/creature/scripts/gene.gd" id="3_0dlvc"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/view.gd" id="4_oe8uj"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/body.gd" id="5_4ebl1"]
+[ext_resource type="Script" path="res://scenes/creature/scripts/nodes/mouth.gd" id="7_6m8ev"]
 
 [sub_resource type="Resource" id="Resource_l1sps"]
 script = ExtResource("3_0dlvc")
@@ -64,10 +65,12 @@ script = ExtResource("5_4ebl1")
 speed_color = SubResource("Gradient_av7uy")
 
 [node name="Mouth" type="Area2D" parent="."]
+script = ExtResource("7_6m8ev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
 shape = SubResource("CircleShape2D_stakh")
 
 [connection signal="area_entered" from="View" to="View" method="_on_area_entered"]
 [connection signal="area_exited" from="View" to="View" method="_on_area_exited"]
-[connection signal="area_entered" from="Mouth" to="." method="_on_mouth_area_entered"]
+[connection signal="area_entered" from="Mouth" to="Mouth" method="_on_area_entered"]
+[connection signal="food_eaten" from="Mouth" to="." method="_on_mouth_food_eaten"]

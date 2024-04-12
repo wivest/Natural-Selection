@@ -31,8 +31,5 @@ func handle_energy_level():
 		energy -= DIVISION_ENERGY_CONSUMED
 		divided.emit(position, genome)
 
-func _on_mouth_area_entered(area: Area2D): # food can be eaten
-	if area is Food:
-		var food := area as Food
-		energy += food.contains_energy # renew energy contained by food
-		area.queue_free()
+func _on_mouth_food_eaten(food: Food):
+	energy += food.contains_energy
