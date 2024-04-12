@@ -16,11 +16,11 @@ const VIEW_COLOR: Color = Color("0099b320")
 var energy: float = ENERGY_ON_START
 
 @onready var view: View = $View # visible area
-@onready var body_sprite: Sprite2D = $BodySprite2D
+@onready var body: Body = $Body # sprite
 
 func _ready():
 	view.shape.radius = genome.view_radius.value
-	body_sprite.modulate = speed_color.sample(genome.speed.value / SPEED_COLOR_CAP) # set color based on speed
+	body.modulate = speed_color.sample(genome.speed.value / SPEED_COLOR_CAP) # set color based on speed
 
 func _draw():
 	draw_circle(Vector2.ZERO, genome.view_radius.value, VIEW_COLOR)
