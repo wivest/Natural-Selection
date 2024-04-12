@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dnsmqyu8b61jy" path="res://scenes/cocoon/cocoon.png" id="1_6sjj7"]
 
 [sub_resource type="Gradient" id="Gradient_sha7p"]
-colors = PackedColorArray(0, 1, 0, 1, 0, 0, 1, 1)
+colors = PackedColorArray(0, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="Cocoon" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)

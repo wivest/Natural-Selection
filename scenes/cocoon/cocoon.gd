@@ -2,7 +2,7 @@ class_name Cocoon extends Sprite2D
 
 signal incubated(cocoon_position: Vector2, genome: Genome)
 
-const INCUBATION_TIME_CAP: float = 2
+const INCUBATION_TIME_CAP: float = 1.5
 
 @export var incubation_color: Gradient
 
