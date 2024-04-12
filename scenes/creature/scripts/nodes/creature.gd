@@ -1,4 +1,5 @@
-class_name Creature extends CharacterBody2D
+class_name Creature
+extends CharacterBody2D
 
 signal divided(creature_position: Vector2, genome: Genome)
 
@@ -6,24 +7,12 @@ const ENERGY_ON_START: float = 400 # subject to change
 const DIVISION_LOWER_BOUND: float = 800 # subject to change
 const DIVISION_ENERGY_CONSUMED: float = 400 # subject to change
 
-const SPEED_COLOR_CAP: float = 100 # subject to change
-
-const VIEW_COLOR: Color = Color("0099b320")
-
 @export var genome: Genome
-@export var speed_color: Gradient
 
 var energy: float = ENERGY_ON_START
 
 @onready var view: View = $View # visible area
 @onready var body: Body = $Body # sprite
-
-func _ready():
-	view.shape.radius = genome.view_radius.value
-	body.modulate = speed_color.sample(genome.speed.value / SPEED_COLOR_CAP) # set color based on speed
-
-func _draw():
-	draw_circle(Vector2.ZERO, genome.view_radius.value, VIEW_COLOR)
 
 func _physics_process(delta):
 	view.update_target(velocity)

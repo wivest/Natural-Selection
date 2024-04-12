@@ -1,15 +1,26 @@
 class_name View
 extends Area2D
 
+const VIEW_COLOR: Color = Color("0099b320")
+
 var target: Vector2 # target is in global scope
 
 var _visible_food: Array[Food] = []
 var _is_target_food: bool = false # target on creation is random
 
+var _listened_gene: Gene
+
 @onready var shape: CircleShape2D = $CollisionShape2D.shape
 
 func _ready():
+	var creature: Creature = owner as Creature # get parent Creature
+	_listened_gene = creature.genome.view_radius # set Gene to listen to
+	shape.radius = _listened_gene.value # set view radius
+
 	target = _get_random_target()
+
+func _draw():
+	draw_circle(Vector2.ZERO, _listened_gene.value, VIEW_COLOR)
 
 func update_target(creature_velocity: Vector2):
 	if _visible_food.size() == 0: # no visible food
