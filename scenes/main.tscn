@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b57fcx5wnkjjp"]
+
+[ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field.tscn" id="1_30vq0"]
+
+[node name="Main" type="Node"]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="Field" parent="World" instance=ExtResource("1_30vq0")]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
