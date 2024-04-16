@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b57fcx5wnkjjp"]
 
-[ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field.tscn" id="1_30vq0"]
+[ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field/field.tscn" id="1_30vq0"]
 
 [node name="Main" type="Node"]
 
@@ -12,16 +12,3 @@ position = Vector2(0, 1)
 [node name="Camera2D" type="Camera2D" parent="World"]
 
 [node name="GUI" type="CanvasLayer" parent="."]
-
-[node name="GUI" type="Control" parent="GUI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="GUI"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "TEXT"
