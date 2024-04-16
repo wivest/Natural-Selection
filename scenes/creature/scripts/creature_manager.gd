@@ -1,8 +1,13 @@
+class_name CreatureManager
 extends Area2D
+
+signal simulation_speed_changed(new_speed: float)
 
 @export var creature_scene: PackedScene
 @export var cocoon_scene: PackedScene
 @export var creatures_on_start: int = 10
+
+var simulation_speed: float = 1
 
 @onready var bounds: Rect2 = $CollisionShape2D.shape.get_rect()
 @onready var container: Node = $Container
@@ -21,6 +26,9 @@ func _instantiate_creature(creature_position: Vector2, genome: Genome):
 	creature.position = creature_position
 	creature.divided.connect(_on_creature_divided)
 
+	creature.simulation_speed = simulation_speed # rewrite simulation speed
+	simulation_speed_changed.connect(creature._on_simulation_speed_changed)
+
 	if genome != null:
 		creature.genome = genome # set genome to genome of cocoon
 	
@@ -30,6 +38,9 @@ func _instantiate_cocoon(cocoon_position: Vector2, genome: Genome):
 	var cocoon: Cocoon = cocoon_scene.instantiate() as Cocoon
 	cocoon.position = cocoon_position
 	cocoon.incubated.connect(_on_cocoon_incubated)
+
+	cocoon.simulation_speed = simulation_speed # rewrite simulation speed
+	simulation_speed_changed.connect(cocoon._on_simulation_speed_changed)
 
 	var mutated_genome: Genome = genome.duplicate(true) as Genome
 	mutated_genome.mutate()
