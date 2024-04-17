@@ -18,7 +18,7 @@ script = ExtResource("1_ej44c")
 creature_scene = ExtResource("1_cnptn")
 cocoon_scene = ExtResource("2_1ec6r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CreatureManager"]
+[node name="Bounds" type="CollisionShape2D" parent="CreatureManager"]
 shape = SubResource("RectangleShape2D_qhq8k")
 
 [node name="Container" type="Node" parent="CreatureManager"]

@@ -9,7 +9,7 @@ signal simulation_speed_changed(new_speed: float)
 
 var simulation_speed: float = 1
 
-@onready var bounds: Rect2 = $CollisionShape2D.shape.get_rect()
+@onready var bounds: Rect2 = $Bounds.shape.get_rect()
 @onready var container: Node = $Container
 
 func _ready():
