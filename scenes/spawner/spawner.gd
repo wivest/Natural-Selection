@@ -8,7 +8,7 @@ var simulation_speed: float = 1:
 	set = set_simulation_speed
 
 @onready var timer: Timer = $Timer
-@onready var bounds: Rect2 = $Bounds/CollisionShape2D.shape.get_rect()
+@onready var bounds: Rect2 = $Bounds.shape.get_rect()
 @onready var container: Node = $Container
 
 func _ready():
