@@ -3,14 +3,9 @@ extends CharacterBody2D
 
 signal divided(creature_position: Vector2, genome: Genome)
 
-# move to parameters
-const ENERGY_ON_START: float = 400 # subject to change
-const DIVISION_LOWER_BOUND: float = 800 # subject to change
-const DIVISION_ENERGY_CONSUMED: float = 400 # subject to change
-
 @export var genome: Genome
 
-var energy: float = ENERGY_ON_START
+var energy: float
 
 var parameters: SimulationParameters
 
@@ -30,8 +25,8 @@ func get_consumed_energy(delta: float) -> float: # based on speed
 func handle_energy_level():
 	if energy < 0:
 		queue_free()
-	if energy > DIVISION_LOWER_BOUND:
-		energy -= DIVISION_ENERGY_CONSUMED
+	if energy > parameters.division_lower_bound:
+		energy -= parameters.energy_consumed_on_division
 		divided.emit(position, genome)
 
 func _on_mouth_food_eaten(food: Food):

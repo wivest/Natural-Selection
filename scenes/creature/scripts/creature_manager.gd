@@ -17,6 +17,7 @@ func get_random_point() -> Vector2: # get random point inside bounds
 func _instantiate_creature(creature_position: Vector2, genome: Genome):
 	var creature: Creature = creature_scene.instantiate() as Creature
 	creature.position = creature_position
+	creature.energy = parameters.energy_on_start # set start energy
 	creature.divided.connect(_on_creature_divided)
 
 	creature.parameters = parameters # set parameters

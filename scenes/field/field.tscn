@@ -13,6 +13,9 @@ script = ExtResource("2_j03ma")
 speed = 1.0
 food_spawn_rate = 10.0
 creatures_on_start = 10.0
+energy_on_start = 400.0
+division_lower_bound = 800.0
+energy_consumed_on_division = 400.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhq8k"]
 size = Vector2(512, 256)
