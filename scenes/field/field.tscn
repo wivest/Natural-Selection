@@ -33,4 +33,3 @@ shape = SubResource("RectangleShape2D_qhq8k")
 [node name="Container" type="Node" parent="CreatureManager"]
 
 [node name="Spawner" parent="." instance=ExtResource("2_bdn2b")]
-spawn_rate = 10.0
