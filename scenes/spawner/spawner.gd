@@ -9,9 +9,6 @@ var parameters: SimulationParameters
 @onready var bounds: Rect2 = $Bounds.shape.get_rect()
 @onready var container: Node = $Container
 
-func _process(_delta): # TODO: change to signal
-	timer.wait_time = 1 / (parameters.speed * parameters.food_spawn_rate)
-
 func get_random_point() -> Vector2: # get random point inside bounds
 	var x := randf_range(bounds.position.x, bounds.end.x)
 	var y := randf_range(bounds.position.y, bounds.end.y)
@@ -24,5 +21,13 @@ func _on_timer_timeout(): # spawn food on timer timeout
 	container.add_child(food)
 
 func _on_field_ready():
+	parameters.changed.connect(_on_parameters_changed)
+
 	timer.wait_time = 1 / (parameters.speed * parameters.food_spawn_rate)
 	timer.start()
+
+func _on_parameters_changed(): # update remaining time on change
+	var new_wait_time: float = 1 / (parameters.speed * parameters.food_spawn_rate)
+	var correlation: float = new_wait_time / timer.wait_time
+	timer.start(timer.time_left * correlation)
+	timer.wait_time = new_wait_time

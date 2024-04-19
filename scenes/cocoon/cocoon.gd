@@ -13,6 +13,8 @@ var parameters: SimulationParameters
 @onready var timer: Timer = $Timer
 
 func _ready():
+	parameters.changed.connect(_on_parameters_changed)
+
 	timer.start(genome.incubation_time.value / parameters.speed)
 
 func _process(_delta):
@@ -21,3 +23,9 @@ func _process(_delta):
 func _on_timer_timeout():
 	incubated.emit(position, genome)
 	queue_free()
+
+func _on_parameters_changed(): # update remaining time on change
+	var new_wait_time: float = genome.incubation_time.value / parameters.speed
+	var correlation: float = new_wait_time / timer.wait_time
+	timer.start(timer.time_left * correlation)
+	timer.wait_time = new_wait_time
