@@ -5,7 +5,10 @@ extends Resource
 	set(value):
 		speed = value
 		changed.emit()
-@export var food_spawn_rate: float = 10
+@export var food_spawn_rate: float = 10:
+	set(value):
+		food_spawn_rate = value
+		changed.emit()
 @export var creatures_on_start: float = 10
 
 @export_group("Creature energy")
