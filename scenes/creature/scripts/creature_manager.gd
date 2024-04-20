@@ -1,18 +1,18 @@
 class_name CreatureManager
-extends Area2D
+extends Node
 
 @export var creature_scene: PackedScene
 @export var cocoon_scene: PackedScene
 
 var parameters: SimulationParameters
 
-@onready var bounds: Rect2 = $Bounds.shape.get_rect()
-@onready var container: Node = $Container
+# @onready var bounds: Rect2 = $Bounds.shape.get_rect()
+@onready var container: Node = $Spawner/Container
 
-func get_random_point() -> Vector2: # get random point inside bounds
-	var x := randf_range(bounds.position.x, bounds.end.x)
-	var y := randf_range(bounds.position.y, bounds.end.y)
-	return Vector2(x, y)
+# func get_random_point() -> Vector2: # get random point inside bounds
+# 	var x := randf_range(bounds.position.x, bounds.end.x)
+# 	var y := randf_range(bounds.position.y, bounds.end.y)
+# 	return Vector2(x, y)
 
 func _instantiate_creature(creature_position: Vector2, genome: Genome):
 	var creature: Creature = creature_scene.instantiate() as Creature
@@ -40,12 +40,18 @@ func _instantiate_cocoon(cocoon_position: Vector2, genome: Genome):
 	
 	container.add_child(cocoon)
 
-func _on_field_ready(): # create Creatures after Field's _ready()
-	for i in range(parameters.creatures_on_start):
-		_instantiate_creature(get_random_point(), null)
+# func _on_field_ready(): # create Creatures after Field's _ready()
+# 	for i in range(parameters.creatures_on_start):
+# 		# _instantiate_creature(get_random_point(), null)
 
 func _on_creature_divided(creature_position: Vector2, genome: Genome):
 	_instantiate_cocoon(creature_position, genome)
 
 func _on_cocoon_incubated(cocoon_position: Vector2, genome: Genome):
 	_instantiate_creature(cocoon_position, genome)
+
+func _on_item_spawned(item: Node):
+	var creature := item as Creature
+	creature.energy = parameters.energy_on_start # set start energy
+	creature.parameters = parameters
+	creature.divided.connect(_on_creature_divided)
