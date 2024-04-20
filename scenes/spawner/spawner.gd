@@ -1,6 +1,8 @@
 class_name Spawner
 extends Area2D
 
+signal item_spawned(item: Node)
+
 @export var item_scene: PackedScene
 @export var spawn_rate: float:
 	set(value):
@@ -17,13 +19,13 @@ func get_random_point() -> Vector2: # get random point inside bounds
 	var y := randf_range(bounds.position.y, bounds.end.y)
 	return Vector2(x, y)
 
-func spawn_item() -> Node:
+func spawn_item():
 	var item := item_scene.instantiate()
 	item.position = get_random_point() # set random position inside bounds
 	item.rotation = randf_range(0, 2 * PI) # set random rotation
 	container.add_child(item)
 
-	return item
+	item_spawned.emit(item)
 
 func _on_timer_timeout(): # spawn item on timer timeout
 	spawn_item()
