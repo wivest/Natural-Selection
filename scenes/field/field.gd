@@ -1,8 +1,6 @@
 class_name Field
 extends Node2D
 
-signal parameters_initialized(values: SimulationParameters)
-
 @export var parameters: SimulationParameters
 
 @onready var creature_manager: CreatureManager = $CreatureManager
