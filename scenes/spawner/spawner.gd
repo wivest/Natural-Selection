@@ -1,9 +1,12 @@
 class_name Spawner
-extends Node2D
+extends Area2D
 
-@export var food_scene: PackedScene
-
-var parameters: SimulationParameters
+@export var item_scene: PackedScene
+@export var spawn_rate: float:
+	set(value):
+		spawn_rate = value
+		update_timer()
+@export var items_on_start: int
 
 @onready var timer: Timer = $Timer
 @onready var bounds: Rect2 = $Bounds.shape.get_rect()
@@ -14,20 +17,25 @@ func get_random_point() -> Vector2: # get random point inside bounds
 	var y := randf_range(bounds.position.y, bounds.end.y)
 	return Vector2(x, y)
 
-func _on_timer_timeout(): # spawn food on timer timeout
-	var food: Food = food_scene.instantiate() as Food
-	food.position = get_random_point() # set random position inside bounds
-	food.rotation = randf_range(0, 2 * PI) # set random rotation
-	container.add_child(food)
+func spawn_item() -> Node:
+	var item := item_scene.instantiate()
+	item.position = get_random_point() # set random position inside bounds
+	item.rotation = randf_range(0, 2 * PI) # set random rotation
+	container.add_child(item)
 
-func _on_field_ready():
-	parameters.changed.connect(_on_parameters_changed)
+	return item
 
-	timer.wait_time = 1 / (parameters.speed * parameters.food_spawn_rate)
+func _on_timer_timeout(): # spawn item on timer timeout
+	spawn_item()
+
+func _on_field_ready(): # use instead of _ready() function
+	for i in range(items_on_start):
+		spawn_item()
+
 	timer.start()
 
-func _on_parameters_changed(): # update remaining time on change
-	var new_wait_time: float = 1 / (parameters.speed * parameters.food_spawn_rate)
+func update_timer(): # update remaining time on change
+	var new_wait_time: float = 1 / spawn_rate
 	var correlation: float = new_wait_time / timer.wait_time
 	timer.start(timer.time_left * correlation)
 	timer.wait_time = new_wait_time
