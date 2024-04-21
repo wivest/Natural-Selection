@@ -4,11 +4,12 @@ extends Area2D
 signal item_spawned(item: Node)
 
 @export var item_scene: PackedScene
-@export var spawn_rate: float:
+
+var spawn_rate: float:
 	set(value):
 		spawn_rate = value
 		update_timer()
-@export var items_on_start: int
+var items_on_start: int
 
 @onready var timer: Timer = $Timer
 @onready var bounds: Rect2 = $Bounds.shape.get_rect()
