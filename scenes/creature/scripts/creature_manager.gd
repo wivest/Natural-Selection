@@ -1,25 +1,17 @@
 class_name CreatureManager
 extends Node
 
-@export var creature_scene: PackedScene
 @export var cocoon_scene: PackedScene
 
 var parameters: SimulationParameters
 
+@onready var creature_spawner: Spawner = $Spawner
 @onready var container: Node = $Spawner/Container
 
 func _instantiate_creature(creature_position: Vector2, genome: Genome):
-	var creature: Creature = creature_scene.instantiate() as Creature
+	var creature := creature_spawner.spawn_item() as Creature
 	creature.position = creature_position
-	creature.energy = parameters.energy_on_start # set start energy
-	creature.divided.connect(_on_creature_divided)
-
-	creature.parameters = parameters # set parameters
-
-	if genome != null:
-		creature.genome = genome # set genome to genome of cocoon
-	
-	container.add_child(creature)
+	creature.genome = genome # set genome to genome of cocoon
 
 func _instantiate_cocoon(cocoon_position: Vector2, genome: Genome):
 	var cocoon: Cocoon = cocoon_scene.instantiate() as Cocoon
