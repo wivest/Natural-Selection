@@ -26,8 +26,10 @@ parameters = SubResource("Resource_x6ceg")
 
 [node name="CreatureManager" type="Node" parent="."]
 script = ExtResource("1_ej44c")
-creature_scene = ExtResource("1_cnptn")
 cocoon_scene = ExtResource("2_1ec6r")
+
+[node name="CocoonSpawner" parent="CreatureManager" instance=ExtResource("2_bdn2b")]
+item_scene = ExtResource("2_1ec6r")
 
 [node name="Spawner" parent="CreatureManager" instance=ExtResource("2_bdn2b")]
 item_scene = ExtResource("1_cnptn")

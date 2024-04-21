@@ -5,11 +5,13 @@ extends Node2D
 
 @onready var creature_manager: CreatureManager = $CreatureManager
 @onready var creature_spawner: Spawner = $CreatureManager/Spawner
+@onready var cocoon_spawner: Spawner = $CreatureManager/CocoonSpawner
 @onready var food_spawner: Spawner = $FoodSpawner
 
 func _ready():
 	creature_manager.parameters = parameters
-	creature_spawner.item_spawned.connect(creature_manager._on_item_spawned)
+	creature_spawner.item_spawned.connect(creature_manager._on_creature_spawned)
+	cocoon_spawner.item_spawned.connect(creature_manager._on_cocoon_spawned)
 
 	creature_spawner.items_on_start = parameters.creatures_on_start
 	update_creature_spawner()
