@@ -18,6 +18,7 @@ func _ready():
 	target = _get_random_target()
 
 func _process(_delta):
+	shape.radius = _creature.genome.view_radius.value
 	queue_redraw()
 
 func _draw():
