@@ -20,13 +20,14 @@ func get_random_point() -> Vector2: # get random point inside bounds
 	var y := randf_range(bounds.position.y, bounds.end.y)
 	return Vector2(x, y)
 
-func spawn_item():
+func spawn_item() -> Node:
 	var item := item_scene.instantiate()
 	item.position = get_random_point() # set random position inside bounds
 	item.rotation = randf_range(0, 2 * PI) # set random rotation
 	container.add_child(item)
 
 	item_spawned.emit(item)
+	return item
 
 func _on_timer_timeout(): # spawn item on timer timeout
 	spawn_item()
