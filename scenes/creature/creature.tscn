@@ -59,7 +59,6 @@ shape = SubResource("CircleShape2D_sq3o0")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Body" type="Sprite2D" parent="."]
-z_index = 1
 texture = ExtResource("1_23i3f")
 script = ExtResource("5_4ebl1")
 speed_color = SubResource("Gradient_av7uy")
