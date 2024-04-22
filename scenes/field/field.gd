@@ -32,3 +32,6 @@ func update_food_spawner():
 func _on_parameters_changed():
 	update_creature_spawner()
 	update_food_spawner()
+
+func _on_speed_value_changed(value: float):
+	parameters.speed = value
