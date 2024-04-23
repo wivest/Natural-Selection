@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=5 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field/field.tscn" id="1_30vq0"]
 [ext_resource type="Script" path="res://scenes/field/parameters.gd" id="2_g82rb"]
+[ext_resource type="Script" path="res://ui/button.gd" id="3_8cj3a"]
 
 [sub_resource type="Resource" id="Resource_iprm4"]
 resource_local_to_scene = true
@@ -26,6 +27,7 @@ parameters = SubResource("Resource_iprm4")
 [node name="Camera2D" type="Camera2D" parent="World"]
 
 [node name="GUI" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Control" type="Control" parent="GUI"]
 layout_mode = 3
@@ -53,6 +55,11 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 alignment = 1
 
+[node name="Button" type="Button" parent="GUI/Control/BottomContainer/HBoxContainer"]
+layout_mode = 2
+text = "Pause"
+script = ExtResource("3_8cj3a")
+
 [node name="Speed" type="HSlider" parent="GUI/Control/BottomContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -62,4 +69,5 @@ max_value = 10.0
 step = 0.0
 value = 1.0
 
+[connection signal="pressed" from="GUI/Control/BottomContainer/HBoxContainer/Button" to="GUI/Control/BottomContainer/HBoxContainer/Button" method="_on_pressed"]
 [connection signal="value_changed" from="GUI/Control/BottomContainer/HBoxContainer/Speed" to="World/Field" method="_on_speed_value_changed"]
