@@ -39,9 +39,10 @@ grow_vertical = 2
 
 [node name="BottomContainer" type="MarginContainer" parent="GUI/Control"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = -1
+anchor_left = 0.25
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.75
 anchor_bottom = 1.0
 offset_top = -48.0
 grow_horizontal = 2
@@ -53,6 +54,7 @@ theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/Control/BottomContainer"]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="Button" type="Button" parent="GUI/Control/BottomContainer/HBoxContainer"]
