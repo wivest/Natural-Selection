@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/pause/pause.gd" id="1_fpirx"]
 
-[node name="Button" type="Button"]
+[node name="Pause" type="Button"]
 text = "Pause"
 script = ExtResource("1_fpirx")
 
