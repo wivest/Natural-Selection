@@ -2,6 +2,7 @@ class_name Field
 extends Node2D
 
 @export var parameters: SimulationParameters
+@export var ui: UIParameters
 
 @onready var creature_manager: CreatureManager = $CreatureManager
 @onready var creature_spawner: Spawner = $CreatureManager/Spawner
@@ -23,6 +24,8 @@ func _ready():
 
 	parameters.changed.connect(_on_parameters_changed)
 
+	ui.parameters = parameters
+
 func update_creature_spawner():
 	creature_spawner.spawn_rate = parameters.speed * parameters.creatures_spawn_rate
 
@@ -35,3 +38,7 @@ func _on_parameters_changed():
 
 func _on_speed_value_changed(value: float):
 	parameters.speed = value
+
+func _on_parameters_parameters_changed(p: SimulationParameters):
+	parameters = p
+	_on_parameters_changed()
