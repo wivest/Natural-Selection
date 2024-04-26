@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4uc05bacefnv" path="res://ui/speed/speed.tscn" id="4_u7l0g"]
 [ext_resource type="Script" path="res://ui/speed/speed.gd" id="5_cupa2"]
 
-[sub_resource type="Resource" id="Resource_iprm4"]
+[sub_resource type="Resource" id="Resource_s5ev0"]
 resource_local_to_scene = true
 script = ExtResource("2_g82rb")
 speed = 1.0
@@ -26,7 +26,7 @@ energy_consumed_on_division = 400.0
 position = Vector2(0, 1)
 
 [node name="Field" parent="World" node_paths=PackedStringArray("ui") instance=ExtResource("1_30vq0")]
-parameters = SubResource("Resource_iprm4")
+parameters = SubResource("Resource_s5ev0")
 ui = NodePath("../../GUI/Parameters")
 
 [node name="Camera2D" type="Camera2D" parent="World"]
@@ -73,7 +73,5 @@ layout_mode = 2
 [node name="Restart" parent="GUI/Parameters/BottomContainer/HBoxContainer" instance=ExtResource("4_6v5ls")]
 layout_mode = 2
 
-[connection signal="parameters_changed" from="GUI/Parameters" to="World/Field" method="_on_parameters_parameters_changed"]
-[connection signal="parameters_changed" from="GUI/Parameters" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_parameters_changed"]
-[connection signal="speed_changed" from="GUI/Parameters/BottomContainer/HBoxContainer/Speed" to="GUI/Parameters" method="_on_parameters_changed"]
+[connection signal="parameters_set" from="GUI/Parameters" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_parameters_set"]
 [connection signal="value_changed" from="GUI/Parameters/BottomContainer/HBoxContainer/Speed" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_value_changed"]
