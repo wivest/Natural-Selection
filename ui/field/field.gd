@@ -22,4 +22,5 @@ func _ready():
 	value_box.value = start
 
 func _on_value_changed(v: float):
-	field_changed.emit(v)
+	if not Engine.is_editor_hint():
+		field_changed.emit(v)
