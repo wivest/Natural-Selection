@@ -38,6 +38,11 @@ func _on_field_ready(): # use instead of _ready() function
 	timer.start()
 
 func update_timer(): # update remaining time on change
+	if spawn_rate == 0:
+		timer.wait_time = 1
+		timer.stop()
+		return
+
 	var new_wait_time: float = 1 / spawn_rate
 	var correlation: float = new_wait_time / timer.wait_time
 	timer.start(timer.time_left * correlation)
