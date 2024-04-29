@@ -1,6 +1,6 @@
 # Natural Selection
 
-This project simulates evolution, which is controlled by certain parameters, that can be modified. Built with [**Godot Engine 4**](https://godotengine.org).
+Sumilation of evolution, , built inside [**Godot Engine 4**](https://godotengine.org).
 
 ## Getting started
 
