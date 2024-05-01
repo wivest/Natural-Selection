@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=12 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field/field.tscn" id="1_30vq0"]
 [ext_resource type="Script" path="res://scenes/field/parameters.gd" id="2_g82rb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://ui/speed/speed.gd" id="5_cupa2"]
 [ext_resource type="PackedScene" uid="uid://sun71qj2svtq" path="res://ui/field/field.tscn" id="8_24pjn"]
 [ext_resource type="Script" path="res://ui/tab_container.gd" id="8_tvuuu"]
+[ext_resource type="Script" path="res://ui/tabs.gd" id="10_ibm5p"]
 
 [sub_resource type="Resource" id="Resource_s5ev0"]
 resource_local_to_scene = true
@@ -76,6 +77,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="GUI/Parameters"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.1
@@ -116,6 +118,18 @@ layout_mode = 2
 field_name = "On Division"
 start = 350.0
 
+[node name="Tabs" type="Button" parent="GUI/Parameters" node_paths=PackedStringArray("tabs")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Tabs"
+script = ExtResource("10_ibm5p")
+tabs = NodePath("../TabContainer")
+
 [connection signal="parameters_set" from="GUI/Parameters" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_parameters_set"]
 [connection signal="parameters_set" from="GUI/Parameters" to="GUI/Parameters/TabContainer" method="_on_parameters_set"]
 [connection signal="value_changed" from="GUI/Parameters/BottomContainer/HBoxContainer/Speed" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_value_changed"]
@@ -124,3 +138,4 @@ start = 350.0
 [connection signal="field_changed" from="GUI/Parameters/TabContainer/Energy/OnStart" to="GUI/Parameters/TabContainer" method="_on_on_start_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/TabContainer/Energy/LowerBound" to="GUI/Parameters/TabContainer" method="_on_lower_bound_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/TabContainer/Energy/OnDivision" to="GUI/Parameters/TabContainer" method="_on_on_division_field_changed"]
+[connection signal="pressed" from="GUI/Parameters/Tabs" to="GUI/Parameters/Tabs" method="_on_pressed"]
