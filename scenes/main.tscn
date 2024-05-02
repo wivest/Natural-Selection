@@ -71,6 +71,7 @@ layout_mode = 2
 script = ExtResource("5_cupa2")
 
 [node name="Pause" parent="GUI/Parameters/BottomContainer/HBoxContainer" instance=ExtResource("3_8ha1i")]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 
 [node name="Restart" parent="GUI/Parameters/BottomContainer/HBoxContainer" instance=ExtResource("4_6v5ls")]
