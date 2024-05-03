@@ -1,6 +1,6 @@
 # Natural Selection
 
-Sumilation of evolution, built inside [**Godot Engine 4**](https://godotengine.org).
+Sumilation of evolution as natural selection, built inside [**Godot Engine 4**](https://godotengine.org).
 
 ## Getting started
 
