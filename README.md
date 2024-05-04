@@ -20,3 +20,5 @@ After you have the engine installed, you can run the project in the following st
 3. **Run** the imported project:
     - If Godot's _Project Manager_ is opened, select project and click `Run` button
     - If Godot's _editor_ is opened, click `Run Project` button _(top right corner)_ or press `F5` key.
+
+Some parameters can be tweaked in the "Tabs" menu at runtime.
