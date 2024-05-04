@@ -6,7 +6,7 @@ Sumilation of evolution as natural selection, built inside [**Godot Engine 4**](
 
 ### Requirements
 
-As the project is built inside **Godot Engine 4**, you will need to install the engine itself. Currently _v4.2.1_ is used, which can be downloaded at [official website](https://godotengine.org/download/). C# support is _not required_.
+As the project uses **Godot Engine 4**, you will need to install the engine itself. Currently _v4.2.1_ is used, which can be downloaded at [official website](https://godotengine.org/download/). C# support is _not required_.
 
 ### How to run
 
