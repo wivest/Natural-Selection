@@ -5,11 +5,7 @@ signal item_spawned(item: Node)
 
 @export var item_scene: PackedScene
 
-var spawn_rate: float:
-	set(value):
-		spawn_rate = value
-		update_timer()
-var items_on_start: int
+var parameters: SpawnerParameters
 
 @onready var timer: Timer = $Timer
 @onready var bounds: Rect2 = $Bounds.shape.get_rect()
@@ -32,18 +28,19 @@ func _on_timer_timeout(): # spawn item on timer timeout
 	container.add_child(spawn_item())
 
 func _on_field_ready(): # use instead of _ready() function
-	for i in range(items_on_start):
+	for i in range(parameters.on_start):
 		container.add_child(spawn_item())
 
-	timer.start()
+	if parameters.spawn_rate != 0:
+		timer.start()
 
 func update_timer(): # update remaining time on change
-	if spawn_rate == 0:
+	if parameters.spawn_rate == 0:
 		timer.wait_time = 1
 		timer.stop()
 		return
 
-	var new_wait_time: float = 1 / spawn_rate
+	var new_wait_time: float = 1 / (parameters.spawn_rate * Parameters.data.speed)
 	var correlation: float = new_wait_time / timer.wait_time
 	timer.start(timer.time_left * correlation)
 	timer.wait_time = new_wait_time

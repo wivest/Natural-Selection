@@ -10,7 +10,7 @@ func _on_on_division_field_changed(v: float):
 	Parameters.data.energy_consumed_on_division = v
 
 func _on_spawner_on_start_field_changed(v: float):
-	Parameters.data.food_on_start = v as int
+	Parameters.data.food_spawner.on_start = v as int
 
 func _on_spawn_rate_field_changed(v: float):
-	Parameters.data.food_spawn_rate = v
+	Parameters.data.food_spawner.spawn_rate = v

@@ -6,17 +6,9 @@ extends Resource
 		speed = value
 		changed.emit()
 
-@export_group("Spawner")
-@export var food_spawn_rate: float = 10:
-	set(value):
-		food_spawn_rate = value
-		changed.emit()
-@export var food_on_start: int = 10 # one-time property
-@export var creatures_spawn_rate: float = 0:
-	set(value):
-		creatures_spawn_rate = value
-		changed.emit()
-@export var creatures_on_start: int = 10 # one-time property
+@export_group("Spawners")
+@export var food_spawner: SpawnerParameters
+@export var creature_spawner: SpawnerParameters
 
 @export_group("Creature energy")
 @export var energy_on_start: float = 400 # subject to change
