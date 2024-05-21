@@ -10,6 +10,18 @@ signal item_spawned(item: Node)
 @onready var bounds: Rect2 = $Bounds.shape.get_rect()
 @onready var container: Node = $Container
 
+func _ready():
+	for i in range(parameters.on_start):
+		container.add_child(spawn_item())
+
+	update_timer()
+	if parameters.spawn_rate != 0:
+		timer.start()
+	
+	# connect to signals
+	parameters.changed.connect(update_timer)
+	Parameters.data.changed.connect(update_timer)
+
 func get_random_point() -> Vector2: # get random point inside bounds
 	var x := randf_range(bounds.position.x, bounds.end.x)
 	var y := randf_range(bounds.position.y, bounds.end.y)
@@ -25,13 +37,6 @@ func spawn_item() -> Node:
 
 func _on_timer_timeout(): # spawn item on timer timeout
 	container.add_child(spawn_item())
-
-func _on_field_ready(): # use instead of _ready() function
-	for i in range(parameters.on_start):
-		container.add_child(spawn_item())
-
-	if parameters.spawn_rate != 0:
-		timer.start()
 
 func update_timer(): # update remaining time on change
 	if parameters.spawn_rate == 0:
