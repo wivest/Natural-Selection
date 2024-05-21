@@ -1,23 +1,14 @@
-[gd_resource type="Resource" script_class="ParametersData" load_steps=5 format=3 uid="uid://bvoa4cv12ilt0"]
+[gd_resource type="Resource" script_class="ParametersData" load_steps=4 format=3 uid="uid://bvoa4cv12ilt0"]
 
 [ext_resource type="Script" path="res://scenes/field/parameters_data.gd" id="1_im1nw"]
-[ext_resource type="Script" path="res://scenes/spawner/spawner_parameters.gd" id="1_tk00u"]
-
-[sub_resource type="Resource" id="Resource_vew72"]
-script = ExtResource("1_tk00u")
-spawn_rate = 0.0
-on_start = 10
-
-[sub_resource type="Resource" id="Resource_0l6dj"]
-script = ExtResource("1_tk00u")
-spawn_rate = 10.0
-on_start = 10
+[ext_resource type="Resource" uid="uid://bbfibmbroifc0" path="res://creature_spawner_parameters.tres" id="1_uss4l"]
+[ext_resource type="Resource" uid="uid://boq86u7f5fv6d" path="res://food_spawner_parameters.tres" id="2_sc4ve"]
 
 [resource]
 script = ExtResource("1_im1nw")
 speed = 1.0
-food_spawner = SubResource("Resource_0l6dj")
-creature_spawner = SubResource("Resource_vew72")
+food_spawner = ExtResource("2_sc4ve")
+creature_spawner = ExtResource("1_uss4l")
 energy_on_start = 400.0
 division_lower_bound = 800.0
 energy_consumed_on_division = 400.0

@@ -4,8 +4,7 @@ extends Area2D
 signal item_spawned(item: Node)
 
 @export var item_scene: PackedScene
-
-var parameters: SpawnerParameters
+@export var parameters: SpawnerParameters
 
 @onready var timer: Timer = $Timer
 @onready var bounds: Rect2 = $Bounds.shape.get_rect()
