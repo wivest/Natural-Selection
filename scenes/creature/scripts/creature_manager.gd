@@ -16,10 +16,7 @@ func _instantiate_creature(creature_position: Vector2, genome: Genome):
 func _instantiate_cocoon(cocoon_position: Vector2, genome: Genome):
 	var cocoon := cocoon_spawner.spawn_item() as Cocoon
 	cocoon.position = cocoon_position
-
-	var mutated_genome: Genome = genome.duplicate(true) as Genome
-	mutated_genome.mutate()
-	cocoon.genome = mutated_genome # mutate genome of a creature
+	cocoon.genome = genome # set genome to genome of creature
 
 	cocoon_spawner.container.add_child(cocoon)
 
