@@ -7,7 +7,7 @@ signal divided(creature_position: Vector2, genome: Genome)
 
 var energy: float
 
-var parameters: SimulationParameters
+var parameters: ParametersData
 
 @onready var view: View = $View # visible area
 @onready var body: Body = $Body # sprite

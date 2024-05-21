@@ -1,7 +1,7 @@
 class_name Field
 extends Node2D
 
-@export var parameters: SimulationParameters
+@export var parameters: ParametersData
 @export var ui: UIParameters
 
 @onready var creature_manager: CreatureManager = $CreatureManager
@@ -39,6 +39,6 @@ func _on_parameters_changed():
 func _on_speed_value_changed(value: float):
 	parameters.speed = value
 
-func _on_parameters_parameters_changed(p: SimulationParameters):
+func _on_parameters_parameters_changed(p: ParametersData):
 	parameters = p
 	_on_parameters_changed()

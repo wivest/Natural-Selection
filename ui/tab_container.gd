@@ -1,8 +1,8 @@
 extends TabContainer
 
-var parameters: SimulationParameters
+var parameters: ParametersData
 
-func _on_parameters_set(p: SimulationParameters):
+func _on_parameters_set(p: ParametersData):
 	parameters = p
 
 func _on_on_start_field_changed(v: float):

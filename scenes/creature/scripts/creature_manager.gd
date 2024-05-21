@@ -3,7 +3,7 @@ extends Node
 
 @export var cocoon_scene: PackedScene
 
-var parameters: SimulationParameters
+var parameters: ParametersData
 
 @onready var creature_spawner: Spawner = $Spawner
 @onready var cocoon_spawner: Spawner = $CocoonSpawner

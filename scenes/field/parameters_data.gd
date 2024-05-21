@@ -1,4 +1,4 @@
-class_name SimulationParameters
+class_name ParametersData
 extends Resource
 
 @export var speed: float = 1:

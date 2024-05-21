@@ -8,7 +8,7 @@ const INCUBATION_TIME_CAP: float = 1.5
 
 var genome: Genome
 
-var parameters: SimulationParameters
+var parameters: ParametersData
 
 @onready var timer: Timer = $Timer
 
