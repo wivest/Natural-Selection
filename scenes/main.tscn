@@ -26,7 +26,6 @@ energy_consumed_on_division = 400.0
 [node name="Main" type="Node"]
 
 [node name="World" type="Node2D" parent="."]
-position = Vector2(0, 1)
 
 [node name="Field" parent="World" node_paths=PackedStringArray("ui") instance=ExtResource("1_30vq0")]
 parameters = SubResource("Resource_s5ev0")
