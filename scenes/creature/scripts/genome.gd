@@ -8,3 +8,8 @@ func mutate():
 	speed.mutate()
 	view_radius.mutate()
 	incubation_time.mutate()
+
+func divide() -> Genome:
+	var g: Genome = duplicate(true)
+	g.mutate()
+	return g
