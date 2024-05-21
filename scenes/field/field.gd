@@ -1,8 +1,6 @@
 class_name Field
 extends Node2D
 
-@export var ui: UIParameters
-
 @onready var creature_manager: CreatureManager = $CreatureManager
 @onready var creature_spawner: Spawner = $CreatureManager/Spawner
 @onready var cocoon_spawner: Spawner = $CreatureManager/CocoonSpawner
@@ -21,8 +19,6 @@ func _ready():
 	ready.connect(food_spawner._on_field_ready)
 
 	Parameters.data.changed.connect(_on_parameters_changed)
-
-	ui.parameters = Parameters.data
 
 func update_creature_spawner():
 	creature_spawner.spawn_rate = Parameters.data.speed * Parameters.data.creatures_spawn_rate

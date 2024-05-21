@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=9 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field/field.tscn" id="1_30vq0"]
 [ext_resource type="PackedScene" uid="uid://di74jdc7bcgvs" path="res://ui/pause/pause.tscn" id="3_8ha1i"]
-[ext_resource type="Script" path="res://ui/ui_parameters.gd" id="3_qpko1"]
 [ext_resource type="PackedScene" uid="uid://bsncbn0rrt55v" path="res://ui/restart/restart.tscn" id="4_6v5ls"]
 [ext_resource type="PackedScene" uid="uid://c4uc05bacefnv" path="res://ui/speed/speed.tscn" id="4_u7l0g"]
 [ext_resource type="Script" path="res://ui/speed/speed.gd" id="5_cupa2"]
@@ -14,8 +13,7 @@
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Field" parent="World" node_paths=PackedStringArray("ui") instance=ExtResource("1_30vq0")]
-ui = NodePath("../../GUI/Parameters")
+[node name="Field" parent="World" instance=ExtResource("1_30vq0")]
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 
@@ -29,7 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_qpko1")
 
 [node name="BottomContainer" type="MarginContainer" parent="GUI/Parameters"]
 layout_mode = 1
@@ -116,8 +113,6 @@ text = "Tabs"
 script = ExtResource("10_ibm5p")
 tabs = NodePath("../TabContainer")
 
-[connection signal="parameters_set" from="GUI/Parameters" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_parameters_set"]
-[connection signal="parameters_set" from="GUI/Parameters" to="GUI/Parameters/TabContainer" method="_on_parameters_set"]
 [connection signal="value_changed" from="GUI/Parameters/BottomContainer/HBoxContainer/Speed" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_value_changed"]
 [connection signal="field_changed" from="GUI/Parameters/TabContainer/Spawner/On Start" to="GUI/Parameters/TabContainer" method="_on_spawner_on_start_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/TabContainer/Spawner/SpawnRate" to="GUI/Parameters/TabContainer" method="_on_spawn_rate_field_changed"]
