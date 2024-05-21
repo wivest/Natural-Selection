@@ -3,8 +3,6 @@ extends Node
 
 @export var cocoon_scene: PackedScene
 
-var parameters: ParametersData
-
 @onready var creature_spawner: Spawner = $Spawner
 @onready var cocoon_spawner: Spawner = $CocoonSpawner
 
@@ -33,11 +31,9 @@ func _on_cocoon_incubated(cocoon_position: Vector2, genome: Genome):
 
 func _on_creature_spawned(item: Node):
 	var creature := item as Creature
-	creature.energy = parameters.energy_on_start # set start energy
-	creature.parameters = parameters
+	creature.energy = Parameters.data.energy_on_start # set start energy
 	creature.divided.connect(_on_creature_divided)
 
 func _on_cocoon_spawned(item: Node):
 	var cocoon := item as Cocoon
-	cocoon.parameters = parameters
 	cocoon.incubated.connect(_on_cocoon_incubated)

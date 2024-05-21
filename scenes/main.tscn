@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=10 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field/field.tscn" id="1_30vq0"]
-[ext_resource type="Script" path="res://scenes/field/parameters_data.gd" id="2_g82rb"]
 [ext_resource type="PackedScene" uid="uid://di74jdc7bcgvs" path="res://ui/pause/pause.tscn" id="3_8ha1i"]
 [ext_resource type="Script" path="res://ui/ui_parameters.gd" id="3_qpko1"]
 [ext_resource type="PackedScene" uid="uid://bsncbn0rrt55v" path="res://ui/restart/restart.tscn" id="4_6v5ls"]
@@ -11,24 +10,11 @@
 [ext_resource type="Script" path="res://ui/tab_container.gd" id="8_tvuuu"]
 [ext_resource type="Script" path="res://ui/tabs.gd" id="10_ibm5p"]
 
-[sub_resource type="Resource" id="Resource_s5ev0"]
-resource_local_to_scene = true
-script = ExtResource("2_g82rb")
-speed = 1.0
-food_spawn_rate = 10.0
-food_on_start = 10
-creatures_spawn_rate = 0.0
-creatures_on_start = 10
-energy_on_start = 400.0
-division_lower_bound = 800.0
-energy_consumed_on_division = 400.0
-
 [node name="Main" type="Node"]
 
 [node name="World" type="Node2D" parent="."]
 
 [node name="Field" parent="World" node_paths=PackedStringArray("ui") instance=ExtResource("1_30vq0")]
-parameters = SubResource("Resource_s5ev0")
 ui = NodePath("../../GUI/Parameters")
 
 [node name="Camera2D" type="Camera2D" parent="World"]
