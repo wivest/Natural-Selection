@@ -1,8 +1,6 @@
 class_name CreatureManager
 extends Node
 
-@export var cocoon_scene: PackedScene
-
 @onready var creature_spawner: Spawner = $Spawner
 @onready var cocoon_spawner: Spawner = $CocoonSpawner
 
@@ -26,7 +24,6 @@ func _on_cocoon_incubated(cocoon_position: Vector2, genome: Genome):
 
 func _on_creature_spawned(item: Node):
 	var creature := item as Creature
-	creature.energy = Parameters.data.energy_on_start # set start energy
 	creature.divided.connect(_on_creature_divided)
 
 func _on_cocoon_spawned(item: Node):

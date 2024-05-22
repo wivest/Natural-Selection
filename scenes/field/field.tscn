@@ -18,7 +18,6 @@ on_start = 0
 
 [node name="CreatureManager" type="Node" parent="."]
 script = ExtResource("1_ej44c")
-cocoon_scene = ExtResource("2_1ec6r")
 
 [node name="CocoonSpawner" parent="CreatureManager" instance=ExtResource("2_bdn2b")]
 item_scene = ExtResource("2_1ec6r")
