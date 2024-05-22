@@ -12,7 +12,7 @@ signal item_spawned(item: Node)
 
 func _ready():
 	for i in range(parameters.on_start):
-		container.add_child(spawn_item())
+		container.add_child(spawn_item(get_random_point()))
 
 	update_timer()
 	if parameters.spawn_rate != 0:
@@ -27,16 +27,16 @@ func get_random_point() -> Vector2: # get random point inside bounds
 	var y := randf_range(bounds.position.y, bounds.end.y)
 	return Vector2(x, y)
 
-func spawn_item() -> Node:
+func spawn_item(initial_position: Vector2) -> Node:
 	var item := item_scene.instantiate()
-	item.position = get_random_point() # set random position inside bounds
+	item.position = initial_position
 	item.rotation = randf_range(0, 2 * PI) # set random rotation
 
 	item_spawned.emit(item)
 	return item
 
 func _on_timer_timeout(): # spawn item on timer timeout
-	container.add_child(spawn_item())
+	container.add_child(spawn_item(get_random_point()))
 
 func update_timer(): # update remaining time on change
 	if parameters.spawn_rate == 0:

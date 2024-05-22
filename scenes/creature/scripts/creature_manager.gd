@@ -7,15 +7,13 @@ extends Node
 @onready var cocoon_spawner: Spawner = $CocoonSpawner
 
 func _instantiate_creature(creature_position: Vector2, genome: Genome):
-	var creature := creature_spawner.spawn_item() as Creature
-	creature.position = creature_position
+	var creature := creature_spawner.spawn_item(creature_position) as Creature
 	creature.genome = genome # set genome to genome of cocoon
 
 	creature_spawner.container.add_child(creature)
 
 func _instantiate_cocoon(cocoon_position: Vector2, genome: Genome):
-	var cocoon := cocoon_spawner.spawn_item() as Cocoon
-	cocoon.position = cocoon_position
+	var cocoon := cocoon_spawner.spawn_item(cocoon_position) as Cocoon
 	cocoon.genome = genome # set genome to genome of creature
 
 	cocoon_spawner.container.add_child(cocoon)
