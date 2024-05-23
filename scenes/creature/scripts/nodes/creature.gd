@@ -1,7 +1,6 @@
 class_name Creature
 extends CharacterBody2D
 
-signal divided(creature_position: Vector2, genome: Genome) # deprecated
 signal born(at_position: Vector2, genes: Genome)
 
 @export var genome: Genome
@@ -10,7 +9,6 @@ signal born(at_position: Vector2, genes: Genome)
 var energy: float = Parameters.data.energy_on_start
 
 @onready var view: View = $View # visible area
-@onready var body: Body = $Body # sprite
 
 func _physics_process(delta):
 	view.update_target(velocity)
@@ -27,7 +25,6 @@ func handle_energy_level():
 		queue_free()
 	if energy > Parameters.data.division_lower_bound:
 		energy -= Parameters.data.energy_consumed_on_division
-		divided.emit(position, genome) # deprecated
 		lay_egg()
 
 func lay_egg():
