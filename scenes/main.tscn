@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b57fcx5wnkjjp"]
 
-[ext_resource type="PackedScene" uid="uid://cgm3b22nd4ulf" path="res://scenes/field/field.tscn" id="1_30vq0"]
+[ext_resource type="PackedScene" uid="uid://bt534pqa6bbnk" path="res://field.tscn" id="1_3qgam"]
 [ext_resource type="PackedScene" uid="uid://di74jdc7bcgvs" path="res://ui/pause/pause.tscn" id="3_8ha1i"]
 [ext_resource type="PackedScene" uid="uid://bsncbn0rrt55v" path="res://ui/restart/restart.tscn" id="4_6v5ls"]
 [ext_resource type="PackedScene" uid="uid://c4uc05bacefnv" path="res://ui/speed/speed.tscn" id="4_u7l0g"]
@@ -13,7 +13,7 @@
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Field" parent="World" instance=ExtResource("1_30vq0")]
+[node name="Field" parent="World" instance=ExtResource("1_3qgam")]
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 
