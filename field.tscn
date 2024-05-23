@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt534pqa6bbnk"]
+
+[ext_resource type="Script" path="res://scenes/field/field.gd" id="1_ytd4p"]
+[ext_resource type="Script" path="res://holder.gd" id="2_mop8g"]
+[ext_resource type="PackedScene" uid="uid://xkd0hmsfnseg" path="res://scenes/creature/creature.tscn" id="3_jfbme"]
+[ext_resource type="Script" path="res://scenes/field/area.gd" id="3_xi5hn"]
+[ext_resource type="PackedScene" uid="uid://c7qn2jo68bxa3" path="res://scenes/food/food.tscn" id="4_gr27u"]
+[ext_resource type="Script" path="res://scenes/field/spawner.gd" id="6_asc34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe7f5"]
+size = Vector2(1024, 512)
+
+[node name="Field" type="Node2D"]
+script = ExtResource("1_ytd4p")
+
+[node name="Area" type="Area2D" parent="."]
+script = ExtResource("3_xi5hn")
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_fe7f5")
+
+[node name="Creatures" type="Node" parent="."]
+script = ExtResource("2_mop8g")
+item = ExtResource("3_jfbme")
+
+[node name="Foods" type="Node" parent="."]
+script = ExtResource("2_mop8g")
+item = ExtResource("4_gr27u")
+
+[node name="Spawner" type="Timer" parent="."]
+autostart = true
+script = ExtResource("6_asc34")
+rate = 10.0
+
+[node name="TMP" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]
