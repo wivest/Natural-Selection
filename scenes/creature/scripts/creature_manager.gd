@@ -1,8 +1,8 @@
 class_name CreatureManager
 extends Node
 
-@onready var creature_spawner: Spawner = $Spawner
-@onready var cocoon_spawner: Spawner = $CocoonSpawner
+@onready var creature_spawner: SpawnerDepr = $Spawner
+@onready var cocoon_spawner: SpawnerDepr = $CocoonSpawner
 
 func _instantiate_creature(creature_position: Vector2, genome: Genome):
 	var creature := creature_spawner.spawn_item(creature_position) as Creature
@@ -11,7 +11,7 @@ func _instantiate_creature(creature_position: Vector2, genome: Genome):
 	creature_spawner.container.add_child(creature)
 
 func _instantiate_cocoon(cocoon_position: Vector2, genome: Genome):
-	var cocoon := cocoon_spawner.spawn_item(cocoon_position) as Cocoon
+	var cocoon := cocoon_spawner.spawn_item(cocoon_position) as Egg
 	cocoon.genome = genome # set genome to genome of creature
 
 	cocoon_spawner.container.add_child(cocoon)
@@ -27,5 +27,5 @@ func _on_creature_spawned(item: Node):
 	creature.divided.connect(_on_creature_divided)
 
 func _on_cocoon_spawned(item: Node):
-	var cocoon := item as Cocoon
-	cocoon.incubated.connect(_on_cocoon_incubated)
+	var cocoon := item as Egg
+	cocoon.hatched.connect(_on_cocoon_incubated)

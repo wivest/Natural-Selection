@@ -1,4 +1,4 @@
-class_name Spawner
+class_name SpawnerDepr
 extends Area2D
 
 signal item_spawned(item: Node)
