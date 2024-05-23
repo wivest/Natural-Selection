@@ -6,6 +6,9 @@ extends Timer
 		rate = value
 		update_timer()
 
+func _ready():
+	Parameters.data.changed.connect(update_timer)
+
 func update_timer():
 	var wait_time_updated: float = 1 / (rate * Parameters.data.speed)
 	var correlation: float = wait_time_updated / wait_time
