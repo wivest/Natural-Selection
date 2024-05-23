@@ -1,4 +1,5 @@
-class_name Cocoon extends Sprite2D
+class_name Cocoon
+extends Sprite2D
 
 signal incubated(cocoon_position: Vector2, genome: Genome)
 
@@ -12,10 +13,6 @@ var genome: Genome
 
 func _ready():
 	Parameters.data.changed.connect(_on_parameters_changed)
-
-	# get mutated copy of genome
-	genome = genome.divide()
-
 	timer.start(genome.incubation_time.value / Parameters.data.speed)
 
 func _process(_delta):
