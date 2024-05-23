@@ -32,6 +32,4 @@ autostart = true
 script = ExtResource("6_asc34")
 rate = 10.0
 
-[node name="TMP" type="Camera2D" parent="."]
-
 [connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]
