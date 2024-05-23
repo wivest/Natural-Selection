@@ -1,4 +1,5 @@
-class_name Gene extends Resource
+class_name Gene
+extends Resource
 
 @export var value: float = 1
 @export var mutation_range: float = 0.1

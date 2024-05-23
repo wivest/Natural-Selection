@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xkd0hmsfnseg" path="res://scenes/creature/creature.tscn" id="1_cnptn"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/creature_manager.gd" id="1_ej44c"]
-[ext_resource type="PackedScene" uid="uid://fndcloo5xbk4" path="res://scenes/cocoon/cocoon.tscn" id="2_1ec6r"]
+[ext_resource type="PackedScene" uid="uid://fndcloo5xbk4" path="res://scenes/egg/egg.tscn" id="2_1ec6r"]
 [ext_resource type="PackedScene" uid="uid://bt28ncd8f8saw" path="res://scenes/spawner/spawner.tscn" id="2_bdn2b"]
 [ext_resource type="Script" path="res://scenes/spawner/spawner_parameters.gd" id="5_kix20"]
 [ext_resource type="Resource" uid="uid://bbfibmbroifc0" path="res://creature_spawner_parameters.tres" id="7_8cg7j"]

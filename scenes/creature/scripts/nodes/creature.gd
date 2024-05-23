@@ -28,10 +28,10 @@ func handle_energy_level():
 		lay_egg()
 
 func lay_egg():
-	var egg_instance: Cocoon = egg.instantiate()
+	var egg_instance: Egg = egg.instantiate()
 	egg_instance.position = position
 	egg_instance.genome = genome.divide()
-	egg_instance.incubated.connect(_on_egg_hatched)
+	egg_instance.hatched.connect(_on_egg_hatched)
 	add_sibling(egg_instance)
 
 func _on_egg_hatched(at_position: Vector2, genes: Genome):
