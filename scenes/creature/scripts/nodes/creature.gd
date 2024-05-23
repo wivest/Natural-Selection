@@ -1,9 +1,11 @@
 class_name Creature
 extends CharacterBody2D
 
-signal divided(creature_position: Vector2, genome: Genome)
+signal divided(creature_position: Vector2, genome: Genome) # deprecated
+signal born(at_position: Vector2, genes: Genome)
 
 @export var genome: Genome
+@export var egg: PackedScene
 
 var energy: float = Parameters.data.energy_on_start
 
@@ -25,7 +27,18 @@ func handle_energy_level():
 		queue_free()
 	if energy > Parameters.data.division_lower_bound:
 		energy -= Parameters.data.energy_consumed_on_division
-		divided.emit(position, genome)
+		divided.emit(position, genome) # deprecated
+		lay_egg()
+
+func lay_egg():
+	var egg_instance: Cocoon = egg.instantiate()
+	egg_instance.position = position
+	egg_instance.genome = genome.divide()
+	egg_instance.incubated.connect(_on_egg_hatched)
+	add_sibling(egg_instance)
+
+func _on_egg_hatched(at_position: Vector2, genes: Genome):
+	born.emit(at_position, genes)
 
 func _on_mouth_food_eaten(food: Food):
 	energy += food.contains_energy

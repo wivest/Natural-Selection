@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://xkd0hmsfnseg"]
+[gd_scene load_steps=17 format=3 uid="uid://xkd0hmsfnseg"]
 
 [ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://scenes/creature/creature.png" id="1_23i3f"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/creature.gd" id="1_ekvum"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/genome.gd" id="2_ngt82"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/gene.gd" id="3_0dlvc"]
+[ext_resource type="PackedScene" uid="uid://fndcloo5xbk4" path="res://scenes/cocoon/cocoon.tscn" id="4_mwjwd"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/view.gd" id="4_oe8uj"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/body.gd" id="5_4ebl1"]
 [ext_resource type="Script" path="res://scenes/creature/scripts/nodes/mouth.gd" id="7_6m8ev"]
@@ -46,6 +47,7 @@ radius = 11.0
 collision_mask = 0
 script = ExtResource("1_ekvum")
 genome = SubResource("Resource_dd1vt")
+egg = ExtResource("4_mwjwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0vg18")
