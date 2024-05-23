@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bt534pqa6bbnk"]
 
-[ext_resource type="Script" path="res://scenes/field/field.gd" id="1_ytd4p"]
-[ext_resource type="Script" path="res://holder.gd" id="2_mop8g"]
-[ext_resource type="PackedScene" uid="uid://xkd0hmsfnseg" path="res://scenes/creature/creature.tscn" id="3_jfbme"]
-[ext_resource type="Script" path="res://scenes/field/area.gd" id="3_xi5hn"]
-[ext_resource type="PackedScene" uid="uid://c7qn2jo68bxa3" path="res://scenes/food/food.tscn" id="4_gr27u"]
-[ext_resource type="Script" path="res://scenes/field/spawner.gd" id="6_asc34"]
+[ext_resource type="Script" path="res://field/field.gd" id="1_ytd4p"]
+[ext_resource type="Script" path="res://field/nodes/holder.gd" id="2_mop8g"]
+[ext_resource type="PackedScene" uid="uid://xkd0hmsfnseg" path="res://entities/creature/creature.tscn" id="3_jfbme"]
+[ext_resource type="Script" path="res://field/nodes/area.gd" id="3_xi5hn"]
+[ext_resource type="PackedScene" uid="uid://c7qn2jo68bxa3" path="res://entities/food/food.tscn" id="4_gr27u"]
+[ext_resource type="Script" path="res://field/nodes/spawner.gd" id="6_asc34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fe7f5"]
 size = Vector2(1024, 512)

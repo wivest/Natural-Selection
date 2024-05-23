@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ParametersData" load_steps=4 format=3 uid="uid://bvoa4cv12ilt0"]
+
+[ext_resource type="Script" path="res://parameters/parameters_data.gd" id="1_im1nw"]
+[ext_resource type="Resource" uid="uid://bbfibmbroifc0" path="res://parameters/creature_spawner_parameters.tres" id="1_uss4l"]
+[ext_resource type="Resource" uid="uid://boq86u7f5fv6d" path="res://parameters/food_spawner_parameters.tres" id="2_sc4ve"]
+
+[resource]
+script = ExtResource("1_im1nw")
+speed = 1.0
+food_spawner = ExtResource("2_sc4ve")
+creature_spawner = ExtResource("1_uss4l")
+energy_on_start = 400.0
+division_lower_bound = 800.0
+energy_consumed_on_division = 400.0

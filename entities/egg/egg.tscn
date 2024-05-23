@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://fndcloo5xbk4"]
 
-[ext_resource type="Texture2D" uid="uid://dnsmqyu8b61jy" path="res://scenes/egg/egg.png" id="1_1xvpw"]
-[ext_resource type="Script" path="res://scenes/egg/egg.gd" id="2_a64tk"]
+[ext_resource type="Texture2D" uid="uid://dnsmqyu8b61jy" path="res://entities/egg/egg.png" id="1_1xvpw"]
+[ext_resource type="Script" path="res://entities/egg/egg.gd" id="2_a64tk"]
 
 [sub_resource type="Gradient" id="Gradient_b5mk8"]
 colors = PackedColorArray(1, 1, 0, 1, 0, 0, 0, 1)
