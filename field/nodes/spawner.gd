@@ -1,7 +1,7 @@
 class_name Spawner
 extends Timer
 
-@export var rate: float = 0
+var rate: float = 0
 
 func _ready():
 	update_timer()
