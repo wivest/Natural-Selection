@@ -1,13 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://xkd0hmsfnseg"]
 
-[ext_resource type="Script" path="res://entities/creature/scripts/nodes/creature.gd" id="1_0eubi"]
-[ext_resource type="Script" path="res://entities/creature/scripts/gene.gd" id="2_nf75o"]
-[ext_resource type="Script" path="res://entities/creature/scripts/genome.gd" id="3_0clsu"]
+[ext_resource type="Script" path="res://entities/creature/creature.gd" id="1_0eubi"]
+[ext_resource type="Script" path="res://entities/creature/traits/gene.gd" id="2_nf75o"]
+[ext_resource type="Script" path="res://entities/creature/traits/genome.gd" id="3_0clsu"]
 [ext_resource type="PackedScene" uid="uid://fndcloo5xbk4" path="res://entities/egg/egg.tscn" id="4_alboh"]
-[ext_resource type="Script" path="res://entities/creature/scripts/nodes/view.gd" id="5_wiulf"]
+[ext_resource type="Script" path="res://entities/creature/nodes/view.gd" id="5_wiulf"]
 [ext_resource type="Texture2D" uid="uid://cbc3ai3qcvy1c" path="res://entities/creature/creature.png" id="6_6nai0"]
-[ext_resource type="Script" path="res://entities/creature/scripts/nodes/body.gd" id="7_tnnyg"]
-[ext_resource type="Script" path="res://entities/creature/scripts/nodes/mouth.gd" id="8_dia77"]
+[ext_resource type="Script" path="res://entities/creature/nodes/body.gd" id="7_tnnyg"]
+[ext_resource type="Script" path="res://entities/creature/nodes/mouth.gd" id="8_dia77"]
 
 [sub_resource type="Resource" id="Resource_wbpyc"]
 script = ExtResource("2_nf75o")
