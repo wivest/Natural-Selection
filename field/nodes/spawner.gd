@@ -11,6 +11,7 @@ func _ready():
 
 func update_timer():
 	var wait_time_updated: float = 1 / (rate * Parameters.data.speed)
-	var correlation: float = wait_time_updated / wait_time
-	start(time_left * correlation)
+	if is_inside_tree():
+		var correlation: float = wait_time_updated / wait_time
+		start(time_left * correlation)
 	wait_time = wait_time_updated
