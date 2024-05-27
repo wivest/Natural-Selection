@@ -14,4 +14,7 @@ extends Resource
 
 @export_group("Food")
 @export var food: int = 10
-@export var spawn_rate: float = 10
+@export var spawn_rate: float = 10:
+	set(value):
+		spawn_rate = value
+		changed.emit()
