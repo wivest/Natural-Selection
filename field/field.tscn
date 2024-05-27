@@ -30,6 +30,5 @@ item = ExtResource("4_gr27u")
 [node name="Spawner" type="Timer" parent="."]
 autostart = true
 script = ExtResource("6_asc34")
-rate = 10.0
 
 [connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]

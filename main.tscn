@@ -56,8 +56,11 @@ script = ExtResource("3_g1iyi")
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 
-[node name="Restart" parent="GUI/Parameters/BottomContainer/HBoxContainer" instance=ExtResource("5_6tsnc")]
+[node name="Restart" parent="GUI/Parameters/BottomContainer/HBoxContainer" node_paths=PackedStringArray("parent", "node") instance=ExtResource("5_6tsnc")]
 layout_mode = 2
+scene = ExtResource("1_pyuv2")
+parent = NodePath("../../../../../World")
+node = NodePath("../../../../../World/Field")
 
 [node name="TabContainer" type="TabContainer" parent="GUI/Parameters"]
 visible = false

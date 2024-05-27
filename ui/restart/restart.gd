@@ -1,4 +1,11 @@
 extends Button
 
+@export var scene: PackedScene
+@export var parent: Node2D
+@export var node: Field
+
 func _on_pressed():
-	get_tree().reload_current_scene()
+	node.queue_free()
+	var instance = scene.instantiate()
+	parent.add_child(instance)
+	node = instance
