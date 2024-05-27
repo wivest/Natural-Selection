@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="SpawnerParameters" load_steps=2 format=3 uid="uid://boq86u7f5fv6d"]
-
-[ext_resource type="Script" path="res://parameters/spawner_parameters.gd" id="1_2g7pm"]
-
-[resource]
-script = ExtResource("1_2g7pm")
-spawn_rate = 10.0
-on_start = 10

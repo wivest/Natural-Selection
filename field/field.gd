@@ -6,10 +6,10 @@ extends Node2D
 @onready var foods: Holder = $Foods
 
 func _ready():
-	for i in range(Parameters.data.creature_spawner.on_start):
+	for i in range(Parameters.data.creatures):
 		create_creature(area.get_random_point(), null)
 
-	for i in range(Parameters.data.food_spawner.on_start):
+	for i in range(Parameters.data.food):
 		spawn_food()
 
 func create_creature(at_position: Vector2, genes: Genome):
