@@ -28,98 +28,105 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BottomContainer" type="MarginContainer" parent="GUI/Parameters"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Parameters"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 1.0
-anchor_right = 0.75
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -48.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="TabContainer" type="TabContainer" parent="GUI/Parameters/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_d86jy")
+
+[node name="Spawner" type="VBoxContainer" parent="GUI/Parameters/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="On Start" parent="GUI/Parameters/VBoxContainer/TabContainer/Spawner" instance=ExtResource("7_fuiho")]
+layout_mode = 2
+field_name = "On Start"
+start = 10.0
+
+[node name="SpawnRate" parent="GUI/Parameters/VBoxContainer/TabContainer/Spawner" instance=ExtResource("7_fuiho")]
+layout_mode = 2
+field_name = "Spawn Rate"
+start = 10.0
+
+[node name="Energy" type="VBoxContainer" parent="GUI/Parameters/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="OnStart" parent="GUI/Parameters/VBoxContainer/TabContainer/Energy" instance=ExtResource("7_fuiho")]
+layout_mode = 2
+field_name = "On Start"
+start = 400.0
+
+[node name="LowerBound" parent="GUI/Parameters/VBoxContainer/TabContainer/Energy" instance=ExtResource("7_fuiho")]
+layout_mode = 2
+field_name = "Lower Bound"
+start = 800.0
+
+[node name="OnDivision" parent="GUI/Parameters/VBoxContainer/TabContainer/Energy" instance=ExtResource("7_fuiho")]
+layout_mode = 2
+field_name = "On Division"
+start = 350.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Parameters/VBoxContainer"]
+layout_mode = 2
+
+[node name="Left" type="Control" parent="GUI/Parameters/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomContainer" type="MarginContainer" parent="GUI/Parameters/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Parameters/BottomContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Speed" parent="GUI/Parameters/BottomContainer/HBoxContainer" instance=ExtResource("2_hvdpy")]
+[node name="Restart" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" node_paths=PackedStringArray("parent", "node") instance=ExtResource("5_6tsnc")]
 layout_mode = 2
-script = ExtResource("3_g1iyi")
+scene = ExtResource("1_pyuv2")
+parent = NodePath("../../../../../../../World")
+node = NodePath("../../../../../../../World/Field")
 
-[node name="Pause" parent="GUI/Parameters/BottomContainer/HBoxContainer" instance=ExtResource("4_33s14")]
+[node name="Pause" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("4_33s14")]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 
-[node name="Restart" parent="GUI/Parameters/BottomContainer/HBoxContainer" node_paths=PackedStringArray("parent", "node") instance=ExtResource("5_6tsnc")]
+[node name="Speed" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("2_hvdpy")]
 layout_mode = 2
-scene = ExtResource("1_pyuv2")
-parent = NodePath("../../../../../World")
-node = NodePath("../../../../../World/Field")
+script = ExtResource("3_g1iyi")
 
-[node name="TabContainer" type="TabContainer" parent="GUI/Parameters"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.1
-anchor_bottom = 1.0
-offset_right = 67.0
-grow_vertical = 2
-script = ExtResource("6_d86jy")
-
-[node name="Spawner" type="VBoxContainer" parent="GUI/Parameters/TabContainer"]
+[node name="VSeparator" type="VSeparator" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="On Start" parent="GUI/Parameters/TabContainer/Spawner" instance=ExtResource("7_fuiho")]
+[node name="Tabs" type="Button" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" node_paths=PackedStringArray("tabs")]
 layout_mode = 2
-field_name = "On Start"
-start = 10.0
-
-[node name="SpawnRate" parent="GUI/Parameters/TabContainer/Spawner" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "Spawn Rate"
-start = 10.0
-
-[node name="Energy" type="VBoxContainer" parent="GUI/Parameters/TabContainer"]
-visible = false
-layout_mode = 2
-
-[node name="OnStart" parent="GUI/Parameters/TabContainer/Energy" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "On Start"
-start = 400.0
-
-[node name="LowerBound" parent="GUI/Parameters/TabContainer/Energy" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "Lower Bound"
-start = 800.0
-
-[node name="OnDivision" parent="GUI/Parameters/TabContainer/Energy" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "On Division"
-start = 350.0
-
-[node name="Tabs" type="Button" parent="GUI/Parameters" node_paths=PackedStringArray("tabs")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -45.0
-offset_bottom = 31.0
-grow_horizontal = 0
 text = "Tabs"
 script = ExtResource("8_opmk5")
-tabs = NodePath("../TabContainer")
+tabs = NodePath("../../../../TabContainer")
 
-[connection signal="value_changed" from="GUI/Parameters/BottomContainer/HBoxContainer/Speed" to="GUI/Parameters/BottomContainer/HBoxContainer/Speed" method="_on_value_changed"]
-[connection signal="field_changed" from="GUI/Parameters/TabContainer/Spawner/On Start" to="GUI/Parameters/TabContainer" method="_on_spawner_on_start_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/TabContainer/Spawner/SpawnRate" to="GUI/Parameters/TabContainer" method="_on_spawn_rate_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/TabContainer/Energy/OnStart" to="GUI/Parameters/TabContainer" method="_on_on_start_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/TabContainer/Energy/LowerBound" to="GUI/Parameters/TabContainer" method="_on_lower_bound_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/TabContainer/Energy/OnDivision" to="GUI/Parameters/TabContainer" method="_on_on_division_field_changed"]
-[connection signal="pressed" from="GUI/Parameters/Tabs" to="GUI/Parameters/Tabs" method="_on_pressed"]
+[node name="Right" type="Control" parent="GUI/Parameters/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Spawner/On Start" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_spawner_on_start_field_changed"]
+[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Spawner/SpawnRate" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_spawn_rate_field_changed"]
+[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnStart" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_start_field_changed"]
+[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/LowerBound" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_lower_bound_field_changed"]
+[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnDivision" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_division_field_changed"]
+[connection signal="value_changed" from="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Speed" to="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Speed" method="_on_value_changed"]
+[connection signal="pressed" from="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Tabs" to="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Tabs" method="_on_pressed"]
