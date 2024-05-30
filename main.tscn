@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=5 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://bt534pqa6bbnk" path="res://field/field.tscn" id="1_pyuv2"]
-[ext_resource type="PackedScene" uid="uid://c4uc05bacefnv" path="res://ui/speed/speed.tscn" id="2_hvdpy"]
-[ext_resource type="Script" path="res://ui/speed/speed.gd" id="3_g1iyi"]
-[ext_resource type="PackedScene" uid="uid://di74jdc7bcgvs" path="res://ui/pause/pause.tscn" id="4_33s14"]
-[ext_resource type="PackedScene" uid="uid://bsncbn0rrt55v" path="res://ui/restart/restart.tscn" id="5_6tsnc"]
-[ext_resource type="Script" path="res://ui/tab_container.gd" id="6_d86jy"]
-[ext_resource type="PackedScene" uid="uid://sun71qj2svtq" path="res://ui/field/field.tscn" id="7_fuiho"]
-[ext_resource type="Script" path="res://ui/tabs.gd" id="8_opmk5"]
+[ext_resource type="PackedScene" uid="uid://ix702cpw3xxd" path="res://ui/bottom/bottom_bar.tscn" id="4_xks85"]
+[ext_resource type="Script" path="res://ui/settings/tab_container.gd" id="6_d86jy"]
+[ext_resource type="PackedScene" uid="uid://sun71qj2svtq" path="res://ui/settings/field/field.tscn" id="7_fuiho"]
 
 [node name="Main" type="Node"]
 
@@ -91,33 +87,11 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer"]
-layout_mode = 2
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="Restart" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" node_paths=PackedStringArray("parent", "node") instance=ExtResource("5_6tsnc")]
+[node name="BottomBar" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer" node_paths=PackedStringArray("parent", "node") instance=ExtResource("4_xks85")]
 layout_mode = 2
 scene = ExtResource("1_pyuv2")
-parent = NodePath("../../../../../../../World")
-node = NodePath("../../../../../../../World/Field")
-
-[node name="Pause" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("4_33s14")]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-
-[node name="Speed" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" instance=ExtResource("2_hvdpy")]
-layout_mode = 2
-script = ExtResource("3_g1iyi")
-
-[node name="VSeparator" type="VSeparator" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Tabs" type="Button" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer" node_paths=PackedStringArray("tabs")]
-layout_mode = 2
-text = "Tabs"
-script = ExtResource("8_opmk5")
-tabs = NodePath("../../../../TabContainer")
+parent = NodePath("../../../../../../World")
+node = NodePath("../../../../../../World/Field")
 
 [node name="Right" type="Control" parent="GUI/Parameters/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -128,5 +102,4 @@ size_flags_horizontal = 3
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnStart" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_start_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/LowerBound" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_lower_bound_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnDivision" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_division_field_changed"]
-[connection signal="value_changed" from="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Speed" to="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Speed" method="_on_value_changed"]
-[connection signal="pressed" from="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Tabs" to="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/HBoxContainer/Tabs" method="_on_pressed"]
+[connection signal="settings_requested" from="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/BottomBar" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_bottom_bar_settings_requested"]

@@ -14,3 +14,6 @@ func _on_spawner_on_start_field_changed(v: float):
 
 func _on_spawn_rate_field_changed(v: float):
 	Parameters.data.spawn_rate = v
+
+func _on_bottom_bar_settings_requested():
+	visible = not visible

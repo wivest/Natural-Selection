@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di74jdc7bcgvs"]
 
-[ext_resource type="Script" path="res://ui/pause/pause.gd" id="1_fpirx"]
+[ext_resource type="Script" path="res://ui/bottom/pause/pause.gd" id="1_fpirx"]
 
 [node name="Pause" type="Button"]
 text = "Pause"

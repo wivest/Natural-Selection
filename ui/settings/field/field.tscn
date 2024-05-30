@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sun71qj2svtq"]
 
-[ext_resource type="Script" path="res://ui/field/field.gd" id="1_7w4nt"]
+[ext_resource type="Script" path="res://ui/settings/field/field.gd" id="1_7w4nt"]
 
 [node name="Field" type="HBoxContainer"]
 script = ExtResource("1_7w4nt")
