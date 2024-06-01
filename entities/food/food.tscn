@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqqob"]
 
 [node name="Food" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_nmtju")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

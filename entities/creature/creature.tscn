@@ -54,6 +54,7 @@ shape = SubResource("CircleShape2D_0vg18")
 
 [node name="View" type="Area2D" parent="."]
 z_index = -1
+collision_mask = 2
 script = ExtResource("5_wiulf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
@@ -66,6 +67,7 @@ script = ExtResource("7_tnnyg")
 speed_color = SubResource("Gradient_av7uy")
 
 [node name="Mouth" type="Area2D" parent="."]
+collision_mask = 2
 script = ExtResource("8_dia77")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
