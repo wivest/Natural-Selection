@@ -39,7 +39,7 @@ func update_target(creature_velocity: Vector2):
 func _get_random_target() -> Vector2: # get random target on view circle
 	var degree: float = randf() * 2 * PI
 	var unit_circle: Vector2 = shape.radius * Vector2.UP.rotated(degree)
-	return unit_circle + position
+	return unit_circle + global_position
 
 func _find_closest_food() -> Vector2: # find closest food from visible ones
 	var new_target: Vector2 = _visible_food[0].position
