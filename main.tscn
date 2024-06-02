@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=6 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://bt534pqa6bbnk" path="res://field/field.tscn" id="1_pyuv2"]
 [ext_resource type="PackedScene" uid="uid://ix702cpw3xxd" path="res://ui/bottom/bottom_bar.tscn" id="4_xks85"]
 [ext_resource type="Script" path="res://ui/settings/tab_container.gd" id="6_d86jy"]
 [ext_resource type="PackedScene" uid="uid://sun71qj2svtq" path="res://ui/settings/field/field.tscn" id="7_fuiho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dp63g"]
 
 [node name="Main" type="Node"]
 
@@ -16,21 +18,20 @@
 [node name="GUI" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="Parameters" type="Control" parent="GUI"]
-layout_mode = 3
+[node name="Parameters" type="MarginContainer" parent="GUI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/Parameters"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 2
 
 [node name="TabContainer" type="TabContainer" parent="GUI/Parameters/VBoxContainer"]
@@ -71,29 +72,27 @@ layout_mode = 2
 field_name = "On Division"
 start = 350.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Parameters/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="GUI/Parameters/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dp63g")
+
+[node name="Bottom" type="HBoxContainer" parent="GUI/Parameters/VBoxContainer"]
 layout_mode = 2
 
-[node name="Left" type="Control" parent="GUI/Parameters/VBoxContainer/HBoxContainer"]
+[node name="Left" type="Control" parent="GUI/Parameters/VBoxContainer/Bottom"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BottomContainer" type="MarginContainer" parent="GUI/Parameters/VBoxContainer/HBoxContainer"]
+[node name="BottomBar" parent="GUI/Parameters/VBoxContainer/Bottom" node_paths=PackedStringArray("parent", "node") instance=ExtResource("4_xks85")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="BottomBar" parent="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer" node_paths=PackedStringArray("parent", "node") instance=ExtResource("4_xks85")]
-layout_mode = 2
 scene = ExtResource("1_pyuv2")
-parent = NodePath("../../../../../../World")
-node = NodePath("../../../../../../World/Field")
+parent = NodePath("../../../../../World")
+node = NodePath("../../../../../World/Field")
 
-[node name="Right" type="Control" parent="GUI/Parameters/VBoxContainer/HBoxContainer"]
+[node name="Right" type="Control" parent="GUI/Parameters/VBoxContainer/Bottom"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -102,4 +101,4 @@ size_flags_horizontal = 3
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnStart" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_start_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/LowerBound" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_lower_bound_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnDivision" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_division_field_changed"]
-[connection signal="settings_requested" from="GUI/Parameters/VBoxContainer/HBoxContainer/BottomContainer/BottomBar" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_bottom_bar_settings_requested"]
+[connection signal="settings_requested" from="GUI/Parameters/VBoxContainer/Bottom/BottomBar" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_bottom_bar_settings_requested"]
