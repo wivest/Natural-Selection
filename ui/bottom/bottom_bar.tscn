@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ix702cpw3xxd"]
+[gd_scene load_steps=9 format=3 uid="uid://ix702cpw3xxd"]
 
 [ext_resource type="Script" path="res://ui/bottom/bottom_bar.gd" id="1_8kjkv"]
 [ext_resource type="PackedScene" uid="uid://bsncbn0rrt55v" path="res://ui/bottom/restart/restart.tscn" id="1_8timj"]
@@ -7,14 +7,20 @@
 [ext_resource type="Script" path="res://ui/bottom/speed/speed.gd" id="5_pu1bt"]
 [ext_resource type="Script" path="res://ui/bottom/tabs.gd" id="6_dcxdb"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_qepva"]
+action = &"restart"
+
+[sub_resource type="Shortcut" id="Shortcut_wrlvm"]
+events = [SubResource("InputEventAction_qepva")]
+
 [node name="BottomBar" type="HBoxContainer"]
 theme_override_constants/separation = 16
 alignment = 1
 script = ExtResource("1_8kjkv")
 
-[node name="Restart" parent="." node_paths=PackedStringArray("root") instance=ExtResource("1_8timj")]
+[node name="Restart" parent="." instance=ExtResource("1_8timj")]
 layout_mode = 2
-root = NodePath("..")
+shortcut = SubResource("Shortcut_wrlvm")
 
 [node name="Pause" parent="." instance=ExtResource("3_rwr6u")]
 custom_minimum_size = Vector2(80, 0)

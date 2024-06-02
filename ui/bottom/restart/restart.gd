@@ -1,6 +1,6 @@
 extends Button
 
-@export var root: BottomBar
-
 func _on_pressed():
-	root.restart_field()
+	var event: InputEventAction = shortcut.events[0]
+	Input.action_press(event.action)
+	Input.action_release(event.action)

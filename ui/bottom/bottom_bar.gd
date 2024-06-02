@@ -7,6 +7,10 @@ signal settings_requested
 @export var parent: Node2D
 @export var node: Field
 
+func _physics_process(_delta):
+	if Input.is_action_just_pressed(&"restart"):
+		restart_field()
+
 func restart_field():
 	node.queue_free()
 	var instance = scene.instantiate()
