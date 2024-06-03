@@ -9,11 +9,7 @@ var _creature: Creature
 
 func _ready():
 	_creature = owner
-	update_color()
+	update_color(_creature.genome.speed.value)
 
-func _process(_delta):
-	update_color()
-
-func update_color():
-	var speed := _creature.genome.speed.value
+func update_color(speed: float):
 	modulate = speed_color.sample(speed / SPEED_COLOR_CAP) # set color based on speed

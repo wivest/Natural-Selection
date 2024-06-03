@@ -14,16 +14,13 @@ var _creature: Creature
 
 func _ready():
 	_creature = owner
-
-	target = _get_random_target()
-
-func _process(_delta):
 	shape.radius = _creature.genome.view_radius.value
 	queue_redraw()
 
+	target = _get_random_target()
+
 func _draw():
-	var view_radius := _creature.genome.view_radius.value
-	draw_circle(Vector2.ZERO, view_radius, VIEW_COLOR)
+	draw_circle(Vector2.ZERO, shape.radius, VIEW_COLOR)
 
 func update_target(creature_velocity: Vector2):
 	if _visible_food.size() == 0: # no visible food
