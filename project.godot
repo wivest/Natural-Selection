@@ -21,8 +21,10 @@ Parameters="*res://parameters/parameters_node.gd"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=512
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
