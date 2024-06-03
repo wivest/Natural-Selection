@@ -8,13 +8,10 @@ var target: Vector2 # target is in global scope
 var _visible_food: Array[Food] = []
 var _is_target_food: bool = false # target on creation is random
 
-var _creature: Creature
-
 @onready var shape: CircleShape2D = $CollisionShape2D.shape
 
 func _ready():
-	_creature = owner
-	shape.radius = _creature.genome.view_radius.value
+	shape.radius = owner.genome.view_radius.value
 	queue_redraw()
 
 	target = _get_random_target()
