@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6hsim7etwda0"]
+[gd_scene load_steps=6 format=3 uid="uid://b6hsim7etwda0"]
 
 [ext_resource type="Script" path="res://ui/bar/nodes/pause.gd" id="1_2hn0v"]
 [ext_resource type="Script" path="res://ui/bar/nodes/restart.gd" id="1_td8p0"]
 [ext_resource type="PackedScene" uid="uid://df6hmjm8x6q3w" path="res://ui/slider/slider.tscn" id="3_vjxlf"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_3ch4k"]
+action = &"restart"
+
+[sub_resource type="Shortcut" id="Shortcut_066hv"]
+events = [SubResource("InputEventAction_3ch4k")]
 
 [node name="Bar" type="HBoxContainer"]
 anchors_preset = 14
@@ -17,6 +23,7 @@ alignment = 1
 
 [node name="Restart" type="Button" parent="."]
 layout_mode = 2
+shortcut = SubResource("Shortcut_066hv")
 text = "Restart"
 script = ExtResource("1_td8p0")
 
@@ -39,3 +46,6 @@ layout_mode = 2
 [node name="Settings" type="Button" parent="."]
 layout_mode = 2
 text = "Settings"
+
+[connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]
+[connection signal="pressed" from="Pause" to="Pause" method="_on_pressed"]
