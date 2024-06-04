@@ -13,6 +13,7 @@ offset_top = -15.5
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Restart" type="Button" parent="."]
 layout_mode = 2
