@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://bt534pqa6bbnk" path="res://field/field.tscn" id="1_pyuv2"]
-[ext_resource type="PackedScene" uid="uid://ix702cpw3xxd" path="res://ui/bottom/bottom_bar.tscn" id="4_xks85"]
+[ext_resource type="PackedScene" uid="uid://b6hsim7etwda0" path="res://ui/bar/bar.tscn" id="5_w3kug"]
 [ext_resource type="Script" path="res://ui/settings/tab_container.gd" id="6_d86jy"]
 [ext_resource type="PackedScene" uid="uid://sun71qj2svtq" path="res://ui/settings/field/field.tscn" id="7_fuiho"]
 
@@ -77,10 +77,11 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BottomBar" parent="GUI/Parameters/VBoxContainer/Bottom" instance=ExtResource("4_xks85")]
+[node name="Bar" parent="GUI/Parameters/VBoxContainer/Bottom" instance=ExtResource("5_w3kug")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 16
 
 [node name="Right" type="Control" parent="GUI/Parameters/VBoxContainer/Bottom"]
 layout_mode = 2
