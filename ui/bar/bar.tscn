@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6hsim7etwda0"]
+[gd_scene load_steps=4 format=3 uid="uid://b6hsim7etwda0"]
 
 [ext_resource type="Script" path="res://ui/bar/nodes/pause.gd" id="1_2hn0v"]
 [ext_resource type="Script" path="res://ui/bar/nodes/restart.gd" id="1_td8p0"]
+[ext_resource type="PackedScene" uid="uid://df6hmjm8x6q3w" path="res://ui/slider/slider.tscn" id="3_vjxlf"]
 
 [node name="Bar" type="HBoxContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Restart" type="Button" parent="."]
 layout_mode = 2
@@ -14,6 +23,14 @@ script = ExtResource("1_td8p0")
 layout_mode = 2
 text = "Pause"
 script = ExtResource("1_2hn0v")
+
+[node name="Speed" parent="." instance=ExtResource("3_vjxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 10.0
+step = 0.1
+value = 1.0
 
 [node name="Section" type="VSeparator" parent="."]
 layout_mode = 2
