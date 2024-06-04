@@ -27,4 +27,7 @@ To lauch project you need to take following actions:
 
 ### Settings
 
-Some parameters can be tweaked in the "Tabs" menu at runtime. They affect creatures and food spawning.
+Some parameters can be tweaked in the "Settings" menu at runtime. They affect creatures and food spawning.
+
+> [!NOTE]
+> Due to refactoring temporarily not available.
