@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6hsim7etwda0"]
+
+[ext_resource type="Script" path="res://ui/bar/nodes/pause.gd" id="1_2hn0v"]
+[ext_resource type="Script" path="res://ui/bar/nodes/restart.gd" id="1_td8p0"]
+
+[node name="Bar" type="HBoxContainer"]
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("1_td8p0")
+
+[node name="Pause" type="Button" parent="."]
+layout_mode = 2
+text = "Pause"
+script = ExtResource("1_2hn0v")
+
+[node name="Section" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 2
+text = "Settings"
