@@ -1,16 +1,27 @@
 class_name Field
 extends Node2D
 
+var _copy: PackedScene = PackedScene.new()
+
 @onready var area: Area = $Area
 @onready var creatures: Holder = $Creatures
 @onready var foods: Holder = $Foods
 
 func _ready():
+	_copy.pack(self)
+
 	for i in range(Parameters.data.creatures):
 		create_creature(area.get_random_point(), null)
 
 	for i in range(Parameters.data.food):
 		spawn_food()
+
+func _process(_delta):
+	if Input.is_action_just_pressed(&"restart"):
+		queue_free()
+
+		var f = _copy.instantiate()
+		add_sibling(f)
 
 func create_creature(at_position: Vector2, genes: Genome):
 	var creature: Creature = creatures.create(at_position)

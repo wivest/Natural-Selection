@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://ix702cpw3xxd"]
+[gd_scene load_steps=8 format=3 uid="uid://ix702cpw3xxd"]
 
-[ext_resource type="Script" path="res://ui/bottom/bottom_bar.gd" id="1_8kjkv"]
 [ext_resource type="PackedScene" uid="uid://bsncbn0rrt55v" path="res://ui/bottom/restart/restart.tscn" id="1_8timj"]
 [ext_resource type="PackedScene" uid="uid://di74jdc7bcgvs" path="res://ui/bottom/pause/pause.tscn" id="3_rwr6u"]
 [ext_resource type="PackedScene" uid="uid://c4uc05bacefnv" path="res://ui/bottom/speed/speed.tscn" id="4_r7m77"]
@@ -16,7 +15,6 @@ events = [SubResource("InputEventAction_qepva")]
 [node name="BottomBar" type="HBoxContainer"]
 theme_override_constants/separation = 16
 alignment = 1
-script = ExtResource("1_8kjkv")
 
 [node name="Restart" parent="." instance=ExtResource("1_8timj")]
 layout_mode = 2
@@ -33,11 +31,10 @@ script = ExtResource("5_pu1bt")
 [node name="VSeparator" type="VSeparator" parent="."]
 layout_mode = 2
 
-[node name="Tabs" type="Button" parent="." node_paths=PackedStringArray("root")]
+[node name="Tabs" type="Button" parent="."]
 layout_mode = 2
 text = "Tabs"
 script = ExtResource("6_dcxdb")
-root = NodePath("..")
 
 [connection signal="value_changed" from="Speed" to="Speed" method="_on_value_changed"]
 [connection signal="pressed" from="Tabs" to="Tabs" method="_on_pressed"]

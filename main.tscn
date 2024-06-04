@@ -77,13 +77,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BottomBar" parent="GUI/Parameters/VBoxContainer/Bottom" node_paths=PackedStringArray("parent", "node") instance=ExtResource("4_xks85")]
+[node name="BottomBar" parent="GUI/Parameters/VBoxContainer/Bottom" instance=ExtResource("4_xks85")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-scene = ExtResource("1_pyuv2")
-parent = NodePath("../../../../../World")
-node = NodePath("../../../../../World/Field")
 
 [node name="Right" type="Control" parent="GUI/Parameters/VBoxContainer/Bottom"]
 layout_mode = 2
@@ -94,4 +91,3 @@ size_flags_horizontal = 3
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnStart" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_start_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/LowerBound" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_lower_bound_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Energy/OnDivision" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_on_division_field_changed"]
-[connection signal="settings_requested" from="GUI/Parameters/VBoxContainer/Bottom/BottomBar" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_bottom_bar_settings_requested"]
