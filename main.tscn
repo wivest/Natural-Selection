@@ -70,22 +70,10 @@ layout_mode = 2
 field_name = "On Division"
 start = 350.0
 
-[node name="Bottom" type="HBoxContainer" parent="GUI/Parameters/VBoxContainer"]
+[node name="Bar" parent="GUI/Parameters/VBoxContainer" instance=ExtResource("5_w3kug")]
 layout_mode = 2
-
-[node name="Left" type="Control" parent="GUI/Parameters/VBoxContainer/Bottom"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Bar" parent="GUI/Parameters/VBoxContainer/Bottom" instance=ExtResource("5_w3kug")]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 16
-
-[node name="Right" type="Control" parent="GUI/Parameters/VBoxContainer/Bottom"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Spawner/On Start" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_spawner_on_start_field_changed"]
 [connection signal="field_changed" from="GUI/Parameters/VBoxContainer/TabContainer/Spawner/SpawnRate" to="GUI/Parameters/VBoxContainer/TabContainer" method="_on_spawn_rate_field_changed"]
