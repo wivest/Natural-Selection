@@ -57,5 +57,4 @@ shortcut = SubResource("Shortcut_thara")
 text = "Settings"
 script = ExtResource("4_tfklx")
 
-[connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]
 [connection signal="pressed" from="Pause" to="Pause" method="_on_pressed"]
