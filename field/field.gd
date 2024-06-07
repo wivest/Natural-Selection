@@ -18,10 +18,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed(&"restart"):
-		queue_free()
-
-		var f = _copy.instantiate()
-		add_sibling(f)
+		restart()
 
 func create_creature(at_position: Vector2, genes: Genome):
 	var creature: Creature = creatures.create(at_position)
@@ -34,6 +31,11 @@ func spawn_food():
 	var angle: float = randf() * 360
 	var food: Food = foods.create(area.get_random_point(), angle)
 	foods.add(food)
+
+func restart():
+	var f = _copy.instantiate()
+	add_sibling(f)
+	queue_free()
 
 func _on_spawner_timeout():
 	spawn_food()

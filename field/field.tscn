@@ -11,6 +11,7 @@
 size = Vector2(1024, 512)
 
 [node name="Field" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_ytd4p")
 
 [node name="Area" type="Area2D" parent="."]
@@ -20,14 +21,17 @@ script = ExtResource("3_xi5hn")
 shape = SubResource("RectangleShape2D_fe7f5")
 
 [node name="Creatures" type="Node" parent="."]
+process_mode = 1
 script = ExtResource("2_mop8g")
 item = ExtResource("3_jfbme")
 
 [node name="Foods" type="Node" parent="."]
+process_mode = 1
 script = ExtResource("2_mop8g")
 item = ExtResource("4_gr27u")
 
 [node name="Spawner" type="Timer" parent="."]
+process_mode = 1
 autostart = true
 script = ExtResource("6_asc34")
 
