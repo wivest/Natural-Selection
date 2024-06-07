@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6hsim7etwda0"]
+[gd_scene load_steps=8 format=3 uid="uid://b6hsim7etwda0"]
 
 [ext_resource type="Script" path="res://ui/bar/nodes/pause.gd" id="1_2hn0v"]
-[ext_resource type="Script" path="res://ui/bar/nodes/restart.gd" id="1_td8p0"]
+[ext_resource type="Script" path="res://ui/bar/nodes/action_button.gd" id="1_3etij"]
 [ext_resource type="PackedScene" uid="uid://df6hmjm8x6q3w" path="res://ui/slider/slider.tscn" id="3_vjxlf"]
-[ext_resource type="Script" path="res://ui/bar/nodes/settings.gd" id="4_tfklx"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_3ch4k"]
 action = &"restart"
@@ -32,7 +31,7 @@ alignment = 1
 layout_mode = 2
 shortcut = SubResource("Shortcut_066hv")
 text = "Restart"
-script = ExtResource("1_td8p0")
+script = ExtResource("1_3etij")
 
 [node name="Pause" type="Button" parent="."]
 layout_mode = 2
@@ -55,6 +54,6 @@ layout_mode = 2
 layout_mode = 2
 shortcut = SubResource("Shortcut_thara")
 text = "Settings"
-script = ExtResource("4_tfklx")
+script = ExtResource("1_3etij")
 
 [connection signal="pressed" from="Pause" to="Pause" method="_on_pressed"]
