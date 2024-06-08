@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=7 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://bt534pqa6bbnk" path="res://field/field.tscn" id="1_pyuv2"]
 [ext_resource type="Script" path="res://ui/tabs/manager.gd" id="2_ki502"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/counter.gd" id="5_7rui8"]
 [ext_resource type="PackedScene" uid="uid://b6hsim7etwda0" path="res://ui/bar/bar.tscn" id="5_w3kug"]
 [ext_resource type="Script" path="res://ui/settings/tab_container.gd" id="6_d86jy"]
 [ext_resource type="PackedScene" uid="uid://sun71qj2svtq" path="res://ui/settings/field/field.tscn" id="7_fuiho"]
@@ -88,6 +89,19 @@ start = 800.0
 layout_mode = 2
 field_name = "On Division"
 start = 350.0
+
+[node name="Statistics" type="TabContainer" parent="GUI/Parameters/VBoxContainer/Tabs"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Counter" type="Label" parent="GUI/Parameters/VBoxContainer/Tabs/Statistics"]
+layout_mode = 2
+script = ExtResource("5_7rui8")
 
 [node name="Bar" parent="GUI/Parameters/VBoxContainer" instance=ExtResource("5_w3kug")]
 layout_mode = 2
