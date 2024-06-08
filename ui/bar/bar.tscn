@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6hsim7etwda0"]
+[gd_scene load_steps=10 format=3 uid="uid://b6hsim7etwda0"]
 
 [ext_resource type="Script" path="res://ui/bar/nodes/pause.gd" id="1_2hn0v"]
 [ext_resource type="Script" path="res://ui/bar/nodes/action_button.gd" id="1_3etij"]
@@ -15,6 +15,12 @@ action = &"open_settings"
 
 [sub_resource type="Shortcut" id="Shortcut_thara"]
 events = [SubResource("InputEventAction_w6dmb")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_v31ar"]
+action = &"open_statistics"
+
+[sub_resource type="Shortcut" id="Shortcut_5ktuw"]
+events = [SubResource("InputEventAction_v31ar")]
 
 [node name="Bar" type="HBoxContainer"]
 anchors_preset = 14
@@ -54,6 +60,12 @@ layout_mode = 2
 layout_mode = 2
 shortcut = SubResource("Shortcut_thara")
 text = "Settings"
+script = ExtResource("1_3etij")
+
+[node name="Statistics" type="Button" parent="."]
+layout_mode = 2
+shortcut = SubResource("Shortcut_5ktuw")
+text = "Statistics"
 script = ExtResource("1_3etij")
 
 [connection signal="pressed" from="Pause" to="Pause" method="_on_pressed"]
