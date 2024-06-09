@@ -2,5 +2,9 @@ extends VBoxContainer
 
 @export var parameters: Array[UIParameter]
 
-func _on_parameter_changed(value: float, parameter_name: String):
-	pass
+func _ready():
+	for p in parameters:
+		p.value_changed.connect(_on_parameter_changed.bind(p.parameter_name))
+
+func _on_parameter_changed(value: Variant, parameter_name: String):
+	Parameters.data.set(parameter_name, value)

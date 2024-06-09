@@ -1,2 +1,4 @@
 class_name UIParameter
-extends HBoxContainer
+extends SpinBox
+
+@export var parameter_name: String
