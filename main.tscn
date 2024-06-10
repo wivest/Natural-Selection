@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b57fcx5wnkjjp"]
+[gd_scene load_steps=6 format=3 uid="uid://b57fcx5wnkjjp"]
 
 [ext_resource type="PackedScene" uid="uid://bt534pqa6bbnk" path="res://field/field.tscn" id="1_pyuv2"]
 [ext_resource type="Script" path="res://ui/tabs/manager.gd" id="2_ki502"]
+[ext_resource type="PackedScene" uid="uid://d0kcmg1d3jhci" path="res://ui/tabs/settings/settings.tscn" id="3_206st"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/counter.gd" id="5_7rui8"]
 [ext_resource type="PackedScene" uid="uid://b6hsim7etwda0" path="res://ui/bar/bar.tscn" id="5_w3kug"]
-[ext_resource type="Script" path="res://ui/settings/tab_container.gd" id="6_d86jy"]
-[ext_resource type="PackedScene" uid="uid://sun71qj2svtq" path="res://ui/settings/field/field.tscn" id="7_fuiho"]
 
 [node name="Main" type="Node"]
 
@@ -47,48 +46,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Settings" type="TabContainer" parent="GUI/Parameters/VBoxContainer/Tabs"]
+[node name="Settings" parent="GUI/Parameters/VBoxContainer/Tabs" instance=ExtResource("3_206st")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-script = ExtResource("6_d86jy")
-
-[node name="Spawner" type="VBoxContainer" parent="GUI/Parameters/VBoxContainer/Tabs/Settings"]
-layout_mode = 2
-
-[node name="On Start" parent="GUI/Parameters/VBoxContainer/Tabs/Settings/Spawner" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "On Start"
-start = 10.0
-
-[node name="SpawnRate" parent="GUI/Parameters/VBoxContainer/Tabs/Settings/Spawner" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "Spawn Rate"
-start = 10.0
-
-[node name="Energy" type="VBoxContainer" parent="GUI/Parameters/VBoxContainer/Tabs/Settings"]
-visible = false
-layout_mode = 2
-
-[node name="OnStart" parent="GUI/Parameters/VBoxContainer/Tabs/Settings/Energy" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "On Start"
-start = 400.0
-
-[node name="LowerBound" parent="GUI/Parameters/VBoxContainer/Tabs/Settings/Energy" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "Lower Bound"
-start = 800.0
-
-[node name="OnDivision" parent="GUI/Parameters/VBoxContainer/Tabs/Settings/Energy" instance=ExtResource("7_fuiho")]
-layout_mode = 2
-field_name = "On Division"
-start = 350.0
 
 [node name="Statistics" type="TabContainer" parent="GUI/Parameters/VBoxContainer/Tabs"]
 visible = false
@@ -106,9 +66,3 @@ script = ExtResource("5_7rui8")
 [node name="Bar" parent="GUI/Parameters/VBoxContainer" instance=ExtResource("5_w3kug")]
 layout_mode = 2
 size_flags_stretch_ratio = 2.0
-
-[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/Tabs/Settings/Spawner/On Start" to="GUI/Parameters/VBoxContainer/Tabs/Settings" method="_on_spawner_on_start_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/Tabs/Settings/Spawner/SpawnRate" to="GUI/Parameters/VBoxContainer/Tabs/Settings" method="_on_spawn_rate_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/Tabs/Settings/Energy/OnStart" to="GUI/Parameters/VBoxContainer/Tabs/Settings" method="_on_on_start_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/Tabs/Settings/Energy/LowerBound" to="GUI/Parameters/VBoxContainer/Tabs/Settings" method="_on_lower_bound_field_changed"]
-[connection signal="field_changed" from="GUI/Parameters/VBoxContainer/Tabs/Settings/Energy/OnDivision" to="GUI/Parameters/VBoxContainer/Tabs/Settings" method="_on_on_division_field_changed"]

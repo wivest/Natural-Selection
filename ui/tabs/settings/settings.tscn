@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://d0kcmg1d3jhci"]
+[gd_scene load_steps=2 format=3 uid="uid://d0kcmg1d3jhci"]
+
+[ext_resource type="PackedScene" uid="uid://cla45h7wq8vdy" path="res://ui/tabs/settings/sections/food.tscn" id="1_r1s3c"]
 
 [node name="Settings" type="TabContainer"]
 anchors_preset = 15
@@ -6,5 +8,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+
+[node name="Food" parent="." instance=ExtResource("1_r1s3c")]
+layout_mode = 2
