@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cla45h7wq8vdy"]
+[gd_scene load_steps=3 format=3 uid="uid://cv8pe02y3l4f"]
 
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/section.gd" id="1_hangq"]
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_0xsf4"]
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/section.gd" id="1_35tgw"]
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_77f0r"]
 
 [node name="Food" type="VBoxContainer" node_paths=PackedStringArray("parameters")]
 offset_right = 88.0
 offset_bottom = 35.0
-script = ExtResource("1_hangq")
+script = ExtResource("1_35tgw")
 parameters = [NodePath("OnStart/UIParameter"), NodePath("SpawnRate/UIParameter")]
 
 [node name="OnStart" type="HBoxContainer" parent="."]
@@ -20,7 +20,7 @@ text = "On start"
 [node name="UIParameter" type="SpinBox" parent="OnStart"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_0xsf4")
+script = ExtResource("2_77f0r")
 parameter_name = "food"
 
 [node name="SpawnRate" type="HBoxContainer" parent="."]
@@ -34,5 +34,5 @@ text = "Spawn rate"
 [node name="UIParameter" type="SpinBox" parent="SpawnRate"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_0xsf4")
+script = ExtResource("2_77f0r")
 parameter_name = "spawn_rate"

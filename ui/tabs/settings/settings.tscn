@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0kcmg1d3jhci"]
+[gd_scene load_steps=3 format=3 uid="uid://d0kcmg1d3jhci"]
 
-[ext_resource type="PackedScene" uid="uid://cla45h7wq8vdy" path="res://ui/tabs/settings/sections/food.tscn" id="1_r1s3c"]
+[ext_resource type="PackedScene" uid="uid://cv8pe02y3l4f" path="res://ui/tabs/settings/sections/food.tscn" id="1_r1s3c"]
+[ext_resource type="PackedScene" uid="uid://cla45h7wq8vdy" path="res://ui/tabs/settings/sections/creature.tscn" id="2_1e7py"]
 
 [node name="Settings" type="TabContainer"]
 anchors_preset = 15
@@ -10,4 +11,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Food" parent="." instance=ExtResource("1_r1s3c")]
+layout_mode = 2
+
+[node name="Creature" parent="." instance=ExtResource("2_1e7py")]
+visible = false
 layout_mode = 2
