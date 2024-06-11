@@ -10,9 +10,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Food" parent="." instance=ExtResource("1_r1s3c")]
+[node name="Food" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Section" parent="Food" instance=ExtResource("1_r1s3c")]
 layout_mode = 2
 
-[node name="Creature" parent="." instance=ExtResource("2_1e7py")]
+[node name="Creature" type="MarginContainer" parent="."]
 visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Section" parent="Creature" instance=ExtResource("2_1e7py")]
 layout_mode = 2
