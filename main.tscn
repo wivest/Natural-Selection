@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bt534pqa6bbnk" path="res://field/field.tscn" id="1_pyuv2"]
 [ext_resource type="Script" path="res://ui/tabs/manager.gd" id="2_ki502"]
 [ext_resource type="PackedScene" uid="uid://d0kcmg1d3jhci" path="res://ui/tabs/settings/settings.tscn" id="3_206st"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/counter.gd" id="5_7rui8"]
+[ext_resource type="PackedScene" uid="uid://thhd74d7nm65" path="res://ui/tabs/statistics/statistics.tscn" id="4_2e1bb"]
 [ext_resource type="PackedScene" uid="uid://b6hsim7etwda0" path="res://ui/bar/bar.tscn" id="5_w3kug"]
 
 [node name="Main" type="Node"]
@@ -50,18 +50,9 @@ grow_vertical = 2
 visible = false
 layout_mode = 1
 
-[node name="Statistics" type="TabContainer" parent="GUI/Parameters/VBoxContainer/Tabs"]
+[node name="Statistics" parent="GUI/Parameters/VBoxContainer/Tabs" instance=ExtResource("4_2e1bb")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Counter" type="Label" parent="GUI/Parameters/VBoxContainer/Tabs/Statistics"]
-layout_mode = 2
-script = ExtResource("5_7rui8")
 
 [node name="Bar" parent="GUI/Parameters/VBoxContainer" instance=ExtResource("5_w3kug")]
 layout_mode = 2

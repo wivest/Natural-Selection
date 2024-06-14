@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://thhd74d7nm65"]
+
+[ext_resource type="PackedScene" uid="uid://bybyo71adhl4m" path="res://ui/tabs/statistics/population/chart.tscn" id="1_7me1r"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/population/counter.gd" id="1_epolv"]
+
+[node name="Statistics" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Population" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Population" type="VBoxContainer" parent="Population"]
+layout_mode = 2
+
+[node name="Counter" type="Label" parent="Population/Population"]
+layout_mode = 2
+script = ExtResource("1_epolv")
+
+[node name="Graph" parent="Population/Population" instance=ExtResource("1_7me1r")]
+layout_mode = 2
+size_flags_vertical = 3
