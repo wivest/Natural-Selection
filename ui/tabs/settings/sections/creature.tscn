@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://ui/tabs/settings/sections/section.gd" id="1_35tgw"]
 [ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_77f0r"]
 
-[node name="Food" type="VBoxContainer" node_paths=PackedStringArray("parameters")]
+[node name="Creature" type="VBoxContainer" node_paths=PackedStringArray("parameters")]
 offset_right = 88.0
 offset_bottom = 35.0
 script = ExtResource("1_35tgw")
-parameters = [NodePath("OnStart/UIParameter"), NodePath("WhenBorn/UIParameter"), NodePath("DivisionLowerBound/UIParameter"), NodePath("ConsumedOnDivision/UIParameter")]
+parameters = [NodePath("OnStart/UIParameter")]
 
 [node name="OnStart" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -22,53 +22,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_77f0r")
 parameter_name = "creatures"
-
-[node name="HSeparator" type="HSeparator" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Energy"
-
-[node name="WhenBorn" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="WhenBorn"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "When born"
-
-[node name="UIParameter" type="SpinBox" parent="WhenBorn"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("2_77f0r")
-parameter_name = "energy_on_start"
-
-[node name="DivisionLowerBound" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="DivisionLowerBound"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Division lower bound"
-
-[node name="UIParameter" type="SpinBox" parent="DivisionLowerBound"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("2_77f0r")
-parameter_name = "division_lower_bound"
-
-[node name="ConsumedOnDivision" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ConsumedOnDivision"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Consumed on division"
-
-[node name="UIParameter" type="SpinBox" parent="ConsumedOnDivision"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("2_77f0r")
-parameter_name = "energy_consumed_on_division"

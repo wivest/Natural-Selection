@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv7je1o05chou"]
+
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/section.gd" id="1_wd4du"]
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_xsrcw"]
+
+[node name="Energy" type="VBoxContainer" node_paths=PackedStringArray("parameters")]
+offset_right = 88.0
+offset_bottom = 35.0
+script = ExtResource("1_wd4du")
+parameters = [NodePath("WhenBorn/UIParameter"), NodePath("DivisionLowerBound/UIParameter"), NodePath("ConsumedOnDivision/UIParameter")]
+
+[node name="WhenBorn" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WhenBorn"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "When born"
+
+[node name="UIParameter" type="SpinBox" parent="WhenBorn"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xsrcw")
+parameter_name = "energy_on_start"
+
+[node name="DivisionLowerBound" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DivisionLowerBound"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Division lower bound"
+
+[node name="UIParameter" type="SpinBox" parent="DivisionLowerBound"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xsrcw")
+parameter_name = "division_lower_bound"
+
+[node name="ConsumedOnDivision" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConsumedOnDivision"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Consumed on division"
+
+[node name="UIParameter" type="SpinBox" parent="ConsumedOnDivision"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xsrcw")
+parameter_name = "energy_consumed_on_division"
