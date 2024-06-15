@@ -11,3 +11,7 @@ func create(at_position: Vector2, angle: float=0) -> Node2D:
 
 func add(node: Node2D):
 	add_child(node)
+
+func free_children():
+	for child in get_children():
+		child.free()
