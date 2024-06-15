@@ -13,6 +13,11 @@ func _process(_delta):
 		population.append(Creature.count)
 		queue_redraw()
 
+	if Input.is_action_just_pressed(&"restart"):
+		population = []
+		_previous_step = time
+		population.append(Creature.count)
+
 func _draw():
 	var maximum: int = population.max()
 	var prev: Vector2
