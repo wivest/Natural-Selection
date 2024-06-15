@@ -1,7 +1,6 @@
 extends Control
 
 @export var step: float = 0.2
-@export var distance: float = 6
 
 var population: Array[int] = []
 
@@ -17,6 +16,8 @@ func _process(_delta):
 func _draw():
 	var maximum: int = population.max()
 	var prev: Vector2
+
+	var distance: float = size.x / (max(population.size() - 1, 1))
 
 	for i in range(population.size()):
 		var ratio: float = float(population[i]) / maximum
