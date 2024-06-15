@@ -15,5 +15,5 @@ func update_label(v: float):
 	label.anchor_right = ratio
 
 func _on_value_changed(v: float):
-	Parameters.data.speed = v
+	Parameters.speed = v
 	update_label(v)

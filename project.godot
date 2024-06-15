@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Parameters="*res://parameters/parameters_node.gd"
+Parameters="*res://parameters.gd"
 
 [display]
 

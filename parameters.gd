@@ -1,10 +1,13 @@
-class_name ParametersData
-extends Resource
+class_name ParametersNode
+extends Node
+
+signal speed_changed
+signal spawn_rate_changed
 
 @export var speed: float = 1:
 	set(value):
 		speed = value
-		changed.emit()
+		speed_changed.emit()
 
 @export_group("Creature")
 @export var creatures: int = 10
@@ -17,4 +20,4 @@ extends Resource
 @export var spawn_rate: float = 10:
 	set(value):
 		spawn_rate = value
-		changed.emit()
+		spawn_rate_changed.emit()

@@ -5,7 +5,7 @@ extends VBoxContainer
 func _ready():
 	for p in parameters:
 		p.value_changed.connect(_on_parameter_changed.bind(p.parameter_name))
-		p.value = Parameters.data.get(p.parameter_name)
+		p.value = Parameters.get(p.parameter_name)
 
 func _on_parameter_changed(value: Variant, parameter_name: String):
-	Parameters.data.set(parameter_name, value)
+	Parameters.set(parameter_name, value)

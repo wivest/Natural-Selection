@@ -10,10 +10,10 @@ var _copy: PackedScene = PackedScene.new()
 func _ready():
 	_copy.pack(self)
 
-	for i in range(Parameters.data.creatures):
+	for i in range(Parameters.creatures):
 		create_creature(area.get_random_point(), null)
 
-	for i in range(Parameters.data.food):
+	for i in range(Parameters.food):
 		spawn_food()
 
 func _process(_delta):
