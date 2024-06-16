@@ -1,6 +1,7 @@
 extends Control
 
 @export var step: float = 0.2
+@export var max_length: int = 500
 
 var population: Array[int] = []
 
@@ -11,6 +12,8 @@ func _process(_delta):
 	if time - _previous_step >= step / Parameters.speed:
 		_previous_step = time
 		population.append(Creature.count)
+		if population.size() > max_length:
+			population.remove_at(0)
 		queue_redraw()
 
 	if Input.is_action_just_pressed(&"restart"):
