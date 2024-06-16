@@ -1,7 +1,7 @@
 extends Control
 
 @export var step: float = 0.2
-@export var max_length: int = 500
+@export var length_limit: int = 500
 
 var population: Array[int] = []
 
@@ -12,8 +12,6 @@ func _process(_delta):
 	if time - _previous_step >= step / Parameters.speed:
 		_previous_step = time
 		population.append(Creature.count)
-		if population.size() > max_length:
-			population.remove_at(0)
 		queue_redraw()
 
 	if Input.is_action_just_pressed(&"restart"):
@@ -25,12 +23,13 @@ func _draw():
 	var maximum: int = population.max()
 	var prev: Vector2
 
-	var distance: float = size.x / (max(population.size() - 1, 1))
+	var distance: float = size.x / min(population.size() - 1, length_limit)
+	var start_index: int = max(population.size() - length_limit, 0)
 
-	for i in range(population.size()):
+	for i in range(start_index, population.size()):
 		var ratio: float = float(population[i]) / maximum
-		var pos := Vector2(i * distance, size.y * (1 - ratio))
-		if i != 0:
+		var pos := Vector2((i - start_index) * distance, size.y * (1 - ratio))
+		if i != start_index:
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
 		prev = pos
