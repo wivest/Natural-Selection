@@ -8,7 +8,7 @@ var _previous_step: float = 0
 
 func _process(_delta):
 	var time := float(Time.get_ticks_msec()) / 1000
-	if time - _previous_step >= step:
+	if time - _previous_step >= step / Parameters.speed:
 		_previous_step = time
 		population.append(Creature.count)
 		queue_redraw()
