@@ -12,13 +12,16 @@ func _process(_delta):
 	var time := float(Time.get_ticks_msec()) / 1000
 	if time - _previous_step >= step / Parameters.speed:
 		_previous_step = time
-		population.append(Vector2(time / Parameters.speed, Creature.count))
+		var previous_time = time
+		if population.size() > 0:
+			previous_time = population[- 1].x
+		population.append(Vector2(previous_time + step, Creature.count))
 		queue_redraw()
 
 	if Input.is_action_just_pressed(&"restart"):
 		population = []
 		_previous_step = time
-		population.append(Vector2(time / Parameters.speed, Creature.count))
+		population.append(Vector2(time * Parameters.speed, Creature.count))
 
 func _draw():
 	var prev: Vector2
