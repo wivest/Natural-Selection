@@ -1,3 +1,4 @@
+class_name Chart
 extends Control
 
 @export var step: float = 0.2

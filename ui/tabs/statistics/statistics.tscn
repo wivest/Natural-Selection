@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://thhd74d7nm65"]
+[gd_scene load_steps=4 format=3 uid="uid://thhd74d7nm65"]
 
 [ext_resource type="PackedScene" uid="uid://bybyo71adhl4m" path="res://ui/tabs/statistics/population/chart.tscn" id="1_7me1r"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/population/counter.gd" id="1_epolv"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/step.gd" id="3_u5uim"]
 
 [node name="Statistics" type="TabContainer"]
 anchors_preset = 15
@@ -20,10 +21,30 @@ theme_override_constants/margin_bottom = 16
 [node name="Population" type="VBoxContainer" parent="Population"]
 layout_mode = 2
 
+[node name="Graph" parent="Population/Population" instance=ExtResource("1_7me1r")]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Counter" type="Label" parent="Population/Population"]
 layout_mode = 2
 script = ExtResource("1_epolv")
 
-[node name="Graph" parent="Population/Population" instance=ExtResource("1_7me1r")]
+[node name="Step" type="HBoxContainer" parent="Population/Population"]
 layout_mode = 2
-size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Population/Population/Step"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Step"
+
+[node name="SpinBox" type="SpinBox" parent="Population/Population/Step" node_paths=PackedStringArray("chart")]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.02
+max_value = 5.0
+step = 0.02
+value = 0.02
+script = ExtResource("3_u5uim")
+chart = NodePath("../../Graph")
+
+[connection signal="value_changed" from="Population/Population/Step/SpinBox" to="Population/Population/Step/SpinBox" method="_on_value_changed"]
