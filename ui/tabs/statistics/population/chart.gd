@@ -21,10 +21,10 @@ func _process(_delta):
 		population.append(Vector2(time / Parameters.speed, Creature.count))
 
 func _draw():
-	var maximum: int = population.max().y
 	var prev: Vector2
 
 	var start_index: int = max(population.size() - length_limit, 0)
+	var maximum: float = local_maximum(start_index, population.size())
 	var start_time: float = population[start_index].x
 	var end_time: float = population[- 1].x
 	var delta: float = end_time - start_time
@@ -37,3 +37,9 @@ func _draw():
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
 		prev = pos
+
+func local_maximum(start: int, end: int) -> float:
+	var maximum: float = population[start].y
+	for i in range(start, end):
+		maximum = max(maximum, population[i].y)
+	return maximum
