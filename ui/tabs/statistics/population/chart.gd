@@ -5,6 +5,7 @@ extends Control
 @export var length_limit: int = 500
 
 var population: Array[Vector2] = []
+var show_all: bool = false
 
 var _previous_step: float = 0
 
@@ -26,7 +27,12 @@ func _process(_delta):
 func _draw():
 	var prev: Vector2
 
-	var start_index: int = max(population.size() - length_limit, 0)
+	var start_index: int
+	if show_all:
+		start_index = 0
+	else:
+		start_index = max(population.size() - length_limit, 0)
+
 	var maximum: float = local_maximum(start_index, population.size())
 	var start_time: float = population[start_index].x
 	var end_time: float = population[- 1].x
