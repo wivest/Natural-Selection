@@ -16,7 +16,10 @@ func _process(_delta):
 		var previous_time = time
 		if population.size() > 0:
 			previous_time = population[- 1].x
-		population.append(Vector2(previous_time + step, Creature.count))
+		var current_step: float = _delta * Parameters.speed
+		if step != 0:
+			current_step = step
+		population.append(Vector2(previous_time + current_step, Creature.count))
 		queue_redraw()
 
 	if Input.is_action_just_pressed(&"restart"):
