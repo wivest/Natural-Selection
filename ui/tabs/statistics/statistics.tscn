@@ -1,10 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://thhd74d7nm65"]
+[gd_scene load_steps=2 format=3 uid="uid://thhd74d7nm65"]
 
 [ext_resource type="PackedScene" uid="uid://bybyo71adhl4m" path="res://ui/tabs/statistics/population/chart.tscn" id="1_7me1r"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/population/counter.gd" id="1_epolv"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/clear.gd" id="3_gml5g"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/step.gd" id="3_u5uim"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/show_all.gd" id="5_3clw3"]
 
 [node name="Statistics" type="TabContainer"]
 anchors_preset = 15
@@ -26,41 +22,3 @@ layout_mode = 2
 [node name="Graph" parent="Population/Population" instance=ExtResource("1_7me1r")]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="Parameters" type="HBoxContainer" parent="Population/Population"]
-layout_mode = 2
-
-[node name="Counter" type="Label" parent="Population/Population/Parameters"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("1_epolv")
-
-[node name="Label" type="Label" parent="Population/Population/Parameters"]
-layout_mode = 2
-text = "Step"
-
-[node name="SpinBox" type="SpinBox" parent="Population/Population/Parameters" node_paths=PackedStringArray("chart")]
-layout_mode = 2
-max_value = 5.0
-step = 0.02
-script = ExtResource("3_u5uim")
-chart = NodePath("../../Graph")
-
-[node name="Label2" type="Label" parent="Population/Population/Parameters"]
-layout_mode = 2
-text = "Show all"
-
-[node name="CheckButton" type="CheckButton" parent="Population/Population/Parameters" node_paths=PackedStringArray("chart")]
-layout_mode = 2
-script = ExtResource("5_3clw3")
-chart = NodePath("../../Graph")
-
-[node name="Clear" type="Button" parent="Population/Population/Parameters" node_paths=PackedStringArray("chart")]
-layout_mode = 2
-text = "Clear"
-script = ExtResource("3_gml5g")
-chart = NodePath("../../Graph")
-
-[connection signal="value_changed" from="Population/Population/Parameters/SpinBox" to="Population/Population/Parameters/SpinBox" method="_on_value_changed"]
-[connection signal="toggled" from="Population/Population/Parameters/CheckButton" to="Population/Population/Parameters/CheckButton" method="_on_toggled"]
-[connection signal="pressed" from="Population/Population/Parameters/Clear" to="Population/Population/Parameters/Clear" method="_on_pressed"]
