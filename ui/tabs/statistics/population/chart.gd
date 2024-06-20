@@ -57,6 +57,8 @@ func _draw():
 
 	for i in range(start_index, population.size()):
 		var ratio: float = population[i].y / maximum
+		if maximum == 0:
+			ratio = 1
 		var time_ratio: float = (population[i].x - start_time) / delta
 		var pos := Vector2(size.x * time_ratio, size.y * (1 - ratio))
 		if i != start_index:
