@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bybyo71adhl4m"]
+[gd_scene load_steps=3 format=3 uid="uid://bybyo71adhl4m"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/population/chart.gd" id="1_028un"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/population/counter.gd" id="2_7a8g0"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/step.gd" id="3_5lk0f"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/show_all.gd" id="4_a40nq"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/clear.gd" id="5_g7vuc"]
 
 [node name="Graph" type="Control"]
 layout_mode = 3
@@ -34,25 +31,15 @@ script = ExtResource("2_7a8g0")
 layout_mode = 2
 text = "Step"
 
-[node name="SpinBox" type="SpinBox" parent="Parameters" node_paths=PackedStringArray("chart")]
+[node name="Step" type="SpinBox" parent="Parameters"]
 layout_mode = 2
 max_value = 5.0
 step = 0.02
-script = ExtResource("3_5lk0f")
-chart = NodePath("../..")
 
-[node name="CheckButton" type="CheckButton" parent="Parameters" node_paths=PackedStringArray("chart")]
+[node name="ShowAll" type="CheckButton" parent="Parameters"]
 layout_mode = 2
 text = "Show all"
-script = ExtResource("4_a40nq")
-chart = NodePath("../..")
 
-[node name="Clear" type="Button" parent="Parameters" node_paths=PackedStringArray("chart")]
+[node name="Clear" type="Button" parent="Parameters"]
 layout_mode = 2
 text = "Clear"
-script = ExtResource("5_g7vuc")
-chart = NodePath("../..")
-
-[connection signal="value_changed" from="Parameters/SpinBox" to="Parameters/SpinBox" method="_on_value_changed"]
-[connection signal="toggled" from="Parameters/CheckButton" to="Parameters/CheckButton" method="_on_toggled"]
-[connection signal="pressed" from="Parameters/Clear" to="Parameters/Clear" method="_on_pressed"]

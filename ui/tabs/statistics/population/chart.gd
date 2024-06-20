@@ -9,6 +9,17 @@ var show_all: bool = false
 
 var _previous_step: float = 0
 
+@onready var step_spinbox: SpinBox = $Parameters/Step
+@onready var show_all_checkbutton: CheckButton = $Parameters/ShowAll
+@onready var clear_button: Button = $Parameters/Clear
+
+func _ready():
+	step_spinbox.value = step
+
+	step_spinbox.value_changed.connect(func(v: float): step=v)
+	show_all_checkbutton.toggled.connect(func(toggled_on: bool): show_all=toggled_on)
+	clear_button.pressed.connect(func(): population=[])
+
 func _process(_delta):
 	if get_tree().paused:
 		return
