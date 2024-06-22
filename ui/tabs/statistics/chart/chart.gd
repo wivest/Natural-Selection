@@ -39,7 +39,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed(&"restart"):
 		population = []
 		_previous_step = time
-		population.append(Vector2(time * Parameters.speed, Creature.count))
 
 func _draw():
 	var prev: Vector2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bybyo71adhl4m"]
 
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_028un"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_7a8g0"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_1gjur"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_omigo"]
 
 [node name="Graph" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_028un")
+script = ExtResource("1_1gjur")
 
 [node name="Parameters" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -25,7 +25,7 @@ grow_vertical = 0
 [node name="Counter" type="Label" parent="Parameters"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_7a8g0")
+script = ExtResource("2_omigo")
 
 [node name="Label" type="Label" parent="Parameters"]
 layout_mode = 2
