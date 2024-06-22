@@ -16,9 +16,6 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Population" type="VBoxContainer" parent="Population"]
-layout_mode = 2
-
-[node name="Graph" parent="Population/Population" instance=ExtResource("1_7me1r")]
+[node name="Graph" parent="Population" instance=ExtResource("1_7me1r")]
 layout_mode = 2
 size_flags_vertical = 3
