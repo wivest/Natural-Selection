@@ -45,10 +45,8 @@ func _process(_delta):
 func _draw():
 	var prev: Vector2
 
-	var start_index: int
-	if show_all:
-		start_index = 0
-	else:
+	var start_index: int = 0
+	if not show_all:
 		start_index = max(population.size() - length_limit, 0)
 
 	var maximum: float = local_maximum(start_index, population.size())
