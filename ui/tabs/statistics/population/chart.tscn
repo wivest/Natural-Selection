@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bybyo71adhl4m"]
+[gd_scene load_steps=5 format=3 uid="uid://bybyo71adhl4m"]
 
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_1gjur"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_omigo"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_t4kbf"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/population/getter.gd" id="2_4gaad"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="3_2y48l"]
+
+[sub_resource type="Resource" id="Resource_mkdty"]
+script = ExtResource("2_4gaad")
 
 [node name="Graph" type="Control"]
 layout_mode = 3
@@ -10,7 +14,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1gjur")
+script = ExtResource("1_t4kbf")
+getter = SubResource("Resource_mkdty")
 
 [node name="Parameters" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -25,7 +30,7 @@ grow_vertical = 0
 [node name="Counter" type="Label" parent="Parameters"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_omigo")
+script = ExtResource("3_2y48l")
 
 [node name="Label" type="Label" parent="Parameters"]
 layout_mode = 2

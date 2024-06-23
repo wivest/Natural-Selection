@@ -1,6 +1,8 @@
 class_name Chart
 extends Control
 
+@export var getter: Getter
+
 @export var step: float = 0.2
 @export var length_limit: int = 500
 
@@ -33,7 +35,7 @@ func _process(_delta):
 		var current_step: float = _delta * Parameters.speed
 		if step != 0:
 			current_step = step
-		population.append(Vector2(previous_time + current_step, Creature.count))
+		population.append(Vector2(previous_time + current_step, getter.get_value()))
 		queue_redraw()
 
 	if Input.is_action_just_pressed(&"restart"):

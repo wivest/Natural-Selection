@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://thhd74d7nm65"]
 
-[ext_resource type="PackedScene" uid="uid://bybyo71adhl4m" path="res://ui/tabs/statistics/chart/chart.tscn" id="1_7me1r"]
+[ext_resource type="PackedScene" uid="uid://bybyo71adhl4m" path="res://ui/tabs/statistics/population/chart.tscn" id="1_7me1r"]
 
 [node name="Statistics" type="TabContainer"]
 anchors_preset = 15
