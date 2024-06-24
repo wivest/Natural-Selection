@@ -20,7 +20,7 @@ After you have the engine installed, you can run the project in the following st
 
 ### Run the project
 
-To lauch project you need to take following actions:
+To lauch project and interact you need to take following actions:
 
 -   If Godot's _Project Manager_ is opened, select project and click `Run` button
 -   If Godot's _editor_ is opened, click `Run Project` button _(top right corner)_ or press `F5` key.
