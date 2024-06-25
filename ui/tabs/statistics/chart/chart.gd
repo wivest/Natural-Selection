@@ -48,11 +48,11 @@ func _process(_delta):
 func _draw():
 	var prev: Vector2
 
-	var start_index: int = 0
-	if not show_all:
-		start_index = max(population.size() - length_limit, 0)
+	var start_index: int = max(population.size() - length_limit, 0)
+	if show_all:
+		start_index = 0
 	elif show_page:
-		start_index = population.size() - population.size() % length_limit
+		start_index = population.size() - 1 - (population.size() - 1) % length_limit
 
 	var maximum: float = local_maximum(start_index, population.size())
 	var start_time: float = population[start_index].x
