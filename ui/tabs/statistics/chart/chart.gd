@@ -51,6 +51,8 @@ func _draw():
 	var start_index: int = 0
 	if not show_all:
 		start_index = max(population.size() - length_limit, 0)
+	elif show_page:
+		start_index = population.size() - population.size() % length_limit
 
 	var maximum: float = local_maximum(start_index, population.size())
 	var start_time: float = population[start_index].x
@@ -62,7 +64,13 @@ func _draw():
 		if maximum == 0:
 			ratio = 1
 		var time_ratio: float = (population[i].x - start_time) / delta
-		var pos := Vector2(size.x * time_ratio, size.y * (1 - ratio))
+
+		var x_coordinate: float = size.x * time_ratio
+		if show_page:
+			var distance: float = size.x / (length_limit - 1)
+			x_coordinate = i * distance
+
+		var pos := Vector2(x_coordinate, size.y * (1 - ratio))
 		if i != start_index:
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
