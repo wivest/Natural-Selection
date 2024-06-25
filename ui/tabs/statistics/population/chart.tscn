@@ -41,6 +41,10 @@ step = 0.02
 layout_mode = 2
 text = "Show all"
 
+[node name="ShowPage" type="CheckButton" parent="Parameters"]
+layout_mode = 2
+text = "Show page"
+
 [node name="Clear" type="Button" parent="Parameters"]
 layout_mode = 2
 text = "Clear"

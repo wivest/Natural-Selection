@@ -8,11 +8,13 @@ extends Control
 
 var population: Array[Vector2] = []
 var show_all: bool = false
+var show_page: bool = false
 
 var _previous_step: float = 0
 
 @onready var step_spinbox: SpinBox = $"../Parameters/Step" # TODO: refactor parameters
 @onready var show_all_checkbutton: CheckButton = $"../Parameters/ShowAll" # TODO: refactor parameters
+@onready var show_page_checkbutton: CheckButton = $"../Parameters/ShowPage" # TODO: refactor parameters
 @onready var clear_button: Button = $"../Parameters/Clear" # TODO: refactor parameters
 
 func _ready():
@@ -20,6 +22,7 @@ func _ready():
 
 	step_spinbox.value_changed.connect(func(v: float): step=v)
 	show_all_checkbutton.toggled.connect(func(toggled_on: bool): show_all=toggled_on)
+	show_page_checkbutton.toggled.connect(func(toggled_on: bool): show_page=toggled_on)
 	clear_button.pressed.connect(func(): population=[])
 
 func _process(_delta):
