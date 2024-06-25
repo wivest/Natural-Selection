@@ -66,7 +66,7 @@ func _draw():
 		var time_ratio: float = (population[i].x - start_time) / delta
 
 		var x_coordinate: float = size.x * time_ratio
-		if show_page:
+		if show_page and not show_all:
 			var distance: float = size.x / (length_limit - 1)
 			x_coordinate = (i - start_index) * distance
 
