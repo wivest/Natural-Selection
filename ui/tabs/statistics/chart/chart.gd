@@ -68,7 +68,7 @@ func _draw():
 		var x_coordinate: float = size.x * time_ratio
 		if show_page:
 			var distance: float = size.x / (length_limit - 1)
-			x_coordinate = i * distance
+			x_coordinate = (i - start_index) * distance
 
 		var pos := Vector2(x_coordinate, size.y * (1 - ratio))
 		if i != start_index:
