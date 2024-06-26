@@ -50,8 +50,7 @@ func _draw():
 
 	var maximum: float = data.local_max(start_index, data.nodes.size())
 	var start_time: float = data.nodes[start_index].x
-	var end_time: float = data.nodes[- 1].x
-	var delta: float = end_time - start_time
+	var delta: float = data.get_delta_time(start_index, data.nodes.size() - 1)
 
 	for i in range(start_index, data.nodes.size()):
 		var ratio: float = view_mode.get_vratio(data.nodes[i].y, maximum)
