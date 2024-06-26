@@ -7,6 +7,8 @@ extends Control
 @export var length_limit: int = 500
 
 var population: Array[Vector2] = []
+
+var view_mode: ViewMode = CurrentViewMode.new(length_limit)
 var show_all: bool = false
 var show_page: bool = false
 
@@ -48,11 +50,7 @@ func _process(_delta):
 func _draw():
 	var prev: Vector2
 
-	var start_index: int = max(population.size() - length_limit, 0)
-	if show_all:
-		start_index = 0
-	elif show_page:
-		start_index = population.size() - 1 - (population.size() - 1) % length_limit
+	var start_index: int = view_mode.get_start_index(population)
 
 	var maximum: float = local_maximum(start_index, population.size())
 	var start_time: float = population[start_index].x
