@@ -10,3 +10,6 @@ func local_max(start: int, end: int) -> float:
 
 func get_delta_time(start: int, end: int) -> float:
 	return nodes[end].x - nodes[start].x
+
+func get_relative_time(i: int, relative_to: int) -> float:
+	return nodes[i].x - nodes[relative_to].x
