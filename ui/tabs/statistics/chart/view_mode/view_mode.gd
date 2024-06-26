@@ -11,5 +11,5 @@ func get_hratio(value: float, delta: float) -> float:
 
 func get_vratio(value: float, maximum: float) -> float:
 	if maximum == 0:
-		return 0
+		return 1
 	return 1 - value / maximum
