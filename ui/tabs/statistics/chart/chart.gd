@@ -8,19 +8,24 @@ extends Control
 
 var data: ChartData = ChartData.new()
 
+var view_modes: Dictionary = {
+	0: CurrentViewMode.new(length_limit),
+	1: PageViewMode.new(length_limit),
+	2: FullViewMode.new(),
+}
 var view_mode: ViewMode = CurrentViewMode.new(length_limit)
 
 var _previous_step: float = 0
 
 @onready var step_spinbox: SpinBox = $"../Parameters/Step" # TODO: refactor parameters
-@onready var show_all_checkbutton: CheckButton = $"../Parameters/ShowAll" # TODO: refactor parameters
-@onready var show_page_checkbutton: CheckButton = $"../Parameters/ShowPage" # TODO: refactor parameters
+@onready var view_mode_optionbutton: OptionButton = $"../Parameters/ViewMode" # TODO: refactor parameters
 @onready var clear_button: Button = $"../Parameters/Clear" # TODO: refactor parameters
 
 func _ready():
 	step_spinbox.value = step
 
 	step_spinbox.value_changed.connect(func(v: float): step=v)
+	view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
 	clear_button.pressed.connect(func(): data=ChartData.new())
 
 func _process(_delta):

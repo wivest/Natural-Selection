@@ -37,13 +37,16 @@ layout_mode = 2
 max_value = 5.0
 step = 0.02
 
-[node name="ShowAll" type="CheckButton" parent="Parameters"]
+[node name="ViewMode" type="OptionButton" parent="Parameters"]
 layout_mode = 2
-text = "Show all"
-
-[node name="ShowPage" type="CheckButton" parent="Parameters"]
-layout_mode = 2
-text = "Show page"
+item_count = 3
+selected = 0
+popup/item_0/text = "Current"
+popup/item_0/id = 0
+popup/item_1/text = "Page"
+popup/item_1/id = 1
+popup/item_2/text = "Full"
+popup/item_2/id = 2
 
 [node name="Clear" type="Button" parent="Parameters"]
 layout_mode = 2
