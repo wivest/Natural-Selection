@@ -47,12 +47,13 @@ func _draw():
 	var prev: Vector2
 
 	var start_index: int = view_mode.get_start_index(data)
+	var end_index: int = view_mode.get_end_index(data)
 
-	var maximum: float = data.local_max(start_index, data.nodes.size())
+	var maximum: float = data.local_max(start_index, end_index)
 	var start_time: float = data.nodes[start_index].x
-	var delta: float = data.get_delta_time(start_index, data.nodes.size() - 1)
+	var delta: float = data.get_delta_time(start_index, end_index - 1)
 
-	for i in range(start_index, data.nodes.size()):
+	for i in range(start_index, end_index):
 		var ratio: float = view_mode.get_vratio(data.nodes[i].y, maximum)
 		var time_ratio: float = (data.nodes[i].x - start_time) / delta
 
