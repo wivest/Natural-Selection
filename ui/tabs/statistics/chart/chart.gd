@@ -6,7 +6,7 @@ extends Control
 @export var step: float = 0.2
 @export var length_limit: int = 500
 
-var population: Array[Vector2] = []
+var data: ChartData = ChartData.new()
 
 var view_mode: ViewMode = CurrentViewMode.new(length_limit)
 
@@ -21,7 +21,7 @@ func _ready():
 	step_spinbox.value = step
 
 	step_spinbox.value_changed.connect(func(v: float): step=v)
-	clear_button.pressed.connect(func(): population=[])
+	clear_button.pressed.connect(func(): data=ChartData.new())
 
 func _process(_delta):
 	if get_tree().paused:
@@ -31,42 +31,36 @@ func _process(_delta):
 	if time - _previous_step >= step / Parameters.speed:
 		_previous_step = time
 		var previous_time = time
-		if population.size() > 0:
-			previous_time = population[- 1].x
+		if data.nodes.size() > 0:
+			previous_time = data.nodes[- 1].x
 		var current_step: float = _delta * Parameters.speed
 		if step != 0:
 			current_step = step
-		population.append(Vector2(previous_time + current_step, getter.get_value()))
+		data.nodes.append(Vector2(previous_time + current_step, getter.get_value()))
 		queue_redraw()
 
 	if Input.is_action_just_pressed(&"restart"):
-		population = []
+		data = ChartData.new()
 		_previous_step = time
 
 func _draw():
 	var prev: Vector2
 
-	var start_index: int = view_mode.get_start_index(population)
+	var start_index: int = view_mode.get_start_index(data)
 
-	var maximum: float = local_maximum(start_index, population.size())
-	var start_time: float = population[start_index].x
-	var end_time: float = population[- 1].x
+	var maximum: float = data.local_max(start_index, data.nodes.size())
+	var start_time: float = data.nodes[start_index].x
+	var end_time: float = data.nodes[- 1].x
 	var delta: float = end_time - start_time
 
-	for i in range(start_index, population.size()):
-		var ratio: float = population[i].y / maximum
+	for i in range(start_index, data.nodes.size()):
+		var ratio: float = data.nodes[i].y / maximum
 		if maximum == 0:
 			ratio = 1
-		var time_ratio: float = (population[i].x - start_time) / delta
+		var time_ratio: float = (data.nodes[i].x - start_time) / delta
 
 		var pos := Vector2(size.x * time_ratio, size.y * (1 - ratio))
 		if i != start_index:
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
 		prev = pos
-
-func local_maximum(start: int, end: int) -> float:
-	var maximum: float = population[start].y
-	for i in range(start, end):
-		maximum = max(maximum, population[i].y)
-	return maximum

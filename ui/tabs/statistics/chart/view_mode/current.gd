@@ -6,5 +6,5 @@ var limit: int
 func _init(size: int):
 	limit = size
 
-func get_start_index(data: Array) -> int:
-	return max(data.size() - limit, 0)
+func get_start_index(data: ChartData) -> int:
+	return max(data.nodes.size() - limit, 0)
