@@ -9,8 +9,6 @@ extends Control
 var population: Array[Vector2] = []
 
 var view_mode: ViewMode = CurrentViewMode.new(length_limit)
-var show_all: bool = false
-var show_page: bool = false
 
 var _previous_step: float = 0
 
@@ -23,8 +21,6 @@ func _ready():
 	step_spinbox.value = step
 
 	step_spinbox.value_changed.connect(func(v: float): step=v)
-	show_all_checkbutton.toggled.connect(func(toggled_on: bool): show_all=toggled_on)
-	show_page_checkbutton.toggled.connect(func(toggled_on: bool): show_page=toggled_on)
 	clear_button.pressed.connect(func(): population=[])
 
 func _process(_delta):
@@ -63,12 +59,7 @@ func _draw():
 			ratio = 1
 		var time_ratio: float = (population[i].x - start_time) / delta
 
-		var x_coordinate: float = size.x * time_ratio
-		if show_page and not show_all:
-			var distance: float = size.x / (length_limit - 1)
-			x_coordinate = (i - start_index) * distance
-
-		var pos := Vector2(x_coordinate, size.y * (1 - ratio))
+		var pos := Vector2(size.x * time_ratio, size.y * (1 - ratio))
 		if i != start_index:
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
