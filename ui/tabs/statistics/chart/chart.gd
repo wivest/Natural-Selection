@@ -10,7 +10,7 @@ var data: ChartData = ChartData.new()
 
 var view_modes: Dictionary = {
 	0: CurrentViewMode.new(length_limit),
-	1: PageViewMode.new(length_limit),
+	1: PageViewMode.new(length_limit, step),
 	2: FullViewMode.new(),
 }
 var view_mode: ViewMode = CurrentViewMode.new(length_limit)
