@@ -54,12 +54,10 @@ func _draw():
 	var delta: float = end_time - start_time
 
 	for i in range(start_index, data.nodes.size()):
-		var ratio: float = data.nodes[i].y / maximum
-		if maximum == 0:
-			ratio = 1
+		var ratio: float = view_mode.get_vratio(data.nodes[i].y, maximum)
 		var time_ratio: float = (data.nodes[i].x - start_time) / delta
 
-		var pos := Vector2(size.x * time_ratio, size.y * (1 - ratio))
+		var pos := Vector2(size.x * time_ratio, size.y * ratio)
 		if i != start_index:
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
