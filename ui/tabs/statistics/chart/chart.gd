@@ -54,7 +54,7 @@ func _draw():
 
 	for i in range(start_index, end_index):
 		var vratio: float = view_mode.get_vratio(data.nodes[i].y, maximum)
-		var hratio: float = data.get_relative_time(i, start_index) / delta
+		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, start_index), delta)
 
 		var pos := Vector2(size.x * hratio, size.y * vratio)
 		if i != start_index:
