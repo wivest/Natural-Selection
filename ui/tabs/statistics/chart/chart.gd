@@ -3,10 +3,12 @@ extends Control
 
 @export var getter: Getter
 
-@export var step: float = 0.2
-@export var length_limit: int = 500
-
 var data: ChartData = ChartData.new()
+var length_limit: int = 500
+var step: float = 0.2:
+	set(value):
+		step = value
+		view_modes[1].time_step = value
 
 var view_modes: Dictionary = {
 	0: CurrentViewMode.new(length_limit),
