@@ -57,7 +57,7 @@ func _draw():
 	var end_index: int = view_mode.get_end_index(data)
 
 	var maximum: float = data.local_max(start_index, end_index)
-	var delta: float = data.get_delta_time(start_index, end_index - 1)
+	var delta: float = view_mode.get_delta_time(data)
 
 	for i in range(start_index, end_index):
 		var vratio: float = view_mode.get_vratio(data.nodes[i].y, maximum)
