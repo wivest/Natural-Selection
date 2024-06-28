@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://thhd74d7nm65"]
+[gd_scene load_steps=3 format=3 uid="uid://thhd74d7nm65"]
 
 [ext_resource type="PackedScene" uid="uid://bybyo71adhl4m" path="res://ui/tabs/statistics/population/chart.tscn" id="1_7me1r"]
+[ext_resource type="PackedScene" uid="uid://d4mdilcvrwcir" path="res://ui/tabs/statistics/speed/chart.tscn" id="2_fk7hp"]
 
 [node name="Statistics" type="TabContainer"]
 anchors_preset = 15
@@ -16,6 +17,17 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Graph" parent="Population" instance=ExtResource("1_7me1r")]
+[node name="Chart" parent="Population" instance=ExtResource("1_7me1r")]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Speed" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Chart" parent="Speed" instance=ExtResource("2_fk7hp")]
+layout_mode = 2

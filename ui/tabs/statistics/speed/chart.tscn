@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4mdilcvrwcir"]
+
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_7hgwt"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/speed/getter.gd" id="2_keoh4"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="3_l1qai"]
+
+[sub_resource type="Resource" id="Resource_u20ic"]
+script = ExtResource("2_keoh4")
+
+[node name="Chart" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Graph" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_7hgwt")
+getter = SubResource("Resource_u20ic")
+
+[node name="Parameters" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Counter" type="Label" parent="Parameters"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_l1qai")
+
+[node name="Label" type="Label" parent="Parameters"]
+layout_mode = 2
+text = "Step"
+
+[node name="Step" type="SpinBox" parent="Parameters"]
+layout_mode = 2
+max_value = 5.0
+step = 0.02
+
+[node name="ViewMode" type="OptionButton" parent="Parameters"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Current"
+popup/item_0/id = 0
+popup/item_1/text = "Page"
+popup/item_1/id = 1
+popup/item_2/text = "Full"
+popup/item_2/id = 2
+
+[node name="Clear" type="Button" parent="Parameters"]
+layout_mode = 2
+text = "Clear"
