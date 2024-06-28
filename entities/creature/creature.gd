@@ -4,6 +4,7 @@ extends CharacterBody2D
 signal born(at_position: Vector2, genes: Genome)
 
 static var count: int = 0
+static var average: Genome
 
 @export var genome: Genome
 @export var egg: PackedScene
@@ -15,8 +16,22 @@ var energy: float = Parameters.energy_on_start
 func _enter_tree():
 	count += 1
 
+	var copy: Genome = genome.duplicate(true)
+	if count == 1:
+		average = copy
+	else:
+		copy.sub(average)
+		copy.div(count)
+		average.add(copy)
+
 func _exit_tree():
 	count -= 1
+
+	var copy: Genome = genome.duplicate(true)
+	if count != 0:
+		copy.sub(average)
+		copy.div(count)
+		average.add(copy)
 
 func _physics_process(delta):
 	view.update_target(velocity)

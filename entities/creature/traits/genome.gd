@@ -14,3 +14,18 @@ func divide() -> Genome:
 	var g: Genome = duplicate(true)
 	g.mutate()
 	return g
+
+func add(g: Genome):
+	speed.value += g.speed.value
+	view_radius.value += g.view_radius.value
+	hatching_time.value += g.hatching_time.value
+
+func sub(g: Genome):
+	speed.value -= g.speed.value
+	view_radius.value -= g.view_radius.value
+	hatching_time.value -= g.hatching_time.value
+
+func div(n: int):
+	speed.value /= n
+	view_radius.value /= n
+	hatching_time.value /= n
