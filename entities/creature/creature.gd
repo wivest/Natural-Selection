@@ -33,7 +33,7 @@ func _exit_tree():
 	else:
 		copy.sub(average)
 		copy.div(count)
-		average.add(copy)
+		average.sub(copy)
 
 func _physics_process(delta):
 	view.update_target(velocity)
