@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bybyo71adhl4m"]
+[gd_scene load_steps=6 format=3 uid="uid://bybyo71adhl4m"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_t4kbf"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/population/getter.gd" id="2_4gaad"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="3_2y48l"]
 
 [sub_resource type="Resource" id="Resource_mkdty"]
+script = ExtResource("2_4gaad")
+
+[sub_resource type="Resource" id="Resource_2wkqh"]
 script = ExtResource("2_4gaad")
 
 [node name="Chart" type="VBoxContainer"]
@@ -27,6 +30,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_2y48l")
+getter = SubResource("Resource_2wkqh")
 
 [node name="Label" type="Label" parent="Parameters"]
 layout_mode = 2
