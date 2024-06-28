@@ -28,7 +28,9 @@ func _exit_tree():
 	count -= 1
 
 	var copy: Genome = genome.duplicate(true)
-	if count != 0:
+	if count == 0:
+		average.zero()
+	else:
 		copy.sub(average)
 		copy.div(count)
 		average.add(copy)

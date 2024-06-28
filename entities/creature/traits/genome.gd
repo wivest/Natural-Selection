@@ -29,3 +29,8 @@ func div(n: int):
 	speed.value /= n
 	view_radius.value /= n
 	hatching_time.value /= n
+
+func zero():
+	speed.value = 0
+	view_radius.value = 0
+	hatching_time.value = 0
