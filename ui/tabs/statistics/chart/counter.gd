@@ -1,6 +1,7 @@
 extends Label
 
 @export var getter: Getter
+@export var padding: int = 2
 @export var step: float = 0.5
 
 var value: float
@@ -24,4 +25,4 @@ func _process(_delta):
 		_value_previous = value
 		_time_previous = time
 
-	text = "Count: %d Delta: %d" % [value, _value_delta]
+	text = "Value: %.*f Delta: %.*f" % [padding, value, padding, _value_delta]

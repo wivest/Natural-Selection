@@ -31,6 +31,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_2y48l")
 getter = SubResource("Resource_2wkqh")
+padding = 0
 
 [node name="Label" type="Label" parent="Parameters"]
 layout_mode = 2
