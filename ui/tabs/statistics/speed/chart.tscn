@@ -1,14 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4mdilcvrwcir"]
+[gd_scene load_steps=6 format=3 uid="uid://d4mdilcvrwcir"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_7hgwt"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/speed/getter.gd" id="2_keoh4"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="3_l1qai"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters.gd" id="3_nutcl"]
 
-[sub_resource type="Resource" id="Resource_u20ic"]
-script = ExtResource("2_keoh4")
-
-[sub_resource type="Resource" id="Resource_yaop4"]
+[sub_resource type="Resource" id="Resource_rjty5"]
 script = ExtResource("2_keoh4")
 
 [node name="Chart" type="VBoxContainer"]
@@ -22,12 +19,12 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_7hgwt")
-getter = SubResource("Resource_u20ic")
 parameters = NodePath("../Parameters")
 
 [node name="Parameters" type="HBoxContainer" parent="." node_paths=PackedStringArray("step_spinbox", "view_mode_optionbutton", "clear_button")]
 layout_mode = 2
 script = ExtResource("3_nutcl")
+getter = SubResource("Resource_rjty5")
 step_spinbox = NodePath("Step")
 view_mode_optionbutton = NodePath("ViewMode")
 clear_button = NodePath("Clear")
@@ -36,7 +33,6 @@ clear_button = NodePath("Clear")
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_l1qai")
-getter = SubResource("Resource_yaop4")
 
 [node name="Label" type="Label" parent="Parameters"]
 layout_mode = 2

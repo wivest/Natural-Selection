@@ -1,7 +1,6 @@
 class_name Chart
 extends Control
 
-@export var getter: Getter
 @export var parameters: ChartParameters
 
 var data: ChartData = ChartData.new()
@@ -40,7 +39,7 @@ func _process(_delta):
 		var current_step: float = _delta * Parameters.speed
 		if step != 0:
 			current_step = step
-		data.nodes.append(Vector2(previous_time + current_step, getter.get_value()))
+		data.nodes.append(Vector2(previous_time + current_step, parameters.getter.get_value()))
 		queue_redraw()
 
 	if Input.is_action_just_pressed(&"restart"):
