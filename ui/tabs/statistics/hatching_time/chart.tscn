@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy6m4lpyd41nx"]
+[gd_scene load_steps=5 format=3 uid="uid://cy6m4lpyd41nx"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_yhaco"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/hatching_time/getter.gd" id="2_j6kiw"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters.gd" id="3_g5e8j"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="3_xpmry"]
+[ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters.tscn" id="2_qdjed"]
 
-[sub_resource type="Resource" id="Resource_vcops"]
+[sub_resource type="Resource" id="Resource_tjwyb"]
 script = ExtResource("2_j6kiw")
 
 [node name="Chart" type="VBoxContainer"]
@@ -21,39 +20,6 @@ size_flags_vertical = 3
 script = ExtResource("1_yhaco")
 parameters = NodePath("../Parameters")
 
-[node name="Parameters" type="HBoxContainer" parent="." node_paths=PackedStringArray("step_spinbox", "view_mode_optionbutton", "clear_button")]
+[node name="Parameters" parent="." instance=ExtResource("2_qdjed")]
 layout_mode = 2
-script = ExtResource("3_g5e8j")
-getter = SubResource("Resource_vcops")
-step_spinbox = NodePath("Step")
-view_mode_optionbutton = NodePath("ViewMode")
-clear_button = NodePath("Clear")
-
-[node name="Counter" type="Label" parent="Parameters"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("3_xpmry")
-
-[node name="Label" type="Label" parent="Parameters"]
-layout_mode = 2
-text = "Step"
-
-[node name="Step" type="SpinBox" parent="Parameters"]
-layout_mode = 2
-max_value = 5.0
-step = 0.02
-
-[node name="ViewMode" type="OptionButton" parent="Parameters"]
-layout_mode = 2
-item_count = 3
-selected = 0
-popup/item_0/text = "Current"
-popup/item_0/id = 0
-popup/item_1/text = "Page"
-popup/item_1/id = 1
-popup/item_2/text = "Full"
-popup/item_2/id = 2
-
-[node name="Clear" type="Button" parent="Parameters"]
-layout_mode = 2
-text = "Clear"
+getter = SubResource("Resource_tjwyb")

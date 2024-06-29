@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl8qyr0shr4q7"]
+[gd_scene load_steps=5 format=3 uid="uid://dl8qyr0shr4q7"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_brqu8"]
+[ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters.tscn" id="2_btqx6"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/view_radius/getter.gd" id="2_l36he"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="3_f1wih"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters.gd" id="3_uhre4"]
 
-[sub_resource type="Resource" id="Resource_3msxf"]
+[sub_resource type="Resource" id="Resource_to4h1"]
 script = ExtResource("2_l36he")
 
 [node name="Chart" type="VBoxContainer"]
@@ -21,39 +20,6 @@ size_flags_vertical = 3
 script = ExtResource("1_brqu8")
 parameters = NodePath("../Parameters")
 
-[node name="Parameters" type="HBoxContainer" parent="." node_paths=PackedStringArray("step_spinbox", "view_mode_optionbutton", "clear_button")]
+[node name="Parameters" parent="." instance=ExtResource("2_btqx6")]
 layout_mode = 2
-script = ExtResource("3_uhre4")
-getter = SubResource("Resource_3msxf")
-step_spinbox = NodePath("Step")
-view_mode_optionbutton = NodePath("ViewMode")
-clear_button = NodePath("Clear")
-
-[node name="Counter" type="Label" parent="Parameters"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("3_f1wih")
-
-[node name="Label" type="Label" parent="Parameters"]
-layout_mode = 2
-text = "Step"
-
-[node name="Step" type="SpinBox" parent="Parameters"]
-layout_mode = 2
-max_value = 5.0
-step = 0.02
-
-[node name="ViewMode" type="OptionButton" parent="Parameters"]
-layout_mode = 2
-item_count = 3
-selected = 0
-popup/item_0/text = "Current"
-popup/item_0/id = 0
-popup/item_1/text = "Page"
-popup/item_1/id = 1
-popup/item_2/text = "Full"
-popup/item_2/id = 2
-
-[node name="Clear" type="Button" parent="Parameters"]
-layout_mode = 2
-text = "Clear"
+getter = SubResource("Resource_to4h1")
