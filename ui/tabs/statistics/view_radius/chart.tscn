@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl8qyr0shr4q7"]
+[gd_scene load_steps=7 format=3 uid="uid://dl8qyr0shr4q7"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_brqu8"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/view_radius/getter.gd" id="2_l36he"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="3_f1wih"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters.gd" id="3_uhre4"]
 
 [sub_resource type="Resource" id="Resource_k5l0t"]
 script = ExtResource("2_l36he")
@@ -17,14 +18,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Graph" type="Control" parent="."]
+[node name="Graph" type="Control" parent="." node_paths=PackedStringArray("parameters")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_brqu8")
 getter = SubResource("Resource_k5l0t")
+parameters = NodePath("../Parameters")
 
-[node name="Parameters" type="HBoxContainer" parent="."]
+[node name="Parameters" type="HBoxContainer" parent="." node_paths=PackedStringArray("step_spinbox", "view_mode_optionbutton", "clear_button")]
 layout_mode = 2
+script = ExtResource("3_uhre4")
+step_spinbox = NodePath("Step")
+view_mode_optionbutton = NodePath("ViewMode")
+clear_button = NodePath("Clear")
 
 [node name="Counter" type="Label" parent="Parameters"]
 layout_mode = 2

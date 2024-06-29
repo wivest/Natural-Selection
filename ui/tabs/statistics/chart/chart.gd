@@ -2,6 +2,7 @@ class_name Chart
 extends Control
 
 @export var getter: Getter
+@export var parameters: ChartParameters
 
 var data: ChartData = ChartData.new()
 var length_limit: int = 500
@@ -19,16 +20,12 @@ var view_mode: ViewMode = CurrentViewMode.new(length_limit)
 
 var _previous_step: float = 0
 
-@onready var step_spinbox: SpinBox = $"../Parameters/Step" # TODO: refactor parameters
-@onready var view_mode_optionbutton: OptionButton = $"../Parameters/ViewMode" # TODO: refactor parameters
-@onready var clear_button: Button = $"../Parameters/Clear" # TODO: refactor parameters
-
 func _ready():
-	step_spinbox.value = step
+	parameters.step_spinbox.value = step
 
-	step_spinbox.value_changed.connect(func(v: float): step=v)
-	view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
-	clear_button.pressed.connect(func(): data=ChartData.new())
+	parameters.step_spinbox.value_changed.connect(func(v: float): step=v)
+	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
+	parameters.clear_button.pressed.connect(func(): data=ChartData.new())
 
 func _process(_delta):
 	if get_tree().paused:
