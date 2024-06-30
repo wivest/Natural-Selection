@@ -23,3 +23,4 @@ parameters = NodePath("../Parameters")
 [node name="Parameters" parent="." instance=ExtResource("2_b3h4i")]
 layout_mode = 2
 getter = SubResource("Resource_i53ly")
+padding = 0
