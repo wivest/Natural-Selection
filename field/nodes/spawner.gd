@@ -1,5 +1,5 @@
 class_name Spawner
-extends Timer
+extends TimerLow
 
 var rate: float = 0
 
