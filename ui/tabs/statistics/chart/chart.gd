@@ -28,7 +28,8 @@ func _ready():
 
 func _process(_delta):
 	if get_tree().paused:
-		queue_redraw()
+		if data.nodes.size() != 0:
+			queue_redraw()
 		return
 
 	var time := float(Time.get_ticks_msec()) / 1000
