@@ -27,12 +27,16 @@ func _ready():
 	parameters.clear_button.pressed.connect(func(): data=ChartData.new())
 
 func _process(_delta):
+	var time := float(Time.get_ticks_msec()) / 1000
+
+	if Input.is_action_just_pressed(&"restart"):
+		data = ChartData.new()
+		_previous_step = time
+
 	if get_tree().paused:
-		if data.nodes.size() != 0:
-			queue_redraw()
+		queue_redraw()
 		return
 
-	var time := float(Time.get_ticks_msec()) / 1000
 	if time - _previous_step >= step / Parameters.speed:
 		_previous_step = time
 		var previous_time = time
@@ -44,11 +48,10 @@ func _process(_delta):
 		data.nodes.append(Vector2(previous_time + current_step, parameters.getter.get_value()))
 		queue_redraw()
 
-	if Input.is_action_just_pressed(&"restart"):
-		data = ChartData.new()
-		_previous_step = time
-
 func _draw():
+	if data.nodes.size() == 0:
+		return
+
 	var prev: Vector2
 
 	var start_index: int = view_mode.get_start_index(data)
