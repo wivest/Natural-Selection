@@ -72,4 +72,4 @@ func _draw():
 
 func clear_nodes():
 	data = ChartData.new()
-	_previous_step = _time
+	_previous_step = _time - step / Parameters.speed
