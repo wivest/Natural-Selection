@@ -17,6 +17,9 @@ var view_modes: Dictionary = {
 }
 var view_mode: ViewMode = CurrentViewMode.new(length_limit)
 
+var _time: float:
+	get:
+		return Time.get_ticks_msec() / 1000.0
 var _previous_step: float = 0
 
 func _ready():
@@ -27,8 +30,6 @@ func _ready():
 	parameters.clear_button.pressed.connect(clear_nodes)
 
 func _process(_delta):
-	var time := float(Time.get_ticks_msec()) / 1000
-
 	if Input.is_action_just_pressed(&"restart"):
 		clear_nodes()
 
@@ -36,9 +37,9 @@ func _process(_delta):
 		queue_redraw()
 		return
 
-	if time - _previous_step >= step / Parameters.speed:
-		_previous_step = time
-		var previous_time = time
+	if _time - _previous_step >= step / Parameters.speed:
+		_previous_step = _time
+		var previous_time = _time
 		if data.nodes.size() > 0:
 			previous_time = data.nodes[- 1].x
 		var current_step: float = _delta * Parameters.speed
@@ -71,4 +72,4 @@ func _draw():
 
 func clear_nodes():
 	data = ChartData.new()
-	_previous_step = float(Time.get_ticks_msec()) / 1000
+	_previous_step = _time
