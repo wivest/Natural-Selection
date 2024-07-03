@@ -24,14 +24,13 @@ func _ready():
 
 	parameters.step_spinbox.value_changed.connect(func(v: float): step=v)
 	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
-	parameters.clear_button.pressed.connect(func(): data=ChartData.new())
+	parameters.clear_button.pressed.connect(clear_nodes)
 
 func _process(_delta):
 	var time := float(Time.get_ticks_msec()) / 1000
 
 	if Input.is_action_just_pressed(&"restart"):
-		data = ChartData.new()
-		_previous_step = time
+		clear_nodes()
 
 	if get_tree().paused:
 		queue_redraw()
@@ -69,3 +68,7 @@ func _draw():
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
 		prev = pos
+
+func clear_nodes():
+	data = ChartData.new()
+	_previous_step = float(Time.get_ticks_msec()) / 1000
