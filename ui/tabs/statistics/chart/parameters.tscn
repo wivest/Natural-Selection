@@ -43,5 +43,6 @@ layout_mode = 2
 text = "Clear"
 
 [node name="StepTimer" type="Node" parent="."]
+process_mode = 1
 script = ExtResource("3_fcd8a")
 autostart = true
