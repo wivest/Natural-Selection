@@ -5,14 +5,10 @@ extends Control
 
 var data: ChartData = ChartData.new()
 var length_limit: int = 500
-var step: float = 0.2:
-	set(value):
-		step = value
-		view_modes[1].time_step = value
 
 var view_modes: Dictionary = {
 	0: CurrentViewMode.new(length_limit),
-	1: PageViewMode.new(length_limit, step),
+	1: PageViewMode.new(length_limit, 0), # set time_step in _ready
 	2: FullViewMode.new(),
 }
 var view_mode: ViewMode = CurrentViewMode.new(length_limit)
@@ -23,9 +19,9 @@ var _time: float:
 var _previous_step: float = 0
 
 func _ready():
-	parameters.step_spinbox.value = step
+	view_modes[1].time_step = parameters.step_spinbox.value
 
-	parameters.step_spinbox.value_changed.connect(func(v: float): step=v)
+	parameters.step_spinbox.value_changed.connect(func(v: float): view_modes[1].time_step=v)
 	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
 	parameters.clear_button.pressed.connect(clear_nodes)
 	parameters.timer.timeout.connect(add_node)
@@ -62,7 +58,7 @@ func _draw():
 
 func clear_nodes():
 	data = ChartData.new()
-	_previous_step = _time - step / Parameters.speed
+	_previous_step = _time - parameters.step_spinbox.value
 
 func add_node():
 	var previous_time = _time
