@@ -29,7 +29,7 @@ func _ready():
 	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
 	parameters.clear_button.pressed.connect(clear_nodes)
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed(&"restart"):
 		clear_nodes()
 
@@ -37,12 +37,12 @@ func _process(_delta):
 		queue_redraw()
 		return
 
-	if _time - _previous_step >= step / Parameters.speed:
+	if _time - _previous_step >= step:
 		_previous_step = _time
 		var previous_time = _time
 		if data.nodes.size() > 0:
 			previous_time = data.nodes[- 1].x
-		var current_step: float = _delta * Parameters.speed
+		var current_step: float = delta
 		if step != 0:
 			current_step = step
 		data.nodes.append(Vector2(previous_time + current_step, parameters.getter.get_value()))
