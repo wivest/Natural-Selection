@@ -28,25 +28,15 @@ func _ready():
 	parameters.step_spinbox.value_changed.connect(func(v: float): step=v)
 	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
 	parameters.clear_button.pressed.connect(clear_nodes)
+	parameters.timer.timeout.connect(add_node)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed(&"restart"):
 		clear_nodes()
 
 	if get_tree().paused:
 		queue_redraw()
 		return
-
-	if _time - _previous_step >= step:
-		_previous_step = _time
-		var previous_time = _time
-		if data.nodes.size() > 0:
-			previous_time = data.nodes[- 1].x
-		var current_step: float = delta
-		if step != 0:
-			current_step = step
-		data.nodes.append(Vector2(previous_time + current_step, parameters.getter.get_value()))
-		queue_redraw()
 
 func _draw():
 	if data.nodes.size() == 0:
@@ -73,3 +63,12 @@ func _draw():
 func clear_nodes():
 	data = ChartData.new()
 	_previous_step = _time - step / Parameters.speed
+
+func add_node():
+	var previous_time = _time
+	if data.nodes.size() > 0:
+		previous_time = data.nodes[- 1].x
+	var node_time: float = previous_time + parameters.step_spinbox.value
+	data.nodes.append(Vector2(node_time, parameters.getter.get_value()))
+
+	queue_redraw()
