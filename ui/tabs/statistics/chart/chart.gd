@@ -20,18 +20,14 @@ var _time: float:
 func _ready():
 	view_modes[1].time_step = parameters.step_spinbox.value
 
-	parameters.step_spinbox.value_changed.connect(func(v: float): view_modes[1].time_step=v)
-	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
+	parameters.step_spinbox.value_changed.connect(func(v: float): view_modes[1].time_step=v; queue_redraw())
+	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i];queue_redraw())
 	parameters.clear_button.pressed.connect(clear_nodes)
 	parameters.timer.timeout.connect(record_node)
 
 func _process(_delta):
 	if Input.is_action_just_pressed(&"restart"):
 		clear_nodes()
-
-	if get_tree().paused:
-		queue_redraw()
-		return
 
 func _draw():
 	if data.nodes.size() == 0:
