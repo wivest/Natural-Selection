@@ -16,7 +16,6 @@ var view_mode: ViewMode = CurrentViewMode.new(length_limit)
 var _time: float:
 	get:
 		return Time.get_ticks_msec() / 1000.0
-var _previous_step: float = 0
 
 func _ready():
 	view_modes[1].time_step = parameters.step_spinbox.value
@@ -24,7 +23,7 @@ func _ready():
 	parameters.step_spinbox.value_changed.connect(func(v: float): view_modes[1].time_step=v)
 	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i])
 	parameters.clear_button.pressed.connect(clear_nodes)
-	parameters.timer.timeout.connect(add_node)
+	parameters.timer.timeout.connect(record_node)
 
 func _process(_delta):
 	if Input.is_action_just_pressed(&"restart"):
@@ -58,9 +57,10 @@ func _draw():
 
 func clear_nodes():
 	data = ChartData.new()
-	_previous_step = _time - parameters.step_spinbox.value
+	record_node()
+	parameters.timer.start()
 
-func add_node():
+func record_node():
 	var previous_time = _time
 	if data.nodes.size() > 0:
 		previous_time = data.nodes[- 1].x
