@@ -4,9 +4,9 @@ extends HBoxContainer
 @export var getter: Getter
 @export var padding: int = 2
 
-@export var step_spinbox: SpinBox
-@export var view_mode_optionbutton: OptionButton
-@export var clear_button: Button
+@export var step: SpinBox
+@export var view_mode: OptionButton
+@export var clear: Button
 @export var timer: TimerLow
 
 @onready var counter: Counter = $Counter
@@ -14,6 +14,6 @@ extends HBoxContainer
 func _ready():
 	counter.getter = getter
 	counter.padding = padding
-	timer.wait_time = step_spinbox.value
+	timer.wait_time = step.value
 
-	step_spinbox.value_changed.connect(func(v: float): timer.wait_time=v)
+	step.value_changed.connect(func(v: float): timer.wait_time=v)

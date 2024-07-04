@@ -18,11 +18,11 @@ var _time: float:
 		return Time.get_ticks_msec() / 1000.0
 
 func _ready():
-	view_modes[1].time_step = parameters.step_spinbox.value
+	view_modes[1].time_step = parameters.step.value
 
-	parameters.step_spinbox.value_changed.connect(func(v: float): view_modes[1].time_step=v; queue_redraw())
-	parameters.view_mode_optionbutton.item_selected.connect(func(i: int): view_mode=view_modes[i];queue_redraw())
-	parameters.clear_button.pressed.connect(clear_nodes)
+	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step=v; queue_redraw())
+	parameters.view_mode.item_selected.connect(func(i: int): view_mode=view_modes[i];queue_redraw())
+	parameters.clear.pressed.connect(clear_nodes)
 	parameters.timer.timeout.connect(record_node)
 
 func _process(_delta):
@@ -60,7 +60,7 @@ func record_node():
 	var previous_time = _time
 	if data.nodes.size() > 0:
 		previous_time = data.nodes[- 1].x
-	var node_time: float = previous_time + parameters.step_spinbox.value
+	var node_time: float = previous_time + parameters.step.value
 	data.nodes.append(Vector2(node_time, parameters.getter.get_value()))
 
 	queue_redraw()
