@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5a6lo6rfxyt2"]
+[gd_scene load_steps=4 format=3 uid="uid://b5a6lo6rfxyt2"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters.gd" id="1_wfk4s"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_7fi6p"]
+[ext_resource type="Script" path="res://addons/timer_low/timer_low.gd" id="3_fcd8a"]
 
 [node name="Parameters" type="HBoxContainer" node_paths=PackedStringArray("step_spinbox", "view_mode_optionbutton", "clear_button")]
 script = ExtResource("1_wfk4s")
@@ -37,3 +38,6 @@ popup/item_2/id = 2
 [node name="Clear" type="Button" parent="."]
 layout_mode = 2
 text = "Clear"
+
+[node name="StepTimer" type="Node" parent="."]
+script = ExtResource("3_fcd8a")
