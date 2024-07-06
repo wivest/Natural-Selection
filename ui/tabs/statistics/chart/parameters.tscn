@@ -5,12 +5,9 @@
 [ext_resource type="Script" path="res://addons/timer_low/timer_low.gd" id="3_fcd8a"]
 
 [node name="Parameters" type="HBoxContainer" node_paths=PackedStringArray("step", "view_mode", "clear", "timer")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -284.0
+offset_right = 284.0
 offset_bottom = 31.0
-grow_horizontal = 0
+alignment = 2
 script = ExtResource("1_wfk4s")
 step = NodePath("Step")
 view_mode = NodePath("ViewMode")
