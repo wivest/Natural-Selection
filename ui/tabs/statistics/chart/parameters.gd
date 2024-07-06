@@ -1,7 +1,6 @@
 class_name ChartParameters
 extends HBoxContainer
 
-@export var getter: Getter
 @export var padding: int = 2
 
 @export var step: SpinBox
@@ -12,7 +11,7 @@ extends HBoxContainer
 @onready var counter: Counter = $Counter
 
 func _ready():
-	counter.getter = getter
+	counter.getter = Getter.new() # TMP
 	counter.padding = padding
 	timer.wait_time = step.value
 

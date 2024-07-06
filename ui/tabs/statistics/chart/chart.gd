@@ -1,6 +1,7 @@
 class_name Chart
 extends Control
 
+@export var getter: Getter
 @export var parameters: ChartParameters
 
 var data: ChartData = ChartData.new()
