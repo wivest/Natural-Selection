@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bybyo71adhl4m"]
+[gd_scene load_steps=3 format=3 uid="uid://bybyo71adhl4m"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_t4kbf"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/population/getter.gd" id="2_4gaad"]
 [ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters.tscn" id="2_b3h4i"]
-
-[sub_resource type="Resource" id="Resource_i53ly"]
-script = ExtResource("2_4gaad")
 
 [node name="Chart" type="VBoxContainer"]
 anchors_preset = 15
@@ -22,5 +18,4 @@ parameters = NodePath("../Parameters")
 
 [node name="Parameters" parent="." instance=ExtResource("2_b3h4i")]
 layout_mode = 2
-getter = SubResource("Resource_i53ly")
 padding = 0

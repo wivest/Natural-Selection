@@ -62,6 +62,6 @@ func record_node():
 	if data.nodes.size() > 0:
 		previous_time = data.nodes[- 1].x
 	var node_time: float = previous_time + parameters.step.value
-	data.nodes.append(Vector2(node_time, parameters.getter.get_value()))
+	data.nodes.append(Vector2(node_time, getter.get_value()))
 
 	queue_redraw()

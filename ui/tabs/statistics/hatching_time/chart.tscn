@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy6m4lpyd41nx"]
+[gd_scene load_steps=3 format=3 uid="uid://cy6m4lpyd41nx"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_yhaco"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/hatching_time/getter.gd" id="2_j6kiw"]
 [ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters.tscn" id="2_qdjed"]
-
-[sub_resource type="Resource" id="Resource_tjwyb"]
-script = ExtResource("2_j6kiw")
 
 [node name="Chart" type="VBoxContainer"]
 anchors_preset = 15
@@ -22,4 +18,3 @@ parameters = NodePath("../Parameters")
 
 [node name="Parameters" parent="." instance=ExtResource("2_qdjed")]
 layout_mode = 2
-getter = SubResource("Resource_tjwyb")
