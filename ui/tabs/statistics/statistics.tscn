@@ -1,11 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://thhd74d7nm65"]
+[gd_scene load_steps=11 format=3 uid="uid://thhd74d7nm65"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_3uxui"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/population/getter.gd" id="2_lmoi6"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/population.gd" id="2_3u3pa"]
 [ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters.tscn" id="3_eb8hw"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/speed.gd" id="4_1ekuv"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/view_radius.gd" id="5_qa06g"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/hatching_time.gd" id="6_uwi8f"]
 
-[sub_resource type="Resource" id="Resource_8op1e"]
-script = ExtResource("2_lmoi6")
+[sub_resource type="Resource" id="Resource_xb0yr"]
+script = ExtResource("2_3u3pa")
+
+[sub_resource type="Resource" id="Resource_udqgt"]
+script = ExtResource("4_1ekuv")
+
+[sub_resource type="Resource" id="Resource_1ihg0"]
+script = ExtResource("5_qa06g")
+
+[sub_resource type="Resource" id="Resource_13tpy"]
+script = ExtResource("6_uwi8f")
 
 [node name="Statistics" type="TabContainer"]
 anchors_preset = 15
@@ -28,8 +40,83 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_3uxui")
-getter = SubResource("Resource_8op1e")
+getter = SubResource("Resource_xb0yr")
 parameters = NodePath("../Parameters")
 
 [node name="Parameters" parent="Population/VBoxContainer" instance=ExtResource("3_eb8hw")]
 layout_mode = 2
+
+[node name="Speed" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Speed"]
+layout_mode = 2
+
+[node name="Chart" type="Control" parent="Speed/VBoxContainer" node_paths=PackedStringArray("parameters")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_udqgt")
+parameters = NodePath("../../../Population/VBoxContainer/Parameters")
+
+[node name="Parameters" parent="Speed/VBoxContainer" node_paths=PackedStringArray("step", "view_mode", "clear", "timer") instance=ExtResource("3_eb8hw")]
+layout_mode = 2
+step = NodePath("../../../Population/VBoxContainer/Parameters/Step")
+view_mode = NodePath("../../../Population/VBoxContainer/Parameters/ViewMode")
+clear = NodePath("../../../Population/VBoxContainer/Parameters/Clear")
+timer = NodePath("../../../Population/VBoxContainer/Parameters/StepTimer")
+
+[node name="ViewRadius" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ViewRadius"]
+layout_mode = 2
+
+[node name="Chart" type="Control" parent="ViewRadius/VBoxContainer" node_paths=PackedStringArray("parameters")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_1ihg0")
+parameters = NodePath("../../../Population/VBoxContainer/Parameters")
+
+[node name="Parameters" parent="ViewRadius/VBoxContainer" node_paths=PackedStringArray("step", "view_mode", "clear", "timer") instance=ExtResource("3_eb8hw")]
+layout_mode = 2
+step = NodePath("../../../Population/VBoxContainer/Parameters/Step")
+view_mode = NodePath("../../../Population/VBoxContainer/Parameters/ViewMode")
+clear = NodePath("../../../Population/VBoxContainer/Parameters/Clear")
+timer = NodePath("../../../Population/VBoxContainer/Parameters/StepTimer")
+
+[node name="HatchingTime" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HatchingTime"]
+layout_mode = 2
+
+[node name="Chart" type="Control" parent="HatchingTime/VBoxContainer" node_paths=PackedStringArray("parameters")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_13tpy")
+parameters = NodePath("../../../Population/VBoxContainer/Parameters")
+
+[node name="Parameters" parent="HatchingTime/VBoxContainer" node_paths=PackedStringArray("step", "view_mode", "clear", "timer") instance=ExtResource("3_eb8hw")]
+layout_mode = 2
+step = NodePath("../../../Population/VBoxContainer/Parameters/Step")
+view_mode = NodePath("../../../Population/VBoxContainer/Parameters/ViewMode")
+clear = NodePath("../../../Population/VBoxContainer/Parameters/Clear")
+timer = NodePath("../../../Population/VBoxContainer/Parameters/StepTimer")
