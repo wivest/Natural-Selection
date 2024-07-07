@@ -31,64 +31,40 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Population" type="MarginContainer" parent="Tabs"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="Chart" type="Control" parent="Tabs/Population" node_paths=PackedStringArray("parameters")]
+[node name="Population" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_xb0yr")
-parameters = NodePath("../../../Parameters")
-
-[node name="Speed" type="MarginContainer" parent="Tabs"]
-visible = false
-layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_xb0yr")
+parameters = NodePath("../../Parameters")
 
-[node name="Chart" type="Control" parent="Tabs/Speed" node_paths=PackedStringArray("parameters")]
+[node name="Speed" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_3uxui")
 getter = SubResource("Resource_udqgt")
-parameters = NodePath("../../../Parameters")
+parameters = NodePath("../../Parameters")
 
-[node name="ViewRadius" type="MarginContainer" parent="Tabs"]
+[node name="ViewRadius" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
 visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="Chart" type="Control" parent="Tabs/ViewRadius" node_paths=PackedStringArray("parameters")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_3uxui")
 getter = SubResource("Resource_1ihg0")
-parameters = NodePath("../../../Parameters")
+parameters = NodePath("../../Parameters")
 
-[node name="HatchingTime" type="MarginContainer" parent="Tabs"]
+[node name="HatchingTime" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
 visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="Chart" type="Control" parent="Tabs/HatchingTime" node_paths=PackedStringArray("parameters")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_3uxui")
 getter = SubResource("Resource_13tpy")
-parameters = NodePath("../../../Parameters")
+parameters = NodePath("../../Parameters")
 
 [node name="Parameters" parent="." instance=ExtResource("3_eb8hw")]
 layout_mode = 2
