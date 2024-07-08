@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5a6lo6rfxyt2"]
 
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters.gd" id="1_wfk4s"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_7fi6p"]
-[ext_resource type="Script" path="res://addons/timer_low/timer_low.gd" id="3_fcd8a"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters/parameters.gd" id="1_fy8n0"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_xisl3"]
+[ext_resource type="Script" path="res://addons/timer_low/timer_low.gd" id="3_yoo71"]
 
 [node name="Parameters" type="HBoxContainer" node_paths=PackedStringArray("step", "view_mode", "clear", "timer")]
 offset_right = 284.0
 offset_bottom = 31.0
 alignment = 2
-script = ExtResource("1_wfk4s")
+script = ExtResource("1_fy8n0")
 step = NodePath("Step")
 view_mode = NodePath("ViewMode")
 clear = NodePath("Clear")
@@ -18,7 +18,7 @@ timer = NodePath("StepTimer")
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_7fi6p")
+script = ExtResource("2_xisl3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -48,5 +48,5 @@ text = "Clear"
 
 [node name="StepTimer" type="Node" parent="."]
 process_mode = 1
-script = ExtResource("3_fcd8a")
+script = ExtResource("3_yoo71")
 autostart = true

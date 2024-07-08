@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_3uxui"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/population.gd" id="2_3u3pa"]
-[ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters.tscn" id="3_eb8hw"]
+[ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters/parameters.tscn" id="3_eb8hw"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/speed.gd" id="4_1ekuv"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/view_radius.gd" id="5_qa06g"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/hatching_time.gd" id="6_uwi8f"]
