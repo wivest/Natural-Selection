@@ -31,7 +31,63 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="All" type="Control" parent="Tabs"]
+layout_mode = 2
+
+[node name="Population" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_xb0yr")
+parameters = NodePath("../../../Parameters")
+
+[node name="Speed" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_udqgt")
+parameters = NodePath("../../../Parameters")
+
+[node name="ViewRadius" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_1ihg0")
+parameters = NodePath("../../../Parameters")
+
+[node name="HatchingTime" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_3uxui")
+getter = SubResource("Resource_13tpy")
+parameters = NodePath("../../../Parameters")
+
 [node name="Population" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
