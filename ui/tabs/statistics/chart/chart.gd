@@ -1,5 +1,5 @@
 class_name Chart
-extends Control
+extends MarginContainer
 
 @export var getter: Getter
 @export var parameters: ChartParameters
@@ -17,6 +17,11 @@ var view_mode: ViewMode = CurrentViewMode.new(length_limit)
 var _time: float:
 	get:
 		return Time.get_ticks_msec() / 1000.0
+var _margin_size: Vector2:
+	get:
+		var x: float = size.x - get_theme_constant("margin_left") - get_theme_constant("margin_right")
+		var y: float = size.y - get_theme_constant("margin_top") - get_theme_constant("margin_bottom")
+		return Vector2(x, y)
 
 func _ready():
 	view_modes[1].time_step = parameters.step.value
@@ -46,7 +51,10 @@ func _draw():
 		var vratio: float = view_mode.get_vratio(data.nodes[i].y, maximum)
 		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, start_index), delta)
 
-		var pos := Vector2(size.x * hratio, size.y * vratio)
+		var pos := Vector2(
+			get_theme_constant("margin_left") + _margin_size.x * hratio,
+			get_theme_constant("margin_top") + _margin_size.y * vratio
+		)
 		if i != start_index:
 			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
