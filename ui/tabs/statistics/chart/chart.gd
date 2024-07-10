@@ -53,6 +53,7 @@ func _draw():
 	for i in range(start_index, end_index):
 		var vratio: float = view_mode.get_vratio(data.nodes[i].y, maximum)
 		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, start_index), delta)
+		position_counter(vratio)
 
 		var pos := Vector2(
 			get_theme_constant("margin_left") + _margin_size.x * hratio,
@@ -76,3 +77,7 @@ func record_node():
 	data.nodes.append(Vector2(node_time, getter.get_value()))
 
 	queue_redraw()
+
+func position_counter(ratio: float):
+	counter.anchor_top = ratio
+	counter.anchor_bottom = ratio
