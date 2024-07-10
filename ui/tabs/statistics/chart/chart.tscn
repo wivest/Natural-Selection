@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy22fswssjyxs"]
+[gd_scene load_steps=3 format=3 uid="uid://cy22fswssjyxs"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_g8qfy"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_qxeo1"]
 
 [node name="Chart" type="MarginContainer"]
 anchors_preset = 15
@@ -15,3 +16,14 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 script = ExtResource("1_g8qfy")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Counter" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("2_qxeo1")

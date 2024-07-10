@@ -23,8 +23,11 @@ var _margin_size: Vector2:
 		var y: float = size.y - get_theme_constant("margin_top") - get_theme_constant("margin_bottom")
 		return Vector2(x, y)
 
+@onready var counter: Counter = $Control/Counter
+
 func _ready():
 	view_modes[1].time_step = parameters.step.value
+	counter.getter = getter
 
 	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step=v; queue_redraw())
 	parameters.view_mode.item_selected.connect(func(i: int): view_mode=view_modes[i];queue_redraw())
