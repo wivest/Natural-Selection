@@ -31,26 +31,26 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="All" type="Control" parent="Tabs"]
+[node name="All" type="VBoxContainer" parent="Tabs"]
 layout_mode = 2
 
 [node name="Population" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
-layout_mode = 1
+layout_mode = 2
 getter = SubResource("Resource_p3n06")
 parameters = NodePath("../../../Parameters")
 
 [node name="Speed" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
-layout_mode = 1
+layout_mode = 2
 getter = SubResource("Resource_mc4q7")
 parameters = NodePath("../../../Parameters")
 
 [node name="ViewRadius" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
-layout_mode = 1
+layout_mode = 2
 getter = SubResource("Resource_xi0sd")
 parameters = NodePath("../../../Parameters")
 
 [node name="HatchingTime" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
-layout_mode = 1
+layout_mode = 2
 getter = SubResource("Resource_nkfbl")
 parameters = NodePath("../../../Parameters")
 
