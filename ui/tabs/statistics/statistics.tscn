@@ -1,22 +1,22 @@
 [gd_scene load_steps=11 format=3 uid="uid://thhd74d7nm65"]
 
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_3uxui"]
+[ext_resource type="PackedScene" uid="uid://cy22fswssjyxs" path="res://ui/tabs/statistics/chart/chart.tscn" id="1_ilp5w"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/population.gd" id="2_3u3pa"]
 [ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters/parameters.tscn" id="3_eb8hw"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/speed.gd" id="4_1ekuv"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/view_radius.gd" id="5_qa06g"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/hatching_time.gd" id="6_uwi8f"]
 
-[sub_resource type="Resource" id="Resource_xb0yr"]
+[sub_resource type="Resource" id="Resource_p3n06"]
 script = ExtResource("2_3u3pa")
 
-[sub_resource type="Resource" id="Resource_udqgt"]
+[sub_resource type="Resource" id="Resource_mc4q7"]
 script = ExtResource("4_1ekuv")
 
-[sub_resource type="Resource" id="Resource_1ihg0"]
+[sub_resource type="Resource" id="Resource_xi0sd"]
 script = ExtResource("5_qa06g")
 
-[sub_resource type="Resource" id="Resource_13tpy"]
+[sub_resource type="Resource" id="Resource_nkfbl"]
 script = ExtResource("6_uwi8f")
 
 [node name="Statistics" type="VBoxContainer"]
@@ -34,116 +34,48 @@ size_flags_vertical = 3
 [node name="All" type="Control" parent="Tabs"]
 layout_mode = 2
 
-[node name="Population" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+[node name="Population" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_xb0yr")
+getter = SubResource("Resource_p3n06")
 parameters = NodePath("../../../Parameters")
 
-[node name="Speed" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+[node name="Speed" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_udqgt")
+getter = SubResource("Resource_mc4q7")
 parameters = NodePath("../../../Parameters")
 
-[node name="ViewRadius" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+[node name="ViewRadius" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_1ihg0")
+getter = SubResource("Resource_xi0sd")
 parameters = NodePath("../../../Parameters")
 
-[node name="HatchingTime" type="MarginContainer" parent="Tabs/All" node_paths=PackedStringArray("parameters")]
+[node name="HatchingTime" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_13tpy")
+getter = SubResource("Resource_nkfbl")
 parameters = NodePath("../../../Parameters")
 
-[node name="Population" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
+[node name="Population" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_xb0yr")
+getter = SubResource("Resource_p3n06")
 parameters = NodePath("../../Parameters")
 
-[node name="Speed" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
+[node name="Speed" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_udqgt")
+getter = SubResource("Resource_mc4q7")
 parameters = NodePath("../../Parameters")
 
-[node name="ViewRadius" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
+[node name="ViewRadius" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_1ihg0")
+getter = SubResource("Resource_xi0sd")
 parameters = NodePath("../../Parameters")
 
-[node name="HatchingTime" type="MarginContainer" parent="Tabs" node_paths=PackedStringArray("parameters")]
+[node name="HatchingTime" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-script = ExtResource("1_3uxui")
-getter = SubResource("Resource_13tpy")
+getter = SubResource("Resource_nkfbl")
 parameters = NodePath("../../Parameters")
 
 [node name="Parameters" parent="." instance=ExtResource("3_eb8hw")]
