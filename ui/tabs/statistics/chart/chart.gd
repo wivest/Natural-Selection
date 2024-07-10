@@ -5,7 +5,7 @@ extends MarginContainer
 @export var parameters: ChartParameters
 
 var data: ChartData = ChartData.new()
-var length_limit: int = 500
+var length_limit: int = 200
 
 var view_modes: Dictionary = {
 	0: CurrentViewMode.new(length_limit),
