@@ -23,4 +23,4 @@ func _process(_delta):
 		_value_previous = value
 		_time_previous = time
 
-	text = "Value: %.*f Delta: %.*f" % [padding, value, padding, _value_delta]
+	text = "%.*f %+.*f" % [padding, value, padding, _value_delta]
