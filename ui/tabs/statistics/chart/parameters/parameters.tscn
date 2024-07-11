@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5a6lo6rfxyt2"]
+[gd_scene load_steps=4 format=3 uid="uid://b5a6lo6rfxyt2"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters/parameters.gd" id="1_fy8n0"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_xisl3"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/parameters/view_mode.gd" id="3_a86jv"]
 [ext_resource type="Script" path="res://addons/timer_low/timer_low.gd" id="3_yoo71"]
 
@@ -14,12 +13,6 @@ step = NodePath("Step")
 view_mode = NodePath("ViewMode")
 clear = NodePath("Clear")
 timer = NodePath("StepTimer")
-
-[node name="Counter" type="Label" parent="."]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("2_xisl3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
