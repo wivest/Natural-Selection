@@ -38,6 +38,7 @@ layout_mode = 2
 layout_mode = 2
 getter = SubResource("Resource_p3n06")
 parameters = NodePath("../../../Parameters")
+padding = 0
 
 [node name="Speed" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 2
@@ -59,6 +60,7 @@ visible = false
 layout_mode = 2
 getter = SubResource("Resource_p3n06")
 parameters = NodePath("../../Parameters")
+padding = 0
 
 [node name="Speed" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false

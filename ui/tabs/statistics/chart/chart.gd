@@ -3,6 +3,7 @@ extends MarginContainer
 
 @export var getter: Getter
 @export var parameters: ChartParameters
+@export var padding: int = 2
 
 var data: ChartData = ChartData.new()
 var length_limit: int = 200
@@ -26,6 +27,7 @@ var _margin_size: Vector2:
 @onready var counter: Counter = $Control/Counter
 
 func _ready():
+	counter.padding = padding
 	view_modes[1].time_step = parameters.step.value
 
 	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step=v; queue_redraw())
