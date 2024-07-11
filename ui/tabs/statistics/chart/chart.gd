@@ -27,7 +27,6 @@ var _margin_size: Vector2:
 
 func _ready():
 	view_modes[1].time_step = parameters.step.value
-	counter.getter = getter
 
 	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step=v; queue_redraw())
 	parameters.view_mode.item_selected.connect(func(i: int): view_mode=view_modes[i];queue_redraw())
@@ -75,6 +74,8 @@ func record_node():
 		previous_time = data.nodes[- 1].x
 	var node_time: float = previous_time + parameters.step.value
 	data.nodes.append(Vector2(node_time, getter.get_value()))
+
+	counter.value = getter.get_value()
 
 	queue_redraw()
 

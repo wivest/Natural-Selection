@@ -1,26 +1,15 @@
 class_name Counter
 extends Label
 
-var getter: Getter
 var padding: int = 2
-var step: float = 0.5
 
-var value: float
+var value: float = 0:
+	set(v):
+		_delta = v - value
+		value = v
+		_update_text()
 
-var _value_delta: float = 0
-var _value_previous: float = 0
-var _time_previous: int = 0
+var _delta: float = 0
 
-func _ready():
-	_time_previous = Time.get_ticks_msec()
-
-func _process(_delta):
-	value = getter.get_value()
-
-	var time: int = Time.get_ticks_msec()
-	if time - _time_previous > step * 1000:
-		_value_delta = value - _value_previous
-		_value_previous = value
-		_time_previous = time
-
-	text = "%.*f %+.*f" % [padding, value, padding, _value_delta]
+func _update_text():
+	text = "%.*f %+.*f" % [padding, value, padding, _delta]
