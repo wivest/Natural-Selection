@@ -16,7 +16,7 @@ var energy: float = Parameters.energy_on_start
 func _enter_tree():
 	count += 1
 
-	var copy: Genome = genome.duplicate(true)
+	var copy: Genome = genome.deep_copy()
 	if count == 1:
 		average = copy
 	else:
@@ -27,7 +27,7 @@ func _enter_tree():
 func _exit_tree():
 	count -= 1
 
-	var copy: Genome = genome.duplicate(true)
+	var copy: Genome = genome.deep_copy()
 	if count == 0:
 		average.zero()
 	else:

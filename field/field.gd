@@ -20,12 +20,12 @@ func generate_items():
 	for i in range(Parameters.food):
 		spawn_food()
 
-func create_creature(at_position: Vector2, genes: Genome):
+func create_creature(at_position: Vector2, g: Genome):
 	var creature: Creature = creatures.create(at_position)
-	if genes != null:
-		creature.genome = genes
+	if g != null:
+		creature.genome = g
 	else:
-		creature.genome = creature.genome.duplicate(true)
+		creature.genome = creature.genome.deep_copy()
 	creature.born.connect(_on_creature_born)
 	creatures.add(creature)
 

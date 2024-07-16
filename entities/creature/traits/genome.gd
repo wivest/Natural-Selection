@@ -7,6 +7,12 @@ extends Resource
 
 @export var genes: Dictionary # [String, Gene] pairs
 
+func deep_copy() -> Genome:
+	var g: Genome = duplicate(true)
+	for key in g.genes:
+		g.genes[key] = g.genes[key].duplicate(true)
+	return g
+
 func mutate():
 	speed.mutate()
 	view_radius.mutate()
