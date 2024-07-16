@@ -24,6 +24,8 @@ func create_creature(at_position: Vector2, genes: Genome):
 	var creature: Creature = creatures.create(at_position)
 	if genes != null:
 		creature.genome = genes
+	else:
+		creature.genome = creature.genome.duplicate(true)
 	creature.born.connect(_on_creature_born)
 	creatures.add(creature)
 
