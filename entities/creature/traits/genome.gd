@@ -31,7 +31,7 @@ func add(g: Genome):
 	view_radius.value += g.view_radius.value
 	hatching_time.value += g.hatching_time.value
 
-	for key: String in genes.keys():
+	for key: String in genes:
 		genes[key].value += g[key].value
 
 func sub(g: Genome):
@@ -39,7 +39,7 @@ func sub(g: Genome):
 	view_radius.value -= g.view_radius.value
 	hatching_time.value -= g.hatching_time.value
 
-	for key: String in genes.keys():
+	for key: String in genes:
 		genes[key].value -= g[key].value
 
 func div(n: int):
@@ -47,7 +47,7 @@ func div(n: int):
 	view_radius.value /= n
 	hatching_time.value /= n
 
-	for key: String in genes.keys():
+	for key: String in genes:
 		genes[key].value /= n
 
 func zero():
@@ -55,5 +55,5 @@ func zero():
 	view_radius.value = 0
 	hatching_time.value = 0
 
-	for key: String in genes.keys():
+	for key: String in genes:
 		genes[key].value = 0
