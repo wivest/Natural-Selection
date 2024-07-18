@@ -2,6 +2,12 @@ class_name ChartData
 
 var nodes: Array[Vector2]
 
+func local_min(start: int, end: int) -> float:
+	var minimum: float = nodes[start].y
+	for i in range(start, end):
+		minimum = min(minimum, nodes[i].y)
+	return minimum
+
 func local_max(start: int, end: int) -> float:
 	var maximum: float = nodes[start].y
 	for i in range(start, end):
