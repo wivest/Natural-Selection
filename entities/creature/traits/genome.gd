@@ -14,7 +14,7 @@ func mutate():
 		gene.mutate()
 
 func divide() -> Genome:
-	var g: Genome = duplicate(true)
+	var g: Genome = deep_copy()
 	g.mutate()
 	return g
 
