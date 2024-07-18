@@ -14,7 +14,7 @@ func get_delta_time(data: ChartData) -> float:
 func get_hratio(value: float, delta: float) -> float:
 	return value / delta
 
-func get_vratio(value: float, maximum: float) -> float:
-	if maximum == 0:
+func get_vratio(value: float, minimum: float, maximum: float) -> float:
+	if minimum == maximum:
 		return 1
-	return 1 - value / maximum
+	return 1 - (value - minimum) / (maximum - minimum)
