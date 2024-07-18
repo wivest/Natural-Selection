@@ -11,7 +11,7 @@ var _is_target_food: bool = false # target on creation is random
 @onready var shape: CircleShape2D = $CollisionShape2D.shape
 
 func _ready():
-	shape.radius = owner.genome.view_radius.value
+	shape.radius = owner.genome.genes["view_radius"].value
 	queue_redraw()
 
 	target = _get_random_target()

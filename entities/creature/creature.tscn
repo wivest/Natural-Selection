@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xkd0hmsfnseg"]
+[gd_scene load_steps=17 format=3 uid="uid://xkd0hmsfnseg"]
 
 [ext_resource type="Script" path="res://entities/creature/creature.gd" id="1_0eubi"]
 [ext_resource type="Script" path="res://entities/creature/traits/gene.gd" id="2_nf75o"]
@@ -27,27 +27,9 @@ script = ExtResource("2_nf75o")
 value = 100.0
 mutation_range = 10.0
 
-[sub_resource type="Resource" id="Resource_wbpyc"]
-script = ExtResource("2_nf75o")
-value = 1.0
-mutation_range = 0.1
-
-[sub_resource type="Resource" id="Resource_fxyqd"]
-script = ExtResource("2_nf75o")
-value = 40.0
-mutation_range = 5.0
-
-[sub_resource type="Resource" id="Resource_hww5n"]
-script = ExtResource("2_nf75o")
-value = 100.0
-mutation_range = 10.0
-
 [sub_resource type="Resource" id="Resource_dd1vt"]
 resource_local_to_scene = true
 script = ExtResource("3_0clsu")
-speed = SubResource("Resource_fxyqd")
-view_radius = SubResource("Resource_hww5n")
-hatching_time = SubResource("Resource_wbpyc")
 genes = {
 "hatching_time": SubResource("Resource_cty3q"),
 "speed": SubResource("Resource_da71r"),
