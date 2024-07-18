@@ -1,23 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://thhd74d7nm65"]
+[gd_scene load_steps=12 format=3 uid="uid://thhd74d7nm65"]
 
 [ext_resource type="PackedScene" uid="uid://cy22fswssjyxs" path="res://ui/tabs/statistics/chart/chart.tscn" id="1_ilp5w"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/population.gd" id="2_3u3pa"]
 [ext_resource type="PackedScene" uid="uid://b5a6lo6rfxyt2" path="res://ui/tabs/statistics/chart/parameters/parameters.tscn" id="3_eb8hw"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/speed.gd" id="4_1ekuv"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/view_radius.gd" id="5_qa06g"]
-[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/hatching_time.gd" id="6_uwi8f"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/getters/gene.gd" id="3_kad7x"]
 
 [sub_resource type="Resource" id="Resource_p3n06"]
 script = ExtResource("2_3u3pa")
 
-[sub_resource type="Resource" id="Resource_mc4q7"]
-script = ExtResource("4_1ekuv")
+[sub_resource type="Resource" id="Resource_a3hnl"]
+script = ExtResource("3_kad7x")
+gene_name = "speed"
 
-[sub_resource type="Resource" id="Resource_xi0sd"]
-script = ExtResource("5_qa06g")
+[sub_resource type="Resource" id="Resource_rskbi"]
+script = ExtResource("3_kad7x")
+gene_name = "view_radius"
 
-[sub_resource type="Resource" id="Resource_nkfbl"]
-script = ExtResource("6_uwi8f")
+[sub_resource type="Resource" id="Resource_1cnvi"]
+script = ExtResource("3_kad7x")
+gene_name = "hatching_time"
+
+[sub_resource type="Resource" id="Resource_qtisy"]
+script = ExtResource("3_kad7x")
+gene_name = "speed"
+
+[sub_resource type="Resource" id="Resource_qf80u"]
+script = ExtResource("3_kad7x")
+gene_name = "view_radius"
+
+[sub_resource type="Resource" id="Resource_igthj"]
+script = ExtResource("3_kad7x")
+gene_name = "hatching_time"
 
 [node name="Statistics" type="VBoxContainer"]
 anchors_preset = 15
@@ -42,17 +55,17 @@ padding = 0
 
 [node name="Speed" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 2
-getter = SubResource("Resource_mc4q7")
+getter = SubResource("Resource_a3hnl")
 parameters = NodePath("../../../Parameters")
 
 [node name="ViewRadius" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 2
-getter = SubResource("Resource_xi0sd")
+getter = SubResource("Resource_rskbi")
 parameters = NodePath("../../../Parameters")
 
 [node name="HatchingTime" parent="Tabs/All" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 layout_mode = 2
-getter = SubResource("Resource_nkfbl")
+getter = SubResource("Resource_1cnvi")
 parameters = NodePath("../../../Parameters")
 
 [node name="Population" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
@@ -65,19 +78,19 @@ padding = 0
 [node name="Speed" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false
 layout_mode = 2
-getter = SubResource("Resource_mc4q7")
+getter = SubResource("Resource_qtisy")
 parameters = NodePath("../../Parameters")
 
 [node name="ViewRadius" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false
 layout_mode = 2
-getter = SubResource("Resource_xi0sd")
+getter = SubResource("Resource_qf80u")
 parameters = NodePath("../../Parameters")
 
 [node name="HatchingTime" parent="Tabs" node_paths=PackedStringArray("parameters") instance=ExtResource("1_ilp5w")]
 visible = false
 layout_mode = 2
-getter = SubResource("Resource_nkfbl")
+getter = SubResource("Resource_igthj")
 parameters = NodePath("../../Parameters")
 
 [node name="Parameters" parent="." instance=ExtResource("3_eb8hw")]
