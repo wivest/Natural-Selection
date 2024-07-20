@@ -12,7 +12,8 @@ func add_charts():
 		var getter: GeneGetter = GeneGetter.new()
 		getter.gene_name = gene_name
 
+		chart.name = gene_name.capitalize()
 		chart.parameters = parameters
 		chart.getter = getter
 
-		add_sibling(chart)
+		add_sibling(chart, true)
