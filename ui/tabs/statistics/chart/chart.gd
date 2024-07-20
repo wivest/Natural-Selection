@@ -24,9 +24,11 @@ var _margin_size: Vector2:
 		var y: float = size.y - get_theme_constant("margin_top") - get_theme_constant("margin_bottom")
 		return Vector2(x, y)
 
+@onready var chart_name: Label = $Name
 @onready var counter: Counter = $Control/Counter
 
 func _ready():
+	chart_name.text = name
 	counter.padding = padding
 	view_modes[1].time_step = parameters.step.value
 
