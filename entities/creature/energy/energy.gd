@@ -1,7 +1,15 @@
 class_name Energy
 
-var speed_factor: Factor
-var view_radius_factor: Factor
+static var factors: Dictionary
 
-static func calculate(speed: float, view_radius: float) -> float:
-    return 0
+static func calculate(genome: Genome) -> float:
+    var consumed: float = 0
+    var gene_value: float
+    var factor: Factor
+
+    for gene_name in genome.genes:
+        gene_value = genome.genes[gene_name].value
+        factor = factors[gene_name]
+        consumed += factor.multiplier * pow(gene_value, factor.power)
+
+    return consumed
