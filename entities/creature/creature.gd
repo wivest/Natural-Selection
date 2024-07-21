@@ -43,7 +43,7 @@ func _physics_process(delta):
 	handle_energy_level()
 
 func get_consumed_energy(delta: float) -> float: # based on speed
-	return Parameters.speed * (genome.genes["speed"].value + genome.genes["view_radius"].value) * delta
+	return Parameters.speed * Energy.calculate(genome) * delta
 
 func handle_energy_level():
 	if energy < 0:
