@@ -7,7 +7,7 @@
 offset_right = 88.0
 offset_bottom = 35.0
 script = ExtResource("1_35tgw")
-parameters = [NodePath("OnStart/UIParameter")]
+parameters = [NodePath("OnStart/UIParameter"), NodePath("Factors/SpeedMultiplier"), NodePath("Factors/SpeedPower")]
 
 [node name="OnStart" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -22,3 +22,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_77f0r")
 parameter_name = "creatures"
+
+[node name="Factors" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SpeedMultiplier" type="SpinBox" parent="Factors"]
+layout_mode = 2
+script = ExtResource("2_77f0r")
+parameter_name = "speed_multiplier"
+
+[node name="SpeedPower" type="SpinBox" parent="Factors"]
+layout_mode = 2
+script = ExtResource("2_77f0r")
+parameter_name = "speed_power"
