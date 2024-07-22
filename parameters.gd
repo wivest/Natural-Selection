@@ -16,8 +16,14 @@ signal spawn_rate_changed
 @export var energy_consumed_on_division: float = 400 # subject to change
 
 @export_group("Factors")
-@export var speed_multiplier: float = 1
-@export var speed_power: float = 1
+@export var speed_multiplier: float = 1:
+	set(value):
+		speed_multiplier = value
+		Energy.factors["speed"].multiplier = value
+@export var speed_power: float = 1:
+	set(value):
+		speed_power = value
+		Energy.factors["speed"].power = value
 
 @export_group("Food")
 @export var food: int = 10
