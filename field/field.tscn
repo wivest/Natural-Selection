@@ -30,9 +30,8 @@ process_mode = 1
 script = ExtResource("2_mop8g")
 item = ExtResource("4_gr27u")
 
-[node name="Spawner" type="Timer" parent="."]
+[node name="Spawner" type="Node" parent="."]
 process_mode = 1
-autostart = true
 script = ExtResource("6_asc34")
 
 [connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]
