@@ -4,30 +4,30 @@ extends Node
 signal speed_changed
 signal spawn_rate_changed
 
-@export var speed: float = 1:
+var speed: float = 1:
 	set(value):
 		speed = value
 		speed_changed.emit()
 
-@export_group("Creature")
-@export var creatures: int = 10
-@export var energy_on_start: float = 400 # subject to change
-@export var division_lower_bound: float = 800 # subject to change
-@export var energy_consumed_on_division: float = 400 # subject to change
+# creature
+var creatures: int = 10
+var energy_on_start: float = 400 # subject to change
+var division_lower_bound: float = 800 # subject to change
+var energy_consumed_on_division: float = 400 # subject to change
 
-@export_group("Factors")
-@export var speed_multiplier: float = 1:
+# factors
+var speed_multiplier: float = 1:
 	set(value):
 		speed_multiplier = value
 		Energy.factors["speed"].multiplier = value
-@export var speed_power: float = 1:
+var speed_power: float = 1:
 	set(value):
 		speed_power = value
 		Energy.factors["speed"].power = value
 
-@export_group("Food")
-@export var food: int = 10
-@export var spawn_rate: float = 10:
+# food
+var food: int = 10
+var spawn_rate: float = 10:
 	set(value):
 		spawn_rate = value
 		spawn_rate_changed.emit()
