@@ -1,13 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cla45h7wq8vdy"]
+[gd_scene load_steps=2 format=3 uid="uid://cla45h7wq8vdy"]
 
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/section.gd" id="1_35tgw"]
 [ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_77f0r"]
 
-[node name="Creature" type="VBoxContainer" node_paths=PackedStringArray("parameters")]
+[node name="Creature" type="VBoxContainer"]
 offset_right = 88.0
 offset_bottom = 35.0
-script = ExtResource("1_35tgw")
-parameters = [NodePath("OnStart/UIParameter"), NodePath("Factors/SpeedMultiplier"), NodePath("Factors/SpeedPower")]
 
 [node name="OnStart" type="HBoxContainer" parent="."]
 layout_mode = 2

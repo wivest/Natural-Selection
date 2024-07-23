@@ -1,13 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv7je1o05chou"]
+[gd_scene load_steps=2 format=3 uid="uid://bv7je1o05chou"]
 
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/section.gd" id="1_wd4du"]
 [ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_xsrcw"]
 
-[node name="Energy" type="VBoxContainer" node_paths=PackedStringArray("parameters")]
+[node name="Energy" type="VBoxContainer"]
 offset_right = 88.0
 offset_bottom = 35.0
-script = ExtResource("1_wd4du")
-parameters = [NodePath("WhenBorn/UIParameter"), NodePath("DivisionLowerBound/UIParameter"), NodePath("ConsumedOnDivision/UIParameter")]
 
 [node name="WhenBorn" type="HBoxContainer" parent="."]
 layout_mode = 2
