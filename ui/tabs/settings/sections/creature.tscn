@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cla45h7wq8vdy"]
 
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/gene_factors.gd" id="2_6xaf1"]
 [ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_77f0r"]
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/factor.gd" id="2_fcn3c"]
 
 [node name="Creature" type="VBoxContainer"]
 offset_right = 88.0
@@ -23,14 +23,4 @@ parameter_name = "creatures"
 
 [node name="Factors" type="HBoxContainer" parent="."]
 layout_mode = 2
-
-[node name="SpeedMultiplier" type="SpinBox" parent="Factors"]
-layout_mode = 2
-script = ExtResource("2_fcn3c")
-gene_name = "speed"
-
-[node name="SpeedPower" type="SpinBox" parent="Factors"]
-layout_mode = 2
-script = ExtResource("2_fcn3c")
-gene_name = "speed"
-property_type = 1
+script = ExtResource("2_6xaf1")
