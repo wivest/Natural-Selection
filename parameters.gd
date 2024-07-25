@@ -15,16 +15,6 @@ var energy_on_start: float = 400 # subject to change
 var division_lower_bound: float = 800 # subject to change
 var energy_consumed_on_division: float = 400 # subject to change
 
-# factors
-var speed_multiplier: float = 1:
-	set(value):
-		speed_multiplier = value
-		Energy.factors["speed"].multiplier = value
-var speed_power: float = 1:
-	set(value):
-		speed_power = value
-		Energy.factors["speed"].power = value
-
 # food
 var food: int = 10
 var spawn_rate: float = 10:
