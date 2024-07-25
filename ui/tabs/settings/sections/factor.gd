@@ -12,4 +12,4 @@ func _ready():
 	value_changed.connect(_on_value_changed)
 
 func _on_value_changed(v: float):
-	value = Energy.factors[gene_name].set(property_type, v)
+	Energy.factors[gene_name].set(property_type, v)
