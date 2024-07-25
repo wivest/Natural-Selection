@@ -5,6 +5,7 @@ extends SpinBox
 
 func _init():
 	allow_greater = true
+	step = 0.1
 
 func _ready():
 	value = Parameters.get(parameter_name)
