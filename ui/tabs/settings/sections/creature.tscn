@@ -28,10 +28,9 @@ layout_mode = 2
 layout_mode = 2
 script = ExtResource("2_fcn3c")
 gene_name = "speed"
-property_type = "multiplier"
 
 [node name="SpeedPower" type="SpinBox" parent="Factors"]
 layout_mode = 2
 script = ExtResource("2_fcn3c")
 gene_name = "speed"
-property_type = "power"
+property_type = 1
