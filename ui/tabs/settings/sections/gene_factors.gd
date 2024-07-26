@@ -13,4 +13,6 @@ func add_factors():
 		factor_p.property_type = UIFactor.PropertyType.POWER
 
 		add_child(factor_m)
+		move_child(factor_m, 0)
 		add_child(factor_p)
+		move_child(factor_p, 1)
