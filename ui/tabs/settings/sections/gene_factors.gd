@@ -12,7 +12,11 @@ func add_factors():
 		factor_p.gene_name = gene_name
 		factor_p.property_type = UIFactor.PropertyType.POWER
 
+		var label: Label = Label.new()
+		label.text = gene_name.capitalize()
+		add_child(label)
+		move_child(label, 0)
 		add_child(factor_m)
-		move_child(factor_m, 0)
+		move_child(factor_m, 1)
 		add_child(factor_p)
-		move_child(factor_p, 1)
+		move_child(factor_p, 2)
