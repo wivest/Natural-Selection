@@ -12,5 +12,5 @@ func add_factors():
 		factor_p.gene_name = gene_name
 		factor_p.property_type = UIFactor.PropertyType.POWER
 
-		add_child(factor_m, true)
-		add_child(factor_p, true)
+		add_child(factor_m)
+		add_child(factor_p)
