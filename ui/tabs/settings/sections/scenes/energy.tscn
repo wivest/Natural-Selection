@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv7je1o05chou"]
 
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/gene_factors.gd" id="2_87ibb"]
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_xsrcw"]
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="1_vwni8"]
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/gene_factors.gd" id="2_5krm0"]
 
 [node name="Energy" type="VBoxContainer"]
 offset_right = 88.0
@@ -18,7 +18,7 @@ text = "When born"
 [node name="UIParameter" type="SpinBox" parent="WhenBorn"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_xsrcw")
+script = ExtResource("1_vwni8")
 parameter_name = "energy_on_start"
 
 [node name="DivisionLowerBound" type="HBoxContainer" parent="."]
@@ -32,7 +32,7 @@ text = "Division lower bound"
 [node name="UIParameter" type="SpinBox" parent="DivisionLowerBound"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_xsrcw")
+script = ExtResource("1_vwni8")
 parameter_name = "division_lower_bound"
 
 [node name="ConsumedOnDivision" type="HBoxContainer" parent="."]
@@ -46,8 +46,8 @@ text = "Consumed on division"
 [node name="UIParameter" type="SpinBox" parent="ConsumedOnDivision"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_xsrcw")
+script = ExtResource("1_vwni8")
 parameter_name = "energy_consumed_on_division"
 
 [node name="Factors" type="Node" parent="."]
-script = ExtResource("2_87ibb")
+script = ExtResource("2_5krm0")
