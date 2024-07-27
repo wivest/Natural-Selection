@@ -21,6 +21,5 @@ size_flags_horizontal = 3
 script = ExtResource("2_77f0r")
 parameter_name = "creatures"
 
-[node name="Factors" type="HBoxContainer" parent="."]
-layout_mode = 2
+[node name="Factors" type="Node" parent="."]
 script = ExtResource("2_6xaf1")

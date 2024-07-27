@@ -20,6 +20,7 @@ var _property_name: String:
 
 func _init():
 	allow_greater = true
+	step = 0.05
 
 func _ready():
 	value = Energy.factors[gene_name].get(_property_name)
