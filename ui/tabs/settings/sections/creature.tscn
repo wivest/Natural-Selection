@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cla45h7wq8vdy"]
+[gd_scene load_steps=2 format=3 uid="uid://cla45h7wq8vdy"]
 
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/gene_factors.gd" id="2_6xaf1"]
 [ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="2_77f0r"]
 
 [node name="Creature" type="VBoxContainer"]
@@ -20,6 +19,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_77f0r")
 parameter_name = "creatures"
-
-[node name="Factors" type="Node" parent="."]
-script = ExtResource("2_6xaf1")
