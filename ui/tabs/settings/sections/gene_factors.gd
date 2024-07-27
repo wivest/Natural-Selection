@@ -16,6 +16,7 @@ func create_factor(gene_name: String) -> HBoxContainer:
 	var factor_p: UIFactor = UIFactor.new()
 
 	factor_name.text = gene_name.capitalize()
+	factor_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	math_expr.text = "* %d ^" % Creature.average.genes[gene_name].value
 	factor_m.gene_name = gene_name
 	factor_m.property_type = UIFactor.PropertyType.MULTIPLIER
