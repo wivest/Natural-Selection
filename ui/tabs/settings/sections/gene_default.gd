@@ -1,7 +1,7 @@
 class_name UIGeneDefault
 extends SpinBox
 
-@export var creature_scene: PackedScene
+@export var creature_scene: PackedScene = preload("res://entities/creature/creature.tscn")
 @export var gene_name: String
 
 func _init():
