@@ -1,7 +1,7 @@
-class_name GeneDefault
+class_name UIGeneDefault
 extends SpinBox
 
-@export var creature_scene: String
+@export var creature_scene: PackedScene
 @export var gene_name: String
 
 func _init():
@@ -12,7 +12,6 @@ func _ready():
 	value_changed.connect(_on_value_changed)
 
 func _on_value_changed(v: float):
-	var scene: PackedScene = load(creature_scene)
-	var instance: Creature = scene.instantiate()
+	var instance: Creature = creature_scene.instantiate()
 	instance.genome.genes[gene_name].value = v
-	# pack scene into file
+	creature_scene.pack(instance)
