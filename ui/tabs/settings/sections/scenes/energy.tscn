@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv7je1o05chou"]
+[gd_scene load_steps=2 format=3 uid="uid://bv7je1o05chou"]
 
 [ext_resource type="Script" path="res://ui/tabs/settings/sections/parameter.gd" id="1_vwni8"]
-[ext_resource type="Script" path="res://ui/tabs/settings/sections/gene_factors.gd" id="2_5krm0"]
 
 [node name="Energy" type="VBoxContainer"]
 offset_right = 88.0
@@ -48,6 +47,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("1_vwni8")
 parameter_name = "energy_consumed_on_division"
-
-[node name="Factors" type="Node" parent="."]
-script = ExtResource("2_5krm0")

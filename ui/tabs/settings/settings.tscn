@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0kcmg1d3jhci"]
+[gd_scene load_steps=5 format=3 uid="uid://d0kcmg1d3jhci"]
 
 [ext_resource type="PackedScene" uid="uid://cv8pe02y3l4f" path="res://ui/tabs/settings/sections/scenes/food.tscn" id="1_r1s3c"]
 [ext_resource type="PackedScene" uid="uid://cla45h7wq8vdy" path="res://ui/tabs/settings/sections/scenes/creature.tscn" id="2_1e7py"]
 [ext_resource type="PackedScene" uid="uid://bv7je1o05chou" path="res://ui/tabs/settings/sections/scenes/energy.tscn" id="3_d3dwa"]
+[ext_resource type="PackedScene" uid="uid://qoao60x0a8yg" path="res://ui/tabs/settings/sections/scenes/genes.tscn" id="4_d7dci"]
 
 [node name="Settings" type="TabContainer"]
 anchors_preset = 15
@@ -41,4 +42,15 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="Energy" parent="Energy" instance=ExtResource("3_d3dwa")]
+layout_mode = 2
+
+[node name="Genes" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Genes" parent="Genes" instance=ExtResource("4_d7dci")]
 layout_mode = 2

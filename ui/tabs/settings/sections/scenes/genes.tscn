@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qoao60x0a8yg"]
+
+[ext_resource type="Script" path="res://ui/tabs/settings/sections/gene_factors.gd" id="1_h56fr"]
+
+[node name="Genes" type="VBoxContainer"]
+
+[node name="Factors" type="Node" parent="."]
+script = ExtResource("1_h56fr")
