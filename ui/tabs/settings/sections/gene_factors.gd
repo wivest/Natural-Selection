@@ -5,10 +5,23 @@ func _ready():
 
 func add_genes():
 	for gene_name in Creature.average.genes:
-		var factor := create_factor(gene_name)
-		var default := create_default(gene_name)
-		add_sibling(factor)
-		add_sibling(default)
+		add_sibling(create_gene(gene_name))
+		
+func create_gene(gene_name: String) -> HBoxContainer:
+	var container: HBoxContainer = HBoxContainer.new()
+
+	var label: Label = Label.new()
+	label.text = gene_name.capitalize()
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+	var factor := create_factor(gene_name)
+	var default := create_default(gene_name)
+
+	container.add_child(label)
+	container.add_child(factor)
+	container.add_child(default)
+
+	return container
 
 func create_factor(gene_name: String) -> HBoxContainer:
 	var container: HBoxContainer = HBoxContainer.new()
