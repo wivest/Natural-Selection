@@ -9,6 +9,8 @@ func _init():
 	step = 0.1
 
 func _ready():
+	var instance: Creature = creature_scene.instantiate()
+	value = instance.genome.genes[gene_name].value
 	value_changed.connect(_on_value_changed)
 
 func _on_value_changed(v: float):

@@ -15,7 +15,7 @@ func create_factor(gene_name: String) -> HBoxContainer:
 	var math_expr2: Label = Label.new()
 	var factor_m: UIFactor = UIFactor.new()
 	var factor_p: UIFactor = UIFactor.new()
-	var gene_value: SpinBox = SpinBox.new()
+	var gene_default: UIGeneDefault = UIGeneDefault.new()
 
 	factor_name.text = gene_name.capitalize()
 	factor_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -25,12 +25,12 @@ func create_factor(gene_name: String) -> HBoxContainer:
 	factor_m.property_type = UIFactor.PropertyType.MULTIPLIER
 	factor_p.gene_name = gene_name
 	factor_p.property_type = UIFactor.PropertyType.POWER
-	gene_value.value = Creature.average.genes[gene_name].value
+	gene_default.gene_name = gene_name
 
 	container.add_child(factor_name)
 	container.add_child(factor_m)
 	container.add_child(math_expr1)
-	container.add_child(gene_value)
+	container.add_child(gene_default)
 	container.add_child(math_expr2)
 	container.add_child(factor_p)
 
