@@ -1,11 +1,8 @@
 extends Node
 
 func _ready():
-	get_parent().ready.connect(add_genes)
-
-func add_genes():
 	for gene_name in Creature.average.genes:
-		add_sibling(create_gene(gene_name))
+		add_child(create_gene(gene_name))
 		
 func create_gene(gene_name: String) -> HBoxContainer:
 	var container: HBoxContainer = HBoxContainer.new()
