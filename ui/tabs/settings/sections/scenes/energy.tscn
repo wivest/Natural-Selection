@@ -33,17 +33,3 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("1_vwni8")
 parameter_name = "division_lower_bound"
-
-[node name="ConsumedOnDivision" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ConsumedOnDivision"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Consumed on division"
-
-[node name="UIParameter" type="SpinBox" parent="ConsumedOnDivision"]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("1_vwni8")
-parameter_name = "energy_consumed_on_division"

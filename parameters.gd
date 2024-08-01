@@ -13,7 +13,6 @@ var speed: float = 1:
 var creatures: int = 10
 var energy_on_start: float = 400 # subject to change
 var division_lower_bound: float = 800 # subject to change
-var energy_consumed_on_division: float = 400 # subject to change
 
 # food
 var food: int = 10

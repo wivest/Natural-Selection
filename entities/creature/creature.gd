@@ -49,14 +49,14 @@ func handle_energy_level():
 	if energy < 0:
 		queue_free()
 	if energy > Parameters.division_lower_bound:
-		energy -= Parameters.energy_consumed_on_division
+		energy -= Parameters.energy_on_start
 		lay_egg()
 
 func lay_egg():
 	var egg_instance: Egg = egg.instantiate()
 	egg_instance.position = position
 	egg_instance.genome = genome.divide()
-	egg_instance.hatched.connect(_on_egg_hatched)
+	egg_instance.hatched.connect(_on_egg_hatched) # ERROR: not born if died
 	add_sibling(egg_instance)
 
 func _on_egg_hatched(at_position: Vector2, genes: Genome):
