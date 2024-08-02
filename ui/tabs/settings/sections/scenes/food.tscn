@@ -33,3 +33,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_77f0r")
 parameter_name = "spawn_rate"
+
+[node name="FoodEnergy" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FoodEnergy"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Food energy"
+
+[node name="UIParameter" type="SpinBox" parent="FoodEnergy"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_77f0r")
+parameter_name = "food_energy"
