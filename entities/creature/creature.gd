@@ -63,4 +63,7 @@ func _on_egg_hatched(at_position: Vector2, genes: Genome):
 	born.emit(at_position, genes)
 
 func _on_mouth_food_eaten(food: Food):
+	if food.eaten:
+		return
 	energy += food.contains_energy
+	food.eaten = true
