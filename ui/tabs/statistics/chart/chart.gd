@@ -25,11 +25,11 @@ var _margin_size: Vector2:
 		return Vector2(x, y)
 
 @onready var chart_name: Label = $Name
-@onready var counter: Counter = $Control/Counter
+@onready var canvas: ChartCanvas = $Canvas/Counter
 
 func _ready():
 	chart_name.text = name
-	counter.padding = padding
+	canvas.counter.padding = padding
 	view_modes[1].time_step = parameters.step.value
 
 	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step = v; queue_redraw())
@@ -66,7 +66,7 @@ func draw_edges(start: int, end: int, minimum: float, maximum: float, delta: flo
 	for i in range(start + 1, end):
 		vratio = view_mode.get_vratio(data.nodes[i].y, minimum, maximum)
 		hratio = view_mode.get_hratio(data.get_relative_time(i, start), delta)
-		position_counter(vratio)
+		canvas.position_counter(vratio)
 
 		var pos := Vector2(
 			get_theme_constant("margin_left") + _margin_size.x * hratio,
@@ -79,7 +79,7 @@ func draw_nodes(start: int, end: int, minimum: float, maximum: float, delta: flo
 	for i in range(start, end):
 		var vratio: float = view_mode.get_vratio(data.nodes[i].y, minimum, maximum)
 		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, start), delta)
-		position_counter(vratio)
+		canvas.position_counter(vratio)
 
 		var pos := Vector2(
 			get_theme_constant("margin_left") + _margin_size.x * hratio,
@@ -99,10 +99,6 @@ func record_node():
 	var node_time: float = previous_time + parameters.step.value
 	data.nodes.append(Vector2(node_time, getter.get_value()))
 
-	counter.value = getter.get_value()
+	canvas.counter.value = getter.get_value()
 
 	queue_redraw()
-
-func position_counter(ratio: float):
-	counter.anchor_top = ratio
-	counter.anchor_bottom = ratio
