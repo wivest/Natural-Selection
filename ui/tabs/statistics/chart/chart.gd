@@ -38,19 +38,11 @@ func _process(_delta):
 		clear_nodes()
 
 func update_canvas():
-	print(data.nodes.size())
 	if data.nodes.size() == 0:
 		return
 
-	var start_index: int = view_mode.get_start_index(data)
-	var end_index: int = view_mode.get_end_index(data)
-
-	var minimum: float = data.local_min(start_index, end_index)
-	var maximum: float = data.local_max(start_index, end_index)
-	var delta: float = view_mode.get_delta_time(data)
-
-	canvas.draw_edges(view_mode, data, start_index, end_index, minimum, maximum, delta)
-	canvas.draw_nodes(view_mode, data, start_index, end_index, minimum, maximum, delta)
+	canvas.draw_edges(view_mode, data)
+	canvas.draw_nodes(view_mode, data)
 
 func clear_nodes():
 	data = ChartData.new()
