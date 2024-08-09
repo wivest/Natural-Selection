@@ -45,8 +45,6 @@ func _draw():
 	if data.nodes.size() == 0:
 		return
 
-	var prev: Vector2
-
 	var start_index: int = view_mode.get_start_index(data)
 	var end_index: int = view_mode.get_end_index(data)
 
@@ -55,18 +53,7 @@ func _draw():
 	var delta: float = view_mode.get_delta_time(data)
 
 	draw_edges(start_index, end_index, minimum, maximum, delta)
-
-	for i in range(start_index, end_index):
-		var vratio: float = view_mode.get_vratio(data.nodes[i].y, minimum, maximum)
-		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, start_index), delta)
-		position_counter(vratio)
-
-		var pos := Vector2(
-			get_theme_constant("margin_left") + _margin_size.x * hratio,
-			get_theme_constant("margin_top") + _margin_size.y * vratio
-		)
-		draw_circle(pos, 3, Color.WHITE)
-		prev = pos
+	draw_nodes(start_index, end_index, minimum, maximum, delta)
 
 func draw_edges(start: int, end: int, minimum: float, maximum: float, delta: float):
 	var vratio: float = view_mode.get_vratio(data.nodes[start].y, minimum, maximum)
@@ -87,6 +74,18 @@ func draw_edges(start: int, end: int, minimum: float, maximum: float, delta: flo
 		)
 		draw_line(prev, pos, Color.GRAY)
 		prev = pos
+
+func draw_nodes(start: int, end: int, minimum: float, maximum: float, delta: float):
+	for i in range(start, end):
+		var vratio: float = view_mode.get_vratio(data.nodes[i].y, minimum, maximum)
+		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, start), delta)
+		position_counter(vratio)
+
+		var pos := Vector2(
+			get_theme_constant("margin_left") + _margin_size.x * hratio,
+			get_theme_constant("margin_top") + _margin_size.y * vratio
+		)
+		draw_circle(pos, 3, Color.WHITE)
 
 func clear_nodes():
 	data = ChartData.new()
