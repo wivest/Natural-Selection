@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy22fswssjyxs"]
+[gd_scene load_steps=4 format=3 uid="uid://cy22fswssjyxs"]
 
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/chart.gd" id="1_g8qfy"]
+[ext_resource type="Script" path="res://ui/tabs/statistics/chart/canvas.gd" id="2_no38k"]
 [ext_resource type="Script" path="res://ui/tabs/statistics/chart/counter.gd" id="2_qxeo1"]
 
 [node name="Chart" type="MarginContainer"]
@@ -16,7 +17,6 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 script = ExtResource("1_g8qfy")
-padding = null
 
 [node name="Name" type="Label" parent="."]
 layout_mode = 2
@@ -25,6 +25,7 @@ size_flags_vertical = 0
 
 [node name="Canvas" type="Control" parent="."]
 layout_mode = 2
+script = ExtResource("2_no38k")
 
 [node name="Counter" type="Label" parent="Canvas"]
 layout_mode = 1
