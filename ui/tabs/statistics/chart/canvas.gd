@@ -12,11 +12,12 @@ func draw_edges(view_mode: ViewMode, data: ChartData):
 	for i in range(view_data.start + 1, view_data.end):
 		vratio = view_mode.get_vratio(data.nodes[i].y, view_data.minimum, view_data.maximum)
 		hratio = view_mode.get_hratio(data.get_relative_time(i, view_data.start), view_data.delta)
-		position_counter(vratio)
 
 		var pos := Vector2(size.x * hratio, size.y * vratio)
 		draw_line(prev, pos, Color.GRAY)
 		prev = pos
+
+	position_counter(view_mode.get_vratio(data.nodes[view_data.end - 1].y, view_data.minimum, view_data.maximum))
 
 func draw_nodes(view_mode: ViewMode, data: ChartData):
 	var view_data := ViewData.new(view_mode, data)
@@ -24,7 +25,6 @@ func draw_nodes(view_mode: ViewMode, data: ChartData):
 	for i in range(view_data.start, view_data.end):
 		var vratio: float = view_mode.get_vratio(data.nodes[i].y, view_data.minimum, view_data.maximum)
 		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, view_data.start), view_data.delta)
-		position_counter(vratio)
 
 		var pos := Vector2(size.x * hratio, size.y * vratio)
 		draw_circle(pos, 3, Color.WHITE)
