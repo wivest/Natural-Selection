@@ -32,8 +32,8 @@ func _ready():
 	counter.padding = padding
 	view_modes[1].time_step = parameters.step.value
 
-	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step=v; queue_redraw())
-	parameters.view_mode.item_selected.connect(func(i: int): view_mode=view_modes[i];queue_redraw())
+	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step = v; queue_redraw())
+	parameters.view_mode.item_selected.connect(func(i: int): view_mode = view_modes[i]; queue_redraw())
 	parameters.clear.pressed.connect(clear_nodes)
 	parameters.timer.timeout.connect(record_node)
 
@@ -54,6 +54,8 @@ func _draw():
 	var maximum: float = data.local_max(start_index, end_index)
 	var delta: float = view_mode.get_delta_time(data)
 
+	draw_edges(start_index, end_index, minimum, maximum, delta)
+
 	for i in range(start_index, end_index):
 		var vratio: float = view_mode.get_vratio(data.nodes[i].y, minimum, maximum)
 		var hratio: float = view_mode.get_hratio(data.get_relative_time(i, start_index), delta)
@@ -63,9 +65,27 @@ func _draw():
 			get_theme_constant("margin_left") + _margin_size.x * hratio,
 			get_theme_constant("margin_top") + _margin_size.y * vratio
 		)
-		if i != start_index:
-			draw_line(prev, pos, Color.GRAY)
 		draw_circle(pos, 3, Color.WHITE)
+		prev = pos
+
+func draw_edges(start: int, end: int, minimum: float, maximum: float, delta: float):
+	var vratio: float = view_mode.get_vratio(data.nodes[start].y, minimum, maximum)
+	var hratio: float = view_mode.get_hratio(0, delta)
+	var prev := Vector2(
+			get_theme_constant("margin_left") + _margin_size.x * hratio,
+			get_theme_constant("margin_top") + _margin_size.y * vratio
+	)
+
+	for i in range(start + 1, end):
+		vratio = view_mode.get_vratio(data.nodes[i].y, minimum, maximum)
+		hratio = view_mode.get_hratio(data.get_relative_time(i, start), delta)
+		position_counter(vratio)
+
+		var pos := Vector2(
+			get_theme_constant("margin_left") + _margin_size.x * hratio,
+			get_theme_constant("margin_top") + _margin_size.y * vratio
+		)
+		draw_line(prev, pos, Color.GRAY)
 		prev = pos
 
 func clear_nodes():
@@ -76,7 +96,7 @@ func clear_nodes():
 func record_node():
 	var previous_time = _time
 	if data.nodes.size() > 0:
-		previous_time = data.nodes[- 1].x
+		previous_time = data.nodes[-1].x
 	var node_time: float = previous_time + parameters.step.value
 	data.nodes.append(Vector2(node_time, getter.get_value()))
 
