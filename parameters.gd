@@ -12,11 +12,11 @@ var speed: float = 1:
 
 # creature
 var creatures: int = 10
-var speed_color_cap: float:
+var color_speed_max: float:
 	set(value):
-		Body.speed_color_cap = value
+		Body.color_speed_max = value
 	get:
-		return Body.speed_color_cap
+		return Body.color_speed_max
 var energy_on_start: float = 400
 var division_lower_bound: float = 800
 
