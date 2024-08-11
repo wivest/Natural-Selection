@@ -12,6 +12,11 @@ var speed: float = 1:
 
 # creature
 var creatures: int = 10
+var color_speed_min: float:
+	set(value):
+		Body.color_speed_min = value
+	get:
+		return Body.color_speed_min
 var color_speed_max: float:
 	set(value):
 		Body.color_speed_max = value

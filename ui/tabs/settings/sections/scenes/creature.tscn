@@ -20,13 +20,27 @@ size_flags_horizontal = 3
 script = ExtResource("2_77f0r")
 parameter_name = "creatures"
 
+[node name="ColorSpeedMin" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorSpeedMin"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Color speed minimum"
+
+[node name="UIParameter" type="SpinBox" parent="ColorSpeedMin"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_77f0r")
+parameter_name = "color_speed_min"
+
 [node name="ColorSpeedMax" type="HBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ColorSpeedMax"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Speed color cap"
+text = "Color speed maximum"
 
 [node name="UIParameter" type="SpinBox" parent="ColorSpeedMax"]
 layout_mode = 2
