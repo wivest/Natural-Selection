@@ -19,13 +19,13 @@ mutation_range = 0.1
 resource_local_to_scene = true
 script = ExtResource("2_nf75o")
 value = 40.0
-mutation_range = 4.0
+mutation_range = 0.1
 
 [sub_resource type="Resource" id="Resource_4ewtq"]
 resource_local_to_scene = true
 script = ExtResource("2_nf75o")
 value = 100.0
-mutation_range = 10.0
+mutation_range = 0.1
 
 [sub_resource type="Resource" id="Resource_dd1vt"]
 resource_local_to_scene = true

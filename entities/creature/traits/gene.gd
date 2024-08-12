@@ -5,6 +5,7 @@ extends Resource
 @export var mutation_range: float = 0.1
 
 func mutate():
-	var mutation: float = randf_range( - mutation_range, mutation_range)
+	var delta: float = value * mutation_range
+	var mutation: float = randf_range(-delta, delta)
 	value += mutation
 	value = max(0, value)
