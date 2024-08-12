@@ -38,3 +38,44 @@ Or download `.zip` [archive](https://github.com/wivest/Natural-Selection/archive
 > Project folder is most likely named either `Natural-Selection` or `Natural-Selection-main`
 
 To launch project you need to select project and click `Run` button.
+
+## Settings
+
+In the settings tab you can edit parameters to customize simulation.
+
+### Food
+
+| Parameter     | Meaning                                       |
+| ------------- | --------------------------------------------- |
+| `On start`    | Amount of food spawned when simulation starts |
+| `Spawn rate`  | Amount of food spawned every second           |
+| `Food energy` | Energy contained inside single food item      |
+
+### Creature
+
+| Parameter             | Meaning                                            |
+| --------------------- | -------------------------------------------------- |
+| `On start`            | Amount of creatures spawned when simulation starts |
+| `Color speed minimum` | Bottom treshhold of color gradient                 |
+| `Color speed maximum` | Top treshhold of color gradient                    |
+
+### Energy
+
+| Parameter              | Meaning                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| `When born`            | Energy every creature has on birth (and loses on egg laying) |
+| `Division lower bound` | Treshhold after which creature will lay egg                  |
+
+### Genes
+
+Every gene has `Energy per second` parameters in the following form:
+
+```
+MULTIPLIER * value ^ POWER
+```
+
+| Parameter    | Meaning                                                               |
+| ------------ | --------------------------------------------------------------------- |
+| `MULTIPLIER` | Energy consumed by this gene is multiplied by this number             |
+| `POWER`      | Energy consumed is equal to gene current value to the power of number |
+| `Default`    | Default gene value when simulation starts                             |
