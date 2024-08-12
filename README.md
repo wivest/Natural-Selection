@@ -1,30 +1,40 @@
 # Natural Selection
 
-Sumilation of evolution as natural selection, built inside [**Godot Engine 4**](https://godotengine.org).
+Sumilation of natural selection, built inside [**Godot Engine 4**](https://godotengine.org).
+
+![Natural selection](screenshot.png)
+
+## Features
+
+-   Simulating creatures adapting to environment over time
+-   Fully customizable simulation parameters
+-   Live chart tracking
+-   Chart settings including simulation speed
 
 ## Getting started
 
-### Requirements
+### Prerequisites
 
-As the project uses **Godot Engine 4**, you will need to install the engine itself. Currently _v4.2.1_ is used, which can be downloaded at [official website](https://godotengine.org/download/). C# support is _not required_.
+To run the project you need to install **Godot Engine**. Minimal required version is **4.x**. The engine can be downloaded from various resources, including [official website](https://godotengine.org/download). C# support is not required.
 
-### Installation
+> [!TIP]
+> Specific version **4.2.1** was used in this project. Downloading it can help avoiding further issues.
 
-After you have the engine installed, you can run the project in the following steps:
+### Repository
 
-1. **Clone** this repository to your local machine.
-    - _Via command line_: run `git clone https://github.com/wivest/Natural-Selection.git`.
-    - _Via archive_: download `.zip` archive from this GitHub page and extract files. [Direct link](https://github.com/wivest/Natural-Selection/archive/refs/heads/main.zip) to download.
-2. **Import** project in the Godot Engine. Detailed instructions can be found in the [official documentation](https://docs.godotengine.org/en/stable/tutorials/editor/project_manager.html#opening-and-importing-projects).
-    > Project folder is most likely named either `Natural-Selection` or `Natural-Selection-main`
+To get a local copy of repository open terminal and execute `git clone` command:
+
+```
+git clone https://github.com/wivest/Natural-Selection.git
+```
+
+Or download `.zip` [archive](https://github.com/wivest/Natural-Selection/archive/refs/heads/main.zip) and extract files.
 
 ### Run the project
 
-To lauch project and interact you need to take following actions:
+[Import](https://docs.godotengine.org/en/stable/tutorials/editor/project_manager.html#opening-and-importing-projects) project in Godot _Project Manger_.
 
--   If Godot's _Project Manager_ is opened, select project and click `Run` button
--   If Godot's _editor_ is opened, click `Run Project` button _(top right corner)_ or press `F5` key.
+> [!NOTE]
+> Project folder is most likely named either `Natural-Selection` or `Natural-Selection-main`
 
-### Settings
-
-Some parameters can be tweaked in the "Settings" menu at runtime. They affect creatures and food spawning.
+To launch project you need to select project and click `Run` button.
