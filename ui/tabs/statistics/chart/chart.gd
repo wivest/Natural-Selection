@@ -27,8 +27,8 @@ func _ready():
 	canvas.counter.padding = padding
 	view_modes[1].time_step = parameters.step.value
 
-	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step = v; queue_redraw())
-	parameters.view_mode.item_selected.connect(func(i: int): view_mode = view_modes[i]; queue_redraw())
+	parameters.step.value_changed.connect(func(v: float): view_modes[1].time_step = v; canvas.queue_redraw())
+	parameters.view_mode.item_selected.connect(func(i: int): view_mode = view_modes[i]; canvas.queue_redraw())
 	parameters.clear.pressed.connect(clear_nodes)
 	parameters.timer.timeout.connect(record_node)
 	canvas.draw.connect(update_canvas)
