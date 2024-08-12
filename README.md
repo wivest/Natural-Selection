@@ -37,7 +37,7 @@ Or download `.zip` [archive](https://github.com/wivest/Natural-Selection/archive
 > [!NOTE]
 > Project folder is most likely named either `Natural-Selection` or `Natural-Selection-main`
 
-To launch project you need to select project and click `Run` button.
+To launch project you need to select it and click `Run` button.
 
 ## Settings
 
