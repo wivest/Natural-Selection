@@ -11,6 +11,10 @@ Sumilation of natural selection, built inside [**Godot Engine 4**](https://godot
 -   Live chart tracking
 -   Chart settings including simulation speed
 
+### Rules
+
+Simulation consists of creatures and food. Creatures eat food, receive energy and lay eggs, which turn into new creatures. Every creature have a set of genes: Speed, View Radius and Hatching Time. Speed controls movement, View Radius controls how far creature can see food and Hatching Time defines egg's life length. Creature moves towards closest food item with Speed, if there is no food inside its circle view, it chooses random target on view's circumference. Eaten food refills creature's energy, which is consumed based on genes values. When creature has enough energy, it lays an egg with a slightly changed genes combination, that goes to children. This results in a natural selection, because only best adapted creatures survive.
+
 ## Getting started
 
 ### Prerequisites
