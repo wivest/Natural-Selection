@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6hsim7etwda0"]
+[gd_scene load_steps=12 format=3 uid="uid://b6hsim7etwda0"]
 
 [ext_resource type="Script" path="res://ui/bar/nodes/pause.gd" id="1_2hn0v"]
 [ext_resource type="Script" path="res://ui/bar/nodes/action_button.gd" id="1_3etij"]
@@ -9,6 +9,12 @@ action = &"restart"
 
 [sub_resource type="Shortcut" id="Shortcut_066hv"]
 events = [SubResource("InputEventAction_3ch4k")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_3etnb"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_id4l6"]
+events = [SubResource("InputEventAction_3etnb")]
 
 [sub_resource type="InputEventAction" id="InputEventAction_w6dmb"]
 action = &"open_settings"
@@ -42,6 +48,7 @@ script = ExtResource("1_3etij")
 
 [node name="Pause" type="Button" parent="."]
 layout_mode = 2
+shortcut = SubResource("Shortcut_id4l6")
 text = "Pause"
 script = ExtResource("1_2hn0v")
 
